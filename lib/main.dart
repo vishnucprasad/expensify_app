@@ -1,5 +1,6 @@
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/presentation/main_page/main_page_screen.dart';
+import 'package:expensify/presentation/splash/splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: primaryColor,
+        primaryColor: primaryColor,
         backgroundColor: backgroundColor,
         scaffoldBackgroundColor: backgroundColor,
         fontFamily: GoogleFonts.montserrat().fontFamily,
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: MainPageScreen(),
+      home: const SplashScreen(),
     );
   }
 }
