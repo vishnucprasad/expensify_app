@@ -19,7 +19,7 @@ class SplashScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               height: double.infinity,
-              color: Colors.lightBlue[300],
+              color: infoColor,
             ),
             ClipPath(
               clipper: DiagonalPathClipper(),

@@ -1,3 +1,6 @@
+import 'package:expensify/presentation/home/widgets/analytics.dart';
+import 'package:expensify/presentation/home/widgets/home_page_header.dart';
+import 'package:expensify/presentation/home/widgets/transactions_list_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -5,10 +8,21 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Text('Home screen'),
+        child: Stack(
+          children: [
+            Column(
+              children: const [
+                HomePageHeader(),
+                SizedBox(
+                  height: 90,
+                ),
+                TransactionsListWidget()
+              ],
+            ),
+            const AnalyticsWidget()
+          ],
         ),
       ),
     );

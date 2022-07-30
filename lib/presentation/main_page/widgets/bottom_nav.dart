@@ -11,36 +11,73 @@ class BottomNavigationWidget extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: indexChangeNotifier,
       builder: (BuildContext context, int newIndex, Widget? _) {
-        return BottomNavigationBar(
-          currentIndex: newIndex,
-          onTap: (index) {
-            indexChangeNotifier.value = index;
-          },
-          elevation: 0,
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: backgroundColor,
-          selectedItemColor: primaryColor,
-          unselectedItemColor: Colors.grey,
-          selectedIconTheme: IconThemeData(color: primaryColor),
-          unselectedIconTheme: const IconThemeData(color: Colors.grey),
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
+        return BottomAppBar(
+          shape: const CircularNotchedRectangle(),
+          notchMargin: 8,
+          child: Container(
+            height: 75,
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(left: 28.0),
+                  child: IconButton(
+                    iconSize: 30.0,
+                    color: indexChangeNotifier.value == 0
+                        ? primaryColor
+                        : secondaryColor,
+                    icon: indexChangeNotifier.value == 0
+                        ? const Icon(Icons.home)
+                        : const Icon(Icons.home_outlined),
+                    onPressed: () {
+                      indexChangeNotifier.value = 0;
+                    },
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 68.0),
+                  child: IconButton(
+                    iconSize: 30.0,
+                    color: indexChangeNotifier.value == 1
+                        ? primaryColor
+                        : secondaryColor,
+                    icon: indexChangeNotifier.value == 1
+                        ? const Icon(Icons.subscriptions)
+                        : const Icon(Icons.subscriptions_outlined),
+                    onPressed: () {
+                      indexChangeNotifier.value = 1;
+                    },
+                  ),
+                ),
+                IconButton(
+                  iconSize: 30.0,
+                  color: indexChangeNotifier.value == 2
+                      ? primaryColor
+                      : secondaryColor,
+                  icon: indexChangeNotifier.value == 2
+                      ? const Icon(Icons.receipt_long)
+                      : const Icon(Icons.receipt_long_outlined),
+                  onPressed: () {
+                    indexChangeNotifier.value = 2;
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 28.0),
+                  child: IconButton(
+                    iconSize: 30.0,
+                    color: indexChangeNotifier.value == 3
+                        ? primaryColor
+                        : secondaryColor,
+                    icon: const Icon(Icons.menu),
+                    onPressed: () {
+                      indexChangeNotifier.value = 3;
+                    },
+                  ),
+                )
+              ],
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.subscriptions),
-              label: 'Subscriptions',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.receipt),
-              label: 'Bills',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.menu),
-              label: 'Menu',
-            )
-          ],
+          ),
         );
       },
     );

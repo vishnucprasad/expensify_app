@@ -1,3 +1,4 @@
+import 'package:expensify/core/colors.dart';
 import 'package:expensify/presentation/bills/bills_screen.dart';
 import 'package:expensify/presentation/home/home_screen.dart';
 import 'package:expensify/presentation/main_page/widgets/bottom_nav.dart';
@@ -27,6 +28,12 @@ class MainPageScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: const BottomNavigationWidget(),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: infoColor,
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
