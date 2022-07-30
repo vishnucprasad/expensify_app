@@ -17,44 +17,45 @@ class TransactionsListWidget extends StatelessWidget {
         width: double.infinity,
         child: DefaultTabController(
           length: 2,
-          child: Scaffold(
-            appBar: AppBar(
-              backgroundColor: backgroundColor,
-              elevation: 0,
-              bottom: TabBar(
-                isScrollable: true,
-                labelColor: whiteColor,
-                labelPadding: const EdgeInsets.symmetric(horizontal: 80),
-                unselectedLabelColor: blackColor,
-                labelStyle: const TextStyle(
-                  fontSize: 18,
-                ),
-                indicator: BubbleTabIndicator(
-                  indicatorHeight: 30,
-                  indicatorColor: Colors.blue.shade900,
-                  tabBarIndicatorSize: TabBarIndicatorSize.tab,
-                ),
-                tabs: const [
-                  Tab(
-                    text: 'Income',
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Scaffold(
+              appBar: AppBar(
+                backgroundColor: backgroundColor,
+                elevation: 0,
+                bottom: TabBar(
+                  labelColor: whiteColor,
+                  unselectedLabelColor: blackColor,
+                  labelStyle: const TextStyle(
+                    fontSize: 18,
                   ),
-                  Tab(
-                    text: "Expense",
+                  indicator: BubbleTabIndicator(
+                    indicatorHeight: 30,
+                    indicatorColor: Colors.blue.shade900,
+                    tabBarIndicatorSize: TabBarIndicatorSize.tab,
+                  ),
+                  tabs: const [
+                    Tab(
+                      text: 'Income',
+                    ),
+                    Tab(
+                      text: "Expense",
+                    )
+                  ],
+                ),
+              ),
+              body: TabBarView(
+                children: [
+                  ListView.separated(
+                    itemBuilder: (ctx, index) => const TransactionsCardWidget(),
+                    separatorBuilder: (ctx, index) => kHeight,
+                    itemCount: 20,
+                  ),
+                  Center(
+                    child: Text('Expense list is empty'),
                   )
                 ],
               ),
-            ),
-            body: TabBarView(
-              children: [
-                ListView.separated(
-                  itemBuilder: (ctx, index) => const TransactionsCardWidget(),
-                  separatorBuilder: (ctx, index) => kHeight,
-                  itemCount: 20,
-                ),
-                Center(
-                  child: Text('Expense list is empty'),
-                )
-              ],
             ),
           ),
         ),

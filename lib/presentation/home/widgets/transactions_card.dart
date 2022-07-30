@@ -5,28 +5,25 @@ class TransactionsCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(15.0),
-        ),
-        elevation: 0,
-        child: const ListTile(
-          leading: CircleAvatar(
-              child: Icon(Icons.attach_money_sharp),
-              radius: 30,
-              foregroundColor: Colors.white,
-              backgroundColor: Colors.greenAccent),
-          title: Text(
-            '\$ 2000',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15.0),
+      ),
+      elevation: 0,
+      child: const ListTile(
+        leading: CircleAvatar(
+            child: Icon(Icons.attach_money_sharp),
+            radius: 30,
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.greenAccent),
+        title: Text(
+          '\$ 2000',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
           ),
-          subtitle: Text("Income"),
-          trailing: Text("24th July 2022"),
         ),
+        subtitle: Text("Income"),
+        trailing: Text("24th July 2022"),
       ),
     );
   }
