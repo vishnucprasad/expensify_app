@@ -18,7 +18,7 @@ class TransactionsListWidget extends StatelessWidget {
         child: DefaultTabController(
           length: 2,
           child: Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Scaffold(
               appBar: AppBar(
                 backgroundColor: backgroundColor,
