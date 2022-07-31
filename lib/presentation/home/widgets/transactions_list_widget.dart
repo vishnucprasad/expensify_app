@@ -51,9 +51,9 @@ class TransactionsListWidget extends StatelessWidget {
                     separatorBuilder: (ctx, index) => kHeight,
                     itemCount: 20,
                   ),
-                  Center(
+                  const Center(
                     child: Text('Expense list is empty'),
-                  )
+                  ),
                 ],
               ),
             ),

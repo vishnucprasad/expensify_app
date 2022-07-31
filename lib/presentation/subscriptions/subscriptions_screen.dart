@@ -1,3 +1,8 @@
+import 'package:expensify/core/constants.dart';
+import 'package:expensify/presentation/subscriptions/widgets/subscriptions_list_item_widget.dart';
+import 'package:expensify/presentation/subscriptions/widgets/subscriptions_list_widget.dart';
+import 'package:expensify/presentation/subscriptions/widgets/subscriptions_page_header.dart';
+import 'package:expensify/presentation/subscriptions/widgets/top_subscriptions_widget.dart';
 import 'package:flutter/material.dart';
 
 class SubscriptionsScreen extends StatelessWidget {
@@ -5,10 +10,21 @@ class SubscriptionsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Text('Subscriptions screen'),
+        child: Stack(
+          children: [
+            Column(
+              children: const [
+                SubscriptionsPageHeader(),
+                SizedBox(
+                  height: 150,
+                ),
+                SubscriptionsListWidget()
+              ],
+            ),
+            const TopSubscriptionsWidget(),
+          ],
         ),
       ),
     );

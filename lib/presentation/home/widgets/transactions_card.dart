@@ -6,14 +6,15 @@ class TransactionsCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      margin: EdgeInsets.all(0),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(12.0),
       ),
       elevation: 0,
       child: const ListTile(
         leading: CircleAvatar(
             child: Icon(Icons.attach_money_sharp),
-            radius: 30,
+            radius: 25,
             foregroundColor: Colors.white,
             backgroundColor: Colors.greenAccent),
         title: Text(
