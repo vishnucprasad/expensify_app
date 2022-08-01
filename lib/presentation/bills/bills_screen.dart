@@ -1,3 +1,6 @@
+import 'package:expensify/presentation/bills/widgets/bills_on_due_list_widget.dart';
+import 'package:expensify/presentation/bills/widgets/payed_bills_widget.dart';
+import 'package:expensify/presentation/widgets/main_header_widget.dart';
 import 'package:flutter/material.dart';
 
 class BillsScreen extends StatelessWidget {
@@ -5,10 +8,23 @@ class BillsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Text('Bills screen'),
+        child: Stack(
+          children: [
+            Column(
+              children: const [
+                MainHeaderWidget(
+                  title: 'Bills',
+                ),
+                SizedBox(
+                  height: 150,
+                ),
+                BillsOnDueListWidget(),
+              ],
+            ),
+            const PayedBillsWidget(),
+          ],
         ),
       ),
     );

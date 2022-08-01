@@ -16,7 +16,6 @@ class SubscriptionsScreen extends StatelessWidget {
               children: const [
                 MainHeaderWidget(
                   title: 'Subscriptions',
-                  subTitle: "Hello World",
                 ),
                 SizedBox(
                   height: 150,
