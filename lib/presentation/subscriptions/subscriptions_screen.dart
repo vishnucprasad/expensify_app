@@ -1,8 +1,6 @@
-import 'package:expensify/core/constants.dart';
-import 'package:expensify/presentation/subscriptions/widgets/subscriptions_list_item_widget.dart';
 import 'package:expensify/presentation/subscriptions/widgets/subscriptions_list_widget.dart';
-import 'package:expensify/presentation/subscriptions/widgets/subscriptions_page_header.dart';
 import 'package:expensify/presentation/subscriptions/widgets/top_subscriptions_widget.dart';
+import 'package:expensify/presentation/widgets/main_header_widget.dart';
 import 'package:flutter/material.dart';
 
 class SubscriptionsScreen extends StatelessWidget {
@@ -16,7 +14,10 @@ class SubscriptionsScreen extends StatelessWidget {
           children: [
             Column(
               children: const [
-                SubscriptionsPageHeader(),
+                MainHeaderWidget(
+                  title: 'Subscriptions',
+                  subTitle: "Hello World",
+                ),
                 SizedBox(
                   height: 150,
                 ),

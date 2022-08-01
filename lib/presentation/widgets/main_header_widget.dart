@@ -2,8 +2,12 @@ import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:flutter/material.dart';
 
-class HomePageHeader extends StatelessWidget {
-  const HomePageHeader({
+class MainHeaderWidget extends StatelessWidget {
+  final String title;
+  final String? subTitle;
+  const MainHeaderWidget({
+    required this.title,
+    this.subTitle,
     Key? key,
   }) : super(key: key);
 
@@ -22,16 +26,23 @@ class HomePageHeader extends StatelessWidget {
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      'Home',
-                      style: kWhiteLargeTextBold,
-                    ),
-                    Text(
-                      'Hi, Vishnu C Prasad',
-                      style: kSecondaryMediumText,
-                    ),
-                  ],
+                  children: subTitle != null
+                      ? [
+                          Text(
+                            title,
+                            style: kWhiteLargeTextBold,
+                          ),
+                          Text(
+                            subTitle!,
+                            style: kSecondaryMediumText,
+                          ),
+                        ]
+                      : [
+                          Text(
+                            title,
+                            style: kWhiteLargeTextBold,
+                          ),
+                        ],
                 ),
               ],
             ),

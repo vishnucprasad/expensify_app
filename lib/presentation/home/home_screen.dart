@@ -1,6 +1,6 @@
 import 'package:expensify/presentation/home/widgets/analytics.dart';
-import 'package:expensify/presentation/home/widgets/home_page_header.dart';
 import 'package:expensify/presentation/home/widgets/transactions_list_widget.dart';
+import 'package:expensify/presentation/widgets/main_header_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,7 +14,10 @@ class HomeScreen extends StatelessWidget {
           children: [
             Column(
               children: const [
-                HomePageHeader(),
+                MainHeaderWidget(
+                  title: 'Home',
+                  subTitle: 'Hi, Vishnu C Prasad',
+                ),
                 SizedBox(
                   height: 90,
                 ),
