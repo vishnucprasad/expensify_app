@@ -1,3 +1,4 @@
+import 'package:bottom_bar_page_transition/bottom_bar_page_transition.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/presentation/bills/bills_screen.dart';
 import 'package:expensify/presentation/home/home_screen.dart';
@@ -23,7 +24,12 @@ class MainPageScreen extends StatelessWidget {
         child: ValueListenableBuilder(
           valueListenable: indexChangeNotifier,
           builder: (BuildContext context, int newIndex, Widget? _) {
-            return _pages[newIndex];
+            return BottomBarPageTransition(
+              builder: (_, index) => _pages[index],
+              currentIndex: newIndex,
+              totalLength: _pages.length,
+              transitionType: TransitionType.circular,
+            );
           },
         ),
       ),
