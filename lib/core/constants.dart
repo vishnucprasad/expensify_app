@@ -1,5 +1,6 @@
 import 'package:expensify/core/colors.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:expensify/presentation/menu/widgets/menu_list_item_widget.dart';
+import 'package:flutter/material.dart';
 
 const kHeight = SizedBox(
   height: 10,
@@ -67,3 +68,30 @@ const kBlackSmallTextBold = TextStyle(
 );
 
 const netflixLogo = 'assets/images/netflix.png';
+
+final List menuList = [
+  MenuListItemWidget(
+    icon: Icons.category,
+    text: 'Categories',
+  ),
+  MenuListItemWidget(
+    icon: Icons.edit,
+    text: 'Edit profile',
+  ),
+  MenuListItemWidget(
+    icon: Icons.help,
+    text: 'Help Center',
+  ),
+  MenuListItemWidget(
+    icon: Icons.feedback,
+    text: 'Feedback',
+  ),
+  MenuListItemWidget(
+    icon: Icons.phone,
+    text: 'Contact us',
+  ),
+  MenuListItemWidget(
+    icon: Icons.info,
+    text: 'About',
+  ),
+];

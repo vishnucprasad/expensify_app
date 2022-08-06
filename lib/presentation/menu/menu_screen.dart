@@ -1,3 +1,6 @@
+import 'package:expensify/presentation/menu/widgets/menu_header_widget.dart';
+import 'package:expensify/presentation/menu/widgets/menu_list_widget.dart';
+import 'package:expensify/presentation/menu/widgets/menu_wallet_widget.dart';
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -5,10 +8,21 @@ class MenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Text('Menu screen'),
+        child: Stack(
+          children: [
+            Column(
+              children: const [
+                MenuHeaderWidget(),
+                SizedBox(
+                  height: 150,
+                ),
+                MenuListWidget(),
+              ],
+            ),
+            const MenuWalletWidget(),
+          ],
         ),
       ),
     );
