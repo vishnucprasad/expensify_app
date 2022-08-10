@@ -23,10 +23,26 @@ const kWhiteXLargeText = TextStyle(
   fontSize: 28,
 );
 
+const kWhiteXLargeTextBold = TextStyle(
+  color: whiteColor,
+  fontSize: 28,
+  fontWeight: FontWeight.bold,
+);
+
 const kWhiteLargeTextBold = TextStyle(
   color: whiteColor,
   fontSize: 24,
   fontWeight: FontWeight.bold,
+);
+
+const kWhiteSmallText = TextStyle(
+  color: whiteColor,
+  fontSize: 16,
+);
+
+final kInfoSmallText = TextStyle(
+  color: infoColor,
+  fontSize: 16,
 );
 
 const kBlackLargeTextBold = TextStyle(

@@ -1,7 +1,8 @@
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/presentation/login/login_screen.dart';
 import 'package:expensify/presentation/main_page/main_page_screen.dart';
-import 'package:expensify/presentation/splash/widgets/diagonal_path_clipper.dart';
+import 'package:expensify/presentation/widgets/diagonal_path_clipper.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -83,7 +84,7 @@ class SplashScreen extends StatelessWidget {
     await Future.delayed(const Duration(seconds: 3));
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (ctx) => MainPageScreen(),
+        builder: (ctx) => LoginScreen(),
       ),
     );
   }
