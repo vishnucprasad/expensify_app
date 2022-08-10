@@ -1,13 +1,15 @@
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
-import 'package:expensify/presentation/signup/signup_screen.dart';
+import 'package:expensify/presentation/login/login_screen.dart';
 import 'package:expensify/presentation/widgets/custom_text_field_widget.dart';
 import 'package:expensify/presentation/widgets/diagonal_path_clipper.dart';
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({Key? key}) : super(key: key);
+class SignupScreen extends StatelessWidget {
+  SignupScreen({Key? key}) : super(key: key);
 
+  final TextEditingController firstnameController = TextEditingController();
+  final TextEditingController lastnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -34,8 +36,18 @@ class LoginScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "LOGIN",
+                        "SIGNUP",
                         style: kWhiteXLargeTextBold,
+                      ),
+                      kHeight,
+                      CustomTextFieldWidget(
+                        labelText: "First Name",
+                        controller: firstnameController,
+                      ),
+                      kHeight,
+                      CustomTextFieldWidget(
+                        labelText: "Last Name",
+                        controller: lastnameController,
                       ),
                       kHeight,
                       CustomTextFieldWidget(
@@ -55,13 +67,17 @@ class LoginScreen extends StatelessWidget {
                           minimumSize: const Size.fromHeight(50), // NEW
                         ),
                         onPressed: () {
+                          final firstname = firstnameController.text;
+                          final lastname = lastnameController.text;
                           final email = emailController.text;
                           final password = passwordController.text;
 
-                          print('Email: $email Password: $password');
+                          print(
+                            'Firstname: $firstname Lastname: $lastname Email: $email Password: $password',
+                          );
                         },
                         child: const Text(
-                          'LOGIN',
+                          'SIGNUP',
                         ),
                       ),
                       kHeight,
@@ -69,19 +85,19 @@ class LoginScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text(
-                            "Create an account now ?",
+                            "Already Have an account ?",
                             style: kWhiteSmallText,
                           ),
                           TextButton(
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (ctx) => SignupScreen(),
+                                  builder: (ctx) => LoginScreen(),
                                 ),
                               );
                             },
                             child: Text(
-                              "Signup now",
+                              "Login now",
                               style: kInfoSmallText,
                             ),
                           ),
