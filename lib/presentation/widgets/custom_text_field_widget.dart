@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 
 class CustomTextFieldWidget extends StatelessWidget {
   final String labelText;
-  final TextEditingController controller;
   final bool? obscureText;
+  final void Function(String)? onChange;
   const CustomTextFieldWidget({
     required this.labelText,
-    required this.controller,
     this.obscureText,
+    required this.onChange,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      controller: controller,
       obscureText: obscureText ?? false,
+      onChanged: onChange,
       style: const TextStyle(
         color: whiteColor,
       ),

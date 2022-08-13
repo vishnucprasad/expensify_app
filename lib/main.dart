@@ -1,10 +1,17 @@
+import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/core/colors.dart';
+import 'package:expensify/domain/core/di/injectable.dart';
 import 'package:expensify/presentation/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureInjection();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -16,22 +23,28 @@ class MyApp extends StatelessWidget {
         statusBarColor: primaryColor, //or set color with: Color(0xFF0000FF)
       ),
     );
-    return MaterialApp(
-      theme: ThemeData(
-        primaryColor: primaryColor,
-        backgroundColor: primaryColor,
-        scaffoldBackgroundColor: backgroundColor,
-        fontFamily: GoogleFonts.montserrat().fontFamily,
-        textTheme: const TextTheme(
-          bodyText1: TextStyle(
-            color: blackColor,
-          ),
-          bodyText2: TextStyle(
-            color: blackColor,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: ((context) => getIt<AuthenticationBloc>())),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+          primaryColor: primaryColor,
+          backgroundColor: primaryColor,
+          scaffoldBackgroundColor: backgroundColor,
+          fontFamily: GoogleFonts.montserrat().fontFamily,
+          textTheme: const TextTheme(
+            bodyText1: TextStyle(
+              color: blackColor,
+            ),
+            bodyText2: TextStyle(
+              color: blackColor,
+            ),
           ),
         ),
+        debugShowCheckedModeBanner: false,
+        home: const SplashScreen(),
       ),
-      home: const SplashScreen(),
     );
   }
 }

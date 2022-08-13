@@ -83,6 +83,8 @@ const kBlackSmallTextBold = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const kBaseUrl = 'http://192.168.0.126:3000/api';
+
 const netflixLogo = 'assets/images/netflix.png';
 
 final List menuList = [

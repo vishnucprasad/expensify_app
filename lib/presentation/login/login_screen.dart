@@ -1,15 +1,15 @@
+import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/presentation/home/home_screen.dart';
 import 'package:expensify/presentation/signup/signup_screen.dart';
 import 'package:expensify/presentation/widgets/custom_text_field_widget.dart';
 import 'package:expensify/presentation/widgets/diagonal_path_clipper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({Key? key}) : super(key: key);
-
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +40,13 @@ class LoginScreen extends StatelessWidget {
                       kHeight,
                       CustomTextFieldWidget(
                         labelText: "Email",
-                        controller: emailController,
+                        onChange: (String email) {},
                       ),
                       kHeight,
                       CustomTextFieldWidget(
                         labelText: "Password",
-                        controller: passwordController,
                         obscureText: true,
+                        onChange: (String password) {},
                       ),
                       kHeight,
                       ElevatedButton(
@@ -54,12 +54,7 @@ class LoginScreen extends StatelessWidget {
                           primary: Colors.lightBlue,
                           minimumSize: const Size.fromHeight(50), // NEW
                         ),
-                        onPressed: () {
-                          final email = emailController.text;
-                          final password = passwordController.text;
-
-                          print('Email: $email Password: $password');
-                        },
+                        onPressed: () {},
                         child: const Text(
                           'LOGIN',
                         ),
@@ -76,7 +71,16 @@ class LoginScreen extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
-                                  builder: (ctx) => SignupScreen(),
+                                  builder: (ctx) {
+                                    return BlocBuilder<AuthenticationBloc,
+                                        AuthenticationState>(
+                                      builder: (context, state) {
+                                        return SignupScreen(
+                                          state: state,
+                                        );
+                                      },
+                                    );
+                                  },
                                 ),
                               );
                             },
