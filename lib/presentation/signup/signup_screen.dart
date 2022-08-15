@@ -1,12 +1,13 @@
 import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
-import 'package:expensify/presentation/home/home_screen.dart';
 import 'package:expensify/presentation/login/login_screen.dart';
+import 'package:expensify/presentation/main_page/main_page_screen.dart';
 import 'package:expensify/presentation/widgets/custom_text_field_widget.dart';
 import 'package:expensify/presentation/widgets/diagonal_path_clipper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SignupScreen extends StatelessWidget {
   final AuthenticationState state;
@@ -16,11 +17,7 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state.authentication != null) {
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (ctx) => const HomeScreen(),
-          ),
-        );
+        checkUserAuthenticated(context);
       }
     });
     return Scaffold(
@@ -136,5 +133,25 @@ class SignupScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> goToHomeScreen(BuildContext context) async {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (ctx) => MainPageScreen(),
+      ),
+    );
+  }
+
+  Future<void> checkUserAuthenticated(BuildContext context) async {
+    if (state.authentication?.authtoken != null) {
+      final sharedPreferences = await SharedPreferences.getInstance();
+      await sharedPreferences.setString(
+        kTokenKey,
+        state.authentication!.authtoken!,
+      );
+      // ignore: use_build_context_synchronously
+      goToHomeScreen(context);
+    }
   }
 }

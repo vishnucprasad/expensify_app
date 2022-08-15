@@ -4,6 +4,7 @@ import 'package:expensify/presentation/login/login_screen.dart';
 import 'package:expensify/presentation/main_page/main_page_screen.dart';
 import 'package:expensify/presentation/widgets/diagonal_path_clipper.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -81,7 +82,11 @@ class SplashScreen extends StatelessWidget {
   }
 
   Future<void> authenticate(BuildContext context) async {
-    await Future.delayed(const Duration(seconds: 3));
+    final sharedPreferences = await SharedPreferences.getInstance();
+    final authtoken = await sharedPreferences.getString(kTokenKey);
+
+    print(authtoken);
+
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (ctx) => LoginScreen(),

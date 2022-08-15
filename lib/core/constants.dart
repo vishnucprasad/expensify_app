@@ -83,7 +83,9 @@ const kBlackSmallTextBold = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
-const kBaseUrl = 'http://192.168.0.126:3000/api';
+const kBaseUrl = 'http://192.168.141.218:3000/api';
+
+const kTokenKey = 'authtoken';
 
 const netflixLogo = 'assets/images/netflix.png';
 

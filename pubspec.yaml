@@ -43,6 +43,7 @@ dependencies:
   injectable: ^1.5.3
   json_annotation: ^4.6.0
   json_serializable: ^6.3.1
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   build_runner: ^2.2.0
