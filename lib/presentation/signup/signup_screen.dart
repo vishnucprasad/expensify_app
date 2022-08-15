@@ -136,8 +136,9 @@ class SignupScreen extends StatelessWidget {
 
   Future<void> goToHomeScreen(BuildContext context) async {
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (ctx) => MainPageScreen(),
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            MainPageScreen(),
       ),
     );
   }

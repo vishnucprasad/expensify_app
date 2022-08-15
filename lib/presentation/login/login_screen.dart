@@ -100,12 +100,10 @@ class LoginScreen extends StatelessWidget {
                           TextButton(
                             onPressed: () {
                               Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (ctx) {
-                                    return SignupScreen(
-                                      state: state,
-                                    );
-                                  },
+                                PageRouteBuilder(
+                                  pageBuilder: (context, animation,
+                                          secondaryAnimation) =>
+                                      SignupScreen(state: state),
                                 ),
                               );
                             },
@@ -129,8 +127,9 @@ class LoginScreen extends StatelessWidget {
 
   Future<void> goToHomeScreen(BuildContext context) async {
     Navigator.of(context).pushReplacement(
-      MaterialPageRoute(
-        builder: (ctx) => MainPageScreen(),
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            MainPageScreen(),
       ),
     );
   }
