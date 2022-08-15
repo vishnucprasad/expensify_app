@@ -82,24 +82,27 @@ class SignupScreen extends StatelessWidget {
                         obscureText: true,
                       ),
                       kHeight,
-                      ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.lightBlue,
-                          minimumSize: const Size.fromHeight(50), // NEW
-                        ),
-                        onPressed: () {
-                          if (state.firstname != null &&
-                              state.lastname != null &&
-                              state.email != null &&
-                              state.password != null) {
-                            context
-                                .read<AuthenticationBloc>()
-                                .add(const AuthenticationEvent.signupEvent());
-                          }
+                      BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                        builder: (context, state) {
+                          return ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.lightBlue,
+                              minimumSize: const Size.fromHeight(50), // NEW
+                            ),
+                            onPressed: () {
+                              if (state.firstname != null &&
+                                  state.lastname != null &&
+                                  state.email != null &&
+                                  state.password != null) {
+                                context.read<AuthenticationBloc>().add(
+                                    const AuthenticationEvent.signupEvent());
+                              }
+                            },
+                            child: const Text(
+                              'SIGNUP',
+                            ),
+                          );
                         },
-                        child: const Text(
-                          'SIGNUP',
-                        ),
                       ),
                       kHeight,
                       Row(
@@ -111,11 +114,7 @@ class SignupScreen extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (ctx) => LoginScreen(),
-                                ),
-                              );
+                              Navigator.of(context).pop();
                             },
                             child: Text(
                               "Login now",

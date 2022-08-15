@@ -5,5 +5,6 @@ import 'package:expensify/domain/core/failures/main_failure.dart';
 
 abstract class IAuthenticationRepo {
   Future<Either<MainFailure, Authentication>> signup(AuthenticationState state);
+  Future<Either<MainFailure, Authentication>> login(AuthenticationState state);
   Future<Either<MainFailure, Authentication>> authenticate(String authtoken);
 }

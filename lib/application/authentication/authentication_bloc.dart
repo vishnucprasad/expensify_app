@@ -41,9 +41,11 @@ class AuthenticationBloc
             );
           },
           passwordChangeEvent: (_PasswordChangeEvent value) {
-            emit(state.copyWith(
-              password: value.password,
-            ));
+            emit(
+              state.copyWith(
+                password: value.password,
+              ),
+            );
           },
           signupEvent: (_) async {
             emit(
@@ -86,7 +88,47 @@ class AuthenticationBloc
               ),
             );
           },
-          loginEvent: (_) {},
+          loginEvent: (_) async {
+            emit(
+              state.copyWith(
+                isAuthenticating: true,
+                authenticationFailureOrSuccessOption: none(),
+              ),
+            );
+
+            final Either<MainFailure, Authentication> authenticationOption =
+                await _authenticationRepo.login(state);
+
+            emit(
+              authenticationOption.fold(
+                (failure) {
+                  return failure.map(
+                    clientFailure: (ClientFailure value) => state.copyWith(
+                      isAuthenticating: false,
+                      authenticationFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                    serverFailure: (ServerFailure value) => state.copyWith(
+                      isAuthenticating: false,
+                      authenticationFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                  );
+                },
+                (success) => state.copyWith(
+                  isAuthenticating: false,
+                  authentication: success,
+                  authenticationFailureOrSuccessOption: some(
+                    right(success),
+                  ),
+                ),
+              ),
+            );
+          },
           authenticateEvent: (_AuthenticateEvent value) async {
             emit(
               state.copyWith(

@@ -108,7 +108,13 @@ class SplashScreen extends StatelessWidget {
   void goToLoginPage(BuildContext context) {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
-        builder: (ctx) => LoginScreen(),
+        builder: (ctx) => BlocBuilder<AuthenticationBloc, AuthenticationState>(
+          builder: (context, state) {
+            return LoginScreen(
+              state: state,
+            );
+          },
+        ),
       ),
     );
   }
