@@ -12,4 +12,6 @@ class AuthenticationEvent with _$AuthenticationEvent {
       _PasswordChangeEvent;
   const factory AuthenticationEvent.signupEvent() = _SignupEvent;
   const factory AuthenticationEvent.loginEvent() = _LoginEvent;
+  const factory AuthenticationEvent.authenticateEvent(String authtoken) =
+      _AuthenticateEvent;
 }

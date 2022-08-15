@@ -24,6 +24,7 @@ mixin _$AuthenticationEvent {
     required TResult Function(String password) passwordChangeEvent,
     required TResult Function() signupEvent,
     required TResult Function() loginEvent,
+    required TResult Function(String authtoken) authenticateEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$AuthenticationEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$AuthenticationEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,7 @@ mixin _$AuthenticationEvent {
     required TResult Function(_PasswordChangeEvent value) passwordChangeEvent,
     required TResult Function(_SignupEvent value) signupEvent,
     required TResult Function(_LoginEvent value) loginEvent,
+    required TResult Function(_AuthenticateEvent value) authenticateEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +69,7 @@ mixin _$AuthenticationEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +80,7 @@ mixin _$AuthenticationEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -169,6 +175,7 @@ class _$_FirstnameChangeEvent implements _FirstnameChangeEvent {
     required TResult Function(String password) passwordChangeEvent,
     required TResult Function() signupEvent,
     required TResult Function() loginEvent,
+    required TResult Function(String authtoken) authenticateEvent,
   }) {
     return firstnameChangeEvent(firstname);
   }
@@ -182,6 +189,7 @@ class _$_FirstnameChangeEvent implements _FirstnameChangeEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
   }) {
     return firstnameChangeEvent?.call(firstname);
   }
@@ -195,6 +203,7 @@ class _$_FirstnameChangeEvent implements _FirstnameChangeEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
     required TResult orElse(),
   }) {
     if (firstnameChangeEvent != null) {
@@ -212,6 +221,7 @@ class _$_FirstnameChangeEvent implements _FirstnameChangeEvent {
     required TResult Function(_PasswordChangeEvent value) passwordChangeEvent,
     required TResult Function(_SignupEvent value) signupEvent,
     required TResult Function(_LoginEvent value) loginEvent,
+    required TResult Function(_AuthenticateEvent value) authenticateEvent,
   }) {
     return firstnameChangeEvent(this);
   }
@@ -225,6 +235,7 @@ class _$_FirstnameChangeEvent implements _FirstnameChangeEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
   }) {
     return firstnameChangeEvent?.call(this);
   }
@@ -238,6 +249,7 @@ class _$_FirstnameChangeEvent implements _FirstnameChangeEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
     required TResult orElse(),
   }) {
     if (firstnameChangeEvent != null) {
@@ -329,6 +341,7 @@ class _$_LastnameChangeEvent implements _LastnameChangeEvent {
     required TResult Function(String password) passwordChangeEvent,
     required TResult Function() signupEvent,
     required TResult Function() loginEvent,
+    required TResult Function(String authtoken) authenticateEvent,
   }) {
     return lastnameChangeEvent(lastname);
   }
@@ -342,6 +355,7 @@ class _$_LastnameChangeEvent implements _LastnameChangeEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
   }) {
     return lastnameChangeEvent?.call(lastname);
   }
@@ -355,6 +369,7 @@ class _$_LastnameChangeEvent implements _LastnameChangeEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
     required TResult orElse(),
   }) {
     if (lastnameChangeEvent != null) {
@@ -372,6 +387,7 @@ class _$_LastnameChangeEvent implements _LastnameChangeEvent {
     required TResult Function(_PasswordChangeEvent value) passwordChangeEvent,
     required TResult Function(_SignupEvent value) signupEvent,
     required TResult Function(_LoginEvent value) loginEvent,
+    required TResult Function(_AuthenticateEvent value) authenticateEvent,
   }) {
     return lastnameChangeEvent(this);
   }
@@ -385,6 +401,7 @@ class _$_LastnameChangeEvent implements _LastnameChangeEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
   }) {
     return lastnameChangeEvent?.call(this);
   }
@@ -398,6 +415,7 @@ class _$_LastnameChangeEvent implements _LastnameChangeEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
     required TResult orElse(),
   }) {
     if (lastnameChangeEvent != null) {
@@ -488,6 +506,7 @@ class _$_EmailChangeEvent implements _EmailChangeEvent {
     required TResult Function(String password) passwordChangeEvent,
     required TResult Function() signupEvent,
     required TResult Function() loginEvent,
+    required TResult Function(String authtoken) authenticateEvent,
   }) {
     return emailChangeEvent(email);
   }
@@ -501,6 +520,7 @@ class _$_EmailChangeEvent implements _EmailChangeEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
   }) {
     return emailChangeEvent?.call(email);
   }
@@ -514,6 +534,7 @@ class _$_EmailChangeEvent implements _EmailChangeEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
     required TResult orElse(),
   }) {
     if (emailChangeEvent != null) {
@@ -531,6 +552,7 @@ class _$_EmailChangeEvent implements _EmailChangeEvent {
     required TResult Function(_PasswordChangeEvent value) passwordChangeEvent,
     required TResult Function(_SignupEvent value) signupEvent,
     required TResult Function(_LoginEvent value) loginEvent,
+    required TResult Function(_AuthenticateEvent value) authenticateEvent,
   }) {
     return emailChangeEvent(this);
   }
@@ -544,6 +566,7 @@ class _$_EmailChangeEvent implements _EmailChangeEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
   }) {
     return emailChangeEvent?.call(this);
   }
@@ -557,6 +580,7 @@ class _$_EmailChangeEvent implements _EmailChangeEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
     required TResult orElse(),
   }) {
     if (emailChangeEvent != null) {
@@ -647,6 +671,7 @@ class _$_PasswordChangeEvent implements _PasswordChangeEvent {
     required TResult Function(String password) passwordChangeEvent,
     required TResult Function() signupEvent,
     required TResult Function() loginEvent,
+    required TResult Function(String authtoken) authenticateEvent,
   }) {
     return passwordChangeEvent(password);
   }
@@ -660,6 +685,7 @@ class _$_PasswordChangeEvent implements _PasswordChangeEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
   }) {
     return passwordChangeEvent?.call(password);
   }
@@ -673,6 +699,7 @@ class _$_PasswordChangeEvent implements _PasswordChangeEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
     required TResult orElse(),
   }) {
     if (passwordChangeEvent != null) {
@@ -690,6 +717,7 @@ class _$_PasswordChangeEvent implements _PasswordChangeEvent {
     required TResult Function(_PasswordChangeEvent value) passwordChangeEvent,
     required TResult Function(_SignupEvent value) signupEvent,
     required TResult Function(_LoginEvent value) loginEvent,
+    required TResult Function(_AuthenticateEvent value) authenticateEvent,
   }) {
     return passwordChangeEvent(this);
   }
@@ -703,6 +731,7 @@ class _$_PasswordChangeEvent implements _PasswordChangeEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
   }) {
     return passwordChangeEvent?.call(this);
   }
@@ -716,6 +745,7 @@ class _$_PasswordChangeEvent implements _PasswordChangeEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
     required TResult orElse(),
   }) {
     if (passwordChangeEvent != null) {
@@ -782,6 +812,7 @@ class _$_SignupEvent implements _SignupEvent {
     required TResult Function(String password) passwordChangeEvent,
     required TResult Function() signupEvent,
     required TResult Function() loginEvent,
+    required TResult Function(String authtoken) authenticateEvent,
   }) {
     return signupEvent();
   }
@@ -795,6 +826,7 @@ class _$_SignupEvent implements _SignupEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
   }) {
     return signupEvent?.call();
   }
@@ -808,6 +840,7 @@ class _$_SignupEvent implements _SignupEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
     required TResult orElse(),
   }) {
     if (signupEvent != null) {
@@ -825,6 +858,7 @@ class _$_SignupEvent implements _SignupEvent {
     required TResult Function(_PasswordChangeEvent value) passwordChangeEvent,
     required TResult Function(_SignupEvent value) signupEvent,
     required TResult Function(_LoginEvent value) loginEvent,
+    required TResult Function(_AuthenticateEvent value) authenticateEvent,
   }) {
     return signupEvent(this);
   }
@@ -838,6 +872,7 @@ class _$_SignupEvent implements _SignupEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
   }) {
     return signupEvent?.call(this);
   }
@@ -851,6 +886,7 @@ class _$_SignupEvent implements _SignupEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
     required TResult orElse(),
   }) {
     if (signupEvent != null) {
@@ -911,6 +947,7 @@ class _$_LoginEvent implements _LoginEvent {
     required TResult Function(String password) passwordChangeEvent,
     required TResult Function() signupEvent,
     required TResult Function() loginEvent,
+    required TResult Function(String authtoken) authenticateEvent,
   }) {
     return loginEvent();
   }
@@ -924,6 +961,7 @@ class _$_LoginEvent implements _LoginEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
   }) {
     return loginEvent?.call();
   }
@@ -937,6 +975,7 @@ class _$_LoginEvent implements _LoginEvent {
     TResult Function(String password)? passwordChangeEvent,
     TResult Function()? signupEvent,
     TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
     required TResult orElse(),
   }) {
     if (loginEvent != null) {
@@ -954,6 +993,7 @@ class _$_LoginEvent implements _LoginEvent {
     required TResult Function(_PasswordChangeEvent value) passwordChangeEvent,
     required TResult Function(_SignupEvent value) signupEvent,
     required TResult Function(_LoginEvent value) loginEvent,
+    required TResult Function(_AuthenticateEvent value) authenticateEvent,
   }) {
     return loginEvent(this);
   }
@@ -967,6 +1007,7 @@ class _$_LoginEvent implements _LoginEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
   }) {
     return loginEvent?.call(this);
   }
@@ -980,6 +1021,7 @@ class _$_LoginEvent implements _LoginEvent {
     TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
     TResult Function(_SignupEvent value)? signupEvent,
     TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
     required TResult orElse(),
   }) {
     if (loginEvent != null) {
@@ -991,6 +1033,172 @@ class _$_LoginEvent implements _LoginEvent {
 
 abstract class _LoginEvent implements AuthenticationEvent {
   const factory _LoginEvent() = _$_LoginEvent;
+}
+
+/// @nodoc
+abstract class _$$_AuthenticateEventCopyWith<$Res> {
+  factory _$$_AuthenticateEventCopyWith(_$_AuthenticateEvent value,
+          $Res Function(_$_AuthenticateEvent) then) =
+      __$$_AuthenticateEventCopyWithImpl<$Res>;
+  $Res call({String authtoken});
+}
+
+/// @nodoc
+class __$$_AuthenticateEventCopyWithImpl<$Res>
+    extends _$AuthenticationEventCopyWithImpl<$Res>
+    implements _$$_AuthenticateEventCopyWith<$Res> {
+  __$$_AuthenticateEventCopyWithImpl(
+      _$_AuthenticateEvent _value, $Res Function(_$_AuthenticateEvent) _then)
+      : super(_value, (v) => _then(v as _$_AuthenticateEvent));
+
+  @override
+  _$_AuthenticateEvent get _value => super._value as _$_AuthenticateEvent;
+
+  @override
+  $Res call({
+    Object? authtoken = freezed,
+  }) {
+    return _then(_$_AuthenticateEvent(
+      authtoken == freezed
+          ? _value.authtoken
+          : authtoken // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AuthenticateEvent implements _AuthenticateEvent {
+  const _$_AuthenticateEvent(this.authtoken);
+
+  @override
+  final String authtoken;
+
+  @override
+  String toString() {
+    return 'AuthenticationEvent.authenticateEvent(authtoken: $authtoken)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AuthenticateEvent &&
+            const DeepCollectionEquality().equals(other.authtoken, authtoken));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(authtoken));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_AuthenticateEventCopyWith<_$_AuthenticateEvent> get copyWith =>
+      __$$_AuthenticateEventCopyWithImpl<_$_AuthenticateEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String firstname) firstnameChangeEvent,
+    required TResult Function(String lastname) lastnameChangeEvent,
+    required TResult Function(String email) emailChangeEvent,
+    required TResult Function(String password) passwordChangeEvent,
+    required TResult Function() signupEvent,
+    required TResult Function() loginEvent,
+    required TResult Function(String authtoken) authenticateEvent,
+  }) {
+    return authenticateEvent(authtoken);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String firstname)? firstnameChangeEvent,
+    TResult Function(String lastname)? lastnameChangeEvent,
+    TResult Function(String email)? emailChangeEvent,
+    TResult Function(String password)? passwordChangeEvent,
+    TResult Function()? signupEvent,
+    TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
+  }) {
+    return authenticateEvent?.call(authtoken);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String firstname)? firstnameChangeEvent,
+    TResult Function(String lastname)? lastnameChangeEvent,
+    TResult Function(String email)? emailChangeEvent,
+    TResult Function(String password)? passwordChangeEvent,
+    TResult Function()? signupEvent,
+    TResult Function()? loginEvent,
+    TResult Function(String authtoken)? authenticateEvent,
+    required TResult orElse(),
+  }) {
+    if (authenticateEvent != null) {
+      return authenticateEvent(authtoken);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FirstnameChangeEvent value) firstnameChangeEvent,
+    required TResult Function(_LastnameChangeEvent value) lastnameChangeEvent,
+    required TResult Function(_EmailChangeEvent value) emailChangeEvent,
+    required TResult Function(_PasswordChangeEvent value) passwordChangeEvent,
+    required TResult Function(_SignupEvent value) signupEvent,
+    required TResult Function(_LoginEvent value) loginEvent,
+    required TResult Function(_AuthenticateEvent value) authenticateEvent,
+  }) {
+    return authenticateEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_FirstnameChangeEvent value)? firstnameChangeEvent,
+    TResult Function(_LastnameChangeEvent value)? lastnameChangeEvent,
+    TResult Function(_EmailChangeEvent value)? emailChangeEvent,
+    TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
+    TResult Function(_SignupEvent value)? signupEvent,
+    TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
+  }) {
+    return authenticateEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FirstnameChangeEvent value)? firstnameChangeEvent,
+    TResult Function(_LastnameChangeEvent value)? lastnameChangeEvent,
+    TResult Function(_EmailChangeEvent value)? emailChangeEvent,
+    TResult Function(_PasswordChangeEvent value)? passwordChangeEvent,
+    TResult Function(_SignupEvent value)? signupEvent,
+    TResult Function(_LoginEvent value)? loginEvent,
+    TResult Function(_AuthenticateEvent value)? authenticateEvent,
+    required TResult orElse(),
+  }) {
+    if (authenticateEvent != null) {
+      return authenticateEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AuthenticateEvent implements AuthenticationEvent {
+  const factory _AuthenticateEvent(final String authtoken) =
+      _$_AuthenticateEvent;
+
+  String get authtoken;
+  @JsonKey(ignore: true)
+  _$$_AuthenticateEventCopyWith<_$_AuthenticateEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

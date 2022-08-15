@@ -43,7 +43,13 @@ class MyApp extends StatelessWidget {
           ),
         ),
         debugShowCheckedModeBanner: false,
-        home: const SplashScreen(),
+        home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+          builder: (context, state) {
+            return SplashScreen(
+              state: state,
+            );
+          },
+        ),
       ),
     );
   }

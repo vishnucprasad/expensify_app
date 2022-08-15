@@ -1,3 +1,6 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/presentation/login/login_screen.dart';
@@ -5,13 +8,26 @@ import 'package:expensify/presentation/main_page/main_page_screen.dart';
 import 'package:expensify/presentation/widgets/diagonal_path_clipper.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SplashScreen extends StatelessWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+  final AuthenticationState state;
+  const SplashScreen({
+    required this.state,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (state.error != null && state.error?.status == 401) {
+        return goToLoginPage(context);
+      }
+
+      if (state.authentication != null && state.authentication?.id != null) {
+        return goToMainPage(context);
+      }
+
       authenticate(context);
     });
     return Scaffold(
@@ -81,16 +97,33 @@ class SplashScreen extends StatelessWidget {
     );
   }
 
-  Future<void> authenticate(BuildContext context) async {
-    final sharedPreferences = await SharedPreferences.getInstance();
-    final authtoken = await sharedPreferences.getString(kTokenKey);
+  void goToMainPage(BuildContext context) {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(
+        builder: (ctx) => MainPageScreen(),
+      ),
+    );
+  }
 
-    print(authtoken);
-
+  void goToLoginPage(BuildContext context) {
     Navigator.of(context).pushReplacement(
       MaterialPageRoute(
         builder: (ctx) => LoginScreen(),
       ),
     );
+  }
+
+  Future<void> authenticate(BuildContext context) async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    // ignore: await_only_futures
+    final authtoken = await sharedPreferences.getString(kTokenKey);
+
+    if (authtoken != null) {
+      return context.read<AuthenticationBloc>().add(
+            AuthenticationEvent.authenticateEvent(authtoken),
+          );
+    }
+
+    goToLoginPage(context);
   }
 }

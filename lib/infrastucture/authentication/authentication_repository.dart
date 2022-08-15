@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:expensify/application/authentication/authentication_bloc.dart';
@@ -24,6 +23,50 @@ class AuthenticationRepository implements IAuthenticationRepo {
       final Response response = await Dio(BaseOptions()).post(
         ApiEndPoints.signup,
         data: data,
+      );
+
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        final authentication = Authentication.fromJson(response.data);
+        return right(authentication);
+      }
+
+      return left(
+        const MainFailure.serverFailure(
+          AuthenticationError(
+            name: "InternalServerError",
+            message: "The server has encountered a problem",
+            status: 500,
+          ),
+        ),
+      );
+    } on DioError catch (e) {
+      return left(MainFailure.serverFailure(
+          AuthenticationError.fromJson(e.response?.data)));
+    } catch (_) {
+      return left(
+        const MainFailure.clientFailure(
+          AuthenticationError(
+            name: "BadRequestError",
+            message: "Bad request from client",
+            status: 400,
+          ),
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<MainFailure, Authentication>> authenticate(
+      String authtoken) async {
+    try {
+      final Response response = await Dio(
+        BaseOptions(
+          headers: {
+            "authorization": 'Bearer $authtoken',
+          },
+        ),
+      ).get(
+        ApiEndPoints.authenticate,
       );
 
       if (response.statusCode == 200 || response.statusCode == 201) {
