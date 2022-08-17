@@ -41,17 +41,22 @@ class MenuHeaderWidget extends StatelessWidget {
                       radius: 40,
                     ),
                     kWidth20,
-                    Column(
-                      children: const [
-                        Text(
-                          "Vishnu C Prasad",
-                          style: kWhiteLargeTextBold,
-                        ),
-                        Text(
-                          "mail@vishnucprasad.in",
-                          style: kSecondarySmallText,
-                        )
-                      ],
+                    BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                      builder: (context, state) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "${state.authentication?.firstname} ${state.authentication?.lastname}",
+                              style: kWhiteLargeTextBold,
+                            ),
+                            Text(
+                              "${state.authentication?.email}",
+                              style: kSecondarySmallText,
+                            )
+                          ],
+                        );
+                      },
                     ),
                     const Spacer(),
                     CircleAvatar(
