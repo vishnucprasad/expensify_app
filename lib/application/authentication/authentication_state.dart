@@ -15,15 +15,15 @@ class AuthenticationState with _$AuthenticationState {
   }) = _AuthenticationState;
 
   factory AuthenticationState.initial() {
-    return const AuthenticationState(
-      isAuthenticating: true,
+    return AuthenticationState(
+      isAuthenticating: false,
       firstname: null,
       lastname: null,
       email: null,
       password: null,
       authentication: null,
       error: null,
-      authenticationFailureOrSuccessOption: None(),
+      authenticationFailureOrSuccessOption: none(),
     );
   }
 }

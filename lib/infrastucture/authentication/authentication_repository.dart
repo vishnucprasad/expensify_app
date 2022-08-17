@@ -40,8 +40,22 @@ class AuthenticationRepository implements IAuthenticationRepo {
         ),
       );
     } on DioError catch (e) {
-      return left(MainFailure.serverFailure(
-          AuthenticationError.fromJson(e.response?.data)));
+      if (e.response?.statusCode == 401 ||
+          e.response?.statusCode == 409 ||
+          e.response?.statusCode == 404) {
+        return left(MainFailure.serverFailure(
+            AuthenticationError.fromJson(e.response?.data)));
+      }
+
+      return left(
+        const MainFailure.serverFailure(
+          AuthenticationError(
+            name: "RequestTimeOutError",
+            message: "Request time out cannot connect to the server",
+            status: 408,
+          ),
+        ),
+      );
     } catch (_) {
       return left(
         const MainFailure.clientFailure(
@@ -84,8 +98,22 @@ class AuthenticationRepository implements IAuthenticationRepo {
         ),
       );
     } on DioError catch (e) {
-      return left(MainFailure.serverFailure(
-          AuthenticationError.fromJson(e.response?.data)));
+      if (e.response?.statusCode == 401 ||
+          e.response?.statusCode == 409 ||
+          e.response?.statusCode == 404) {
+        return left(MainFailure.serverFailure(
+            AuthenticationError.fromJson(e.response?.data)));
+      }
+
+      return left(
+        const MainFailure.serverFailure(
+          AuthenticationError(
+            name: "RequestTimeOutError",
+            message: "Request time out cannot connect to the server",
+            status: 408,
+          ),
+        ),
+      );
     } catch (_) {
       return left(
         const MainFailure.clientFailure(
@@ -128,8 +156,22 @@ class AuthenticationRepository implements IAuthenticationRepo {
         ),
       );
     } on DioError catch (e) {
-      return left(MainFailure.serverFailure(
-          AuthenticationError.fromJson(e.response?.data)));
+      if (e.response?.statusCode == 401 ||
+          e.response?.statusCode == 409 ||
+          e.response?.statusCode == 404) {
+        return left(MainFailure.serverFailure(
+            AuthenticationError.fromJson(e.response?.data)));
+      }
+
+      return left(
+        const MainFailure.serverFailure(
+          AuthenticationError(
+            name: "RequestTimeOutError",
+            message: "Request time out cannot connect to the server",
+            status: 408,
+          ),
+        ),
+      );
     } catch (_) {
       return left(
         const MainFailure.clientFailure(

@@ -81,6 +81,7 @@ class AuthenticationBloc
                 (success) => state.copyWith(
                   isAuthenticating: false,
                   authentication: success,
+                  error: null,
                   authenticationFailureOrSuccessOption: some(
                     right(success),
                   ),
@@ -122,10 +123,19 @@ class AuthenticationBloc
                 (success) => state.copyWith(
                   isAuthenticating: false,
                   authentication: success,
+                  error: null,
                   authenticationFailureOrSuccessOption: some(
                     right(success),
                   ),
                 ),
+              ),
+            );
+          },
+          logoutEvent: (_) {
+            emit(
+              state.copyWith(
+                authentication: null,
+                authenticationFailureOrSuccessOption: none(),
               ),
             );
           },
@@ -163,6 +173,7 @@ class AuthenticationBloc
                 (success) => state.copyWith(
                   isAuthenticating: false,
                   authentication: success,
+                  error: null,
                   authenticationFailureOrSuccessOption: some(
                     right(success),
                   ),
@@ -170,6 +181,13 @@ class AuthenticationBloc
               ),
             );
           },
+          clearError: ((_) {
+            emit(
+              state.copyWith(
+                error: null,
+              ),
+            );
+          }),
         );
       }),
     );

@@ -1,7 +1,6 @@
 import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
-import 'package:expensify/presentation/login/login_screen.dart';
 import 'package:expensify/presentation/main_page/main_page_screen.dart';
 import 'package:expensify/presentation/widgets/custom_text_field_widget.dart';
 import 'package:expensify/presentation/widgets/diagonal_path_clipper.dart';
@@ -18,6 +17,13 @@ class SignupScreen extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (state.authentication != null) {
         checkUserAuthenticated(context);
+      }
+
+      if (state.error != null) {
+        showErrorMessage(
+          context: context,
+          errorMessage: state.error?.message,
+        );
       }
     });
     return Scaffold(
@@ -132,6 +138,18 @@ class SignupScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void showErrorMessage({
+    required BuildContext context,
+    required String? errorMessage,
+  }) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      customSnackBar(errorMessage: errorMessage),
+    );
+    context.read<AuthenticationBloc>().add(
+          const AuthenticationEvent.clearError(),
+        );
   }
 
   Future<void> goToHomeScreen(BuildContext context) async {

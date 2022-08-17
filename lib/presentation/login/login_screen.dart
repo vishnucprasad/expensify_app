@@ -22,6 +22,13 @@ class LoginScreen extends StatelessWidget {
       if (state.authentication != null) {
         checkUserAuthenticated(context);
       }
+
+      if (state.error != null) {
+        showErrorMessage(
+          context: context,
+          errorMessage: state.error?.message,
+        );
+      }
     });
     return Scaffold(
       body: SafeArea(
@@ -70,22 +77,32 @@ class LoginScreen extends StatelessWidget {
                       kHeight,
                       BlocBuilder<AuthenticationBloc, AuthenticationState>(
                         builder: (context, state) {
-                          return ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.lightBlue,
-                              minimumSize: const Size.fromHeight(50), // NEW
-                            ),
-                            onPressed: () {
-                              if (state.email != null &&
-                                  state.password != null) {
-                                context.read<AuthenticationBloc>().add(
-                                      const AuthenticationEvent.loginEvent(),
-                                    );
-                              }
-                            },
-                            child: const Text(
-                              'LOGIN',
-                            ),
+                          return Column(
+                            children: [
+                              ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.lightBlue,
+                                  minimumSize: const Size.fromHeight(50), // NEW
+                                ),
+                                onPressed: () {
+                                  if (state.email != null &&
+                                      state.password != null) {
+                                    context.read<AuthenticationBloc>().add(
+                                          const AuthenticationEvent
+                                              .loginEvent(),
+                                        );
+                                  }
+                                },
+                                child: const Text(
+                                  'LOGIN',
+                                ),
+                              ),
+                              if (state.isAuthenticating)
+                                LinearProgressIndicator(
+                                  value: null,
+                                  color: infoColor,
+                                ),
+                            ],
                           );
                         },
                       ),
@@ -144,5 +161,17 @@ class LoginScreen extends StatelessWidget {
       // ignore: use_build_context_synchronously
       goToHomeScreen(context);
     }
+  }
+
+  void showErrorMessage({
+    required BuildContext context,
+    required String? errorMessage,
+  }) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      customSnackBar(errorMessage: errorMessage),
+    );
+    context.read<AuthenticationBloc>().add(
+          const AuthenticationEvent.clearError(),
+        );
   }
 }

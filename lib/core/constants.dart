@@ -83,11 +83,19 @@ const kBlackSmallTextBold = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
-const kBaseUrl = 'http://192.168.141.218:3000/api';
+const kBaseUrl = 'http://10.0.2.2:3000/api';
 
 const kTokenKey = 'authtoken';
 
 const netflixLogo = 'assets/images/netflix.png';
+
+SnackBar customSnackBar({required String? errorMessage}) {
+  return SnackBar(
+    content: Text(errorMessage ?? "Something went wrong"),
+    backgroundColor: primaryColor,
+    behavior: SnackBarBehavior.floating,
+  );
+}
 
 final List menuList = [
   MenuListItemWidget(
