@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
           primaryColor: primaryColor,
           backgroundColor: primaryColor,
           scaffoldBackgroundColor: backgroundColor,
+          canvasColor: Colors.transparent,
           fontFamily: GoogleFonts.montserrat().fontFamily,
           textTheme: const TextTheme(
             bodyText1: TextStyle(

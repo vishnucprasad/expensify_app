@@ -1,5 +1,6 @@
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/presentation/menu/widgets/menu_list_item_widget.dart';
 import 'package:flutter/material.dart';
 
 class MenuListWidget extends StatelessWidget {
@@ -7,6 +8,7 @@ class MenuListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<MenuListItemWidget> menuList = getMenuList(context);
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -29,9 +31,9 @@ class MenuListWidget extends StatelessWidget {
                 ),
                 child: ListView.separated(
                   itemBuilder: (ctx, index) => menuList[index],
-                  separatorBuilder: (ctx, index) => Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: const Divider(),
+                  separatorBuilder: (ctx, index) => const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Divider(),
                   ),
                   itemCount: menuList.length,
                 ),

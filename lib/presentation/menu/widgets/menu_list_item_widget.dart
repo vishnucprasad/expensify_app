@@ -2,11 +2,13 @@ import 'package:expensify/core/constants.dart';
 import 'package:flutter/material.dart';
 
 class MenuListItemWidget extends StatelessWidget {
-  IconData icon;
+  final IconData icon;
   final String text;
-  MenuListItemWidget({
+  final void Function()? onTap;
+  const MenuListItemWidget({
     required this.icon,
     required this.text,
+    this.onTap,
     Key? key,
   }) : super(key: key);
 
@@ -14,17 +16,20 @@ class MenuListItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              Text(
-                text,
-                style: kBlackSmallTextBold,
-              ),
-              const Spacer(),
-              Icon(icon),
-            ],
+        GestureDetector(
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              children: [
+                Text(
+                  text,
+                  style: kBlackSmallTextBold,
+                ),
+                const Spacer(),
+                Icon(icon),
+              ],
+            ),
           ),
         ),
       ],

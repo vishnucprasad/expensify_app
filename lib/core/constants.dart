@@ -1,4 +1,5 @@
 import 'package:expensify/core/colors.dart';
+import 'package:expensify/presentation/categories/categories_screen.dart';
 import 'package:expensify/presentation/menu/widgets/menu_list_item_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +36,12 @@ const kWhiteLargeTextBold = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const kWhiteMediumTextBold = TextStyle(
+  color: whiteColor,
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
+);
+
 const kWhiteSmallText = TextStyle(
   color: whiteColor,
   fontSize: 16,
@@ -43,6 +50,12 @@ const kWhiteSmallText = TextStyle(
 final kInfoSmallText = TextStyle(
   color: infoColor,
   fontSize: 16,
+);
+
+final kInfoMediumTextBold = TextStyle(
+  color: infoColor,
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
 );
 
 const kBlackLargeTextBold = TextStyle(
@@ -83,6 +96,12 @@ const kBlackSmallTextBold = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const kBlackMediumTextBold = TextStyle(
+  color: blackColor,
+  fontSize: 18,
+  fontWeight: FontWeight.bold,
+);
+
 const kBaseUrl = 'http://10.0.2.2:3000/api';
 
 const kTokenKey = 'authtoken';
@@ -97,29 +116,39 @@ SnackBar customSnackBar({required String? errorMessage}) {
   );
 }
 
-final List menuList = [
-  MenuListItemWidget(
-    icon: Icons.category,
-    text: 'Categories',
-  ),
-  MenuListItemWidget(
-    icon: Icons.edit,
-    text: 'Edit profile',
-  ),
-  MenuListItemWidget(
-    icon: Icons.help,
-    text: 'Help Center',
-  ),
-  MenuListItemWidget(
-    icon: Icons.feedback,
-    text: 'Feedback',
-  ),
-  MenuListItemWidget(
-    icon: Icons.phone,
-    text: 'Contact us',
-  ),
-  MenuListItemWidget(
-    icon: Icons.info,
-    text: 'About',
-  ),
-];
+List<MenuListItemWidget> getMenuList(BuildContext context) {
+  return [
+    MenuListItemWidget(
+      icon: Icons.category,
+      text: 'Categories',
+      onTap: () {
+        Navigator.of(context).push(
+          PageRouteBuilder(
+            pageBuilder: (context, animation, secondaryAnimation) =>
+                const CategoriesScreen(),
+          ),
+        );
+      },
+    ),
+    const MenuListItemWidget(
+      icon: Icons.edit,
+      text: 'Edit profile',
+    ),
+    const MenuListItemWidget(
+      icon: Icons.help,
+      text: 'Help Center',
+    ),
+    const MenuListItemWidget(
+      icon: Icons.feedback,
+      text: 'Feedback',
+    ),
+    const MenuListItemWidget(
+      icon: Icons.phone,
+      text: 'Contact us',
+    ),
+    const MenuListItemWidget(
+      icon: Icons.info,
+      text: 'About',
+    ),
+  ];
+}
