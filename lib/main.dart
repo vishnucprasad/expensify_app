@@ -1,4 +1,5 @@
 import 'package:expensify/application/authentication/authentication_bloc.dart';
+import 'package:expensify/application/category/category_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/domain/core/di/injectable.dart';
 import 'package:expensify/presentation/splash/splash_screen.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: ((context) => getIt<AuthenticationBloc>())),
+        BlocProvider(create: ((context) => getIt<CategoryBloc>())),
       ],
       child: MaterialApp(
         theme: ThemeData(

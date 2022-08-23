@@ -1,7 +1,9 @@
+import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/presentation/categories/categories_screen.dart';
 import 'package:expensify/presentation/menu/widgets/menu_list_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 const kHeight = SizedBox(
   height: 10,
@@ -125,7 +127,13 @@ List<MenuListItemWidget> getMenuList(BuildContext context) {
         Navigator.of(context).push(
           PageRouteBuilder(
             pageBuilder: (context, animation, secondaryAnimation) =>
-                const CategoriesScreen(),
+                BlocBuilder<AuthenticationBloc, AuthenticationState>(
+              builder: (context, state) {
+                return CategoriesScreen(
+                  authtoken: state.authentication?.authtoken,
+                );
+              },
+            ),
           ),
         );
       },

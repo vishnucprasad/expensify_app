@@ -16,23 +16,23 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$MainFailure {
-  AuthenticationError get error => throw _privateConstructorUsedError;
+  MainError get error => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthenticationError error) clientFailure,
-    required TResult Function(AuthenticationError error) serverFailure,
+    required TResult Function(MainError error) clientFailure,
+    required TResult Function(MainError error) serverFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AuthenticationError error)? clientFailure,
-    TResult Function(AuthenticationError error)? serverFailure,
+    TResult Function(MainError error)? clientFailure,
+    TResult Function(MainError error)? serverFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthenticationError error)? clientFailure,
-    TResult Function(AuthenticationError error)? serverFailure,
+    TResult Function(MainError error)? clientFailure,
+    TResult Function(MainError error)? serverFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -66,9 +66,9 @@ abstract class $MainFailureCopyWith<$Res> {
   factory $MainFailureCopyWith(
           MainFailure value, $Res Function(MainFailure) then) =
       _$MainFailureCopyWithImpl<$Res>;
-  $Res call({AuthenticationError error});
+  $Res call({MainError error});
 
-  $AuthenticationErrorCopyWith<$Res> get error;
+  $MainErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
@@ -87,13 +87,13 @@ class _$MainFailureCopyWithImpl<$Res> implements $MainFailureCopyWith<$Res> {
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as AuthenticationError,
+              as MainError,
     ));
   }
 
   @override
-  $AuthenticationErrorCopyWith<$Res> get error {
-    return $AuthenticationErrorCopyWith<$Res>(_value.error, (value) {
+  $MainErrorCopyWith<$Res> get error {
+    return $MainErrorCopyWith<$Res>(_value.error, (value) {
       return _then(_value.copyWith(error: value));
     });
   }
@@ -106,10 +106,10 @@ abstract class _$$ClientFailureCopyWith<$Res>
           _$ClientFailure value, $Res Function(_$ClientFailure) then) =
       __$$ClientFailureCopyWithImpl<$Res>;
   @override
-  $Res call({AuthenticationError error});
+  $Res call({MainError error});
 
   @override
-  $AuthenticationErrorCopyWith<$Res> get error;
+  $MainErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
@@ -131,7 +131,7 @@ class __$$ClientFailureCopyWithImpl<$Res>
       error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as AuthenticationError,
+              as MainError,
     ));
   }
 }
@@ -142,7 +142,7 @@ class _$ClientFailure implements ClientFailure {
   const _$ClientFailure(this.error);
 
   @override
-  final AuthenticationError error;
+  final MainError error;
 
   @override
   String toString() {
@@ -169,8 +169,8 @@ class _$ClientFailure implements ClientFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthenticationError error) clientFailure,
-    required TResult Function(AuthenticationError error) serverFailure,
+    required TResult Function(MainError error) clientFailure,
+    required TResult Function(MainError error) serverFailure,
   }) {
     return clientFailure(error);
   }
@@ -178,8 +178,8 @@ class _$ClientFailure implements ClientFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AuthenticationError error)? clientFailure,
-    TResult Function(AuthenticationError error)? serverFailure,
+    TResult Function(MainError error)? clientFailure,
+    TResult Function(MainError error)? serverFailure,
   }) {
     return clientFailure?.call(error);
   }
@@ -187,8 +187,8 @@ class _$ClientFailure implements ClientFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthenticationError error)? clientFailure,
-    TResult Function(AuthenticationError error)? serverFailure,
+    TResult Function(MainError error)? clientFailure,
+    TResult Function(MainError error)? serverFailure,
     required TResult orElse(),
   }) {
     if (clientFailure != null) {
@@ -230,11 +230,10 @@ class _$ClientFailure implements ClientFailure {
 }
 
 abstract class ClientFailure implements MainFailure {
-  const factory ClientFailure(final AuthenticationError error) =
-      _$ClientFailure;
+  const factory ClientFailure(final MainError error) = _$ClientFailure;
 
   @override
-  AuthenticationError get error;
+  MainError get error;
   @override
   @JsonKey(ignore: true)
   _$$ClientFailureCopyWith<_$ClientFailure> get copyWith =>
@@ -248,10 +247,10 @@ abstract class _$$ServerFailureCopyWith<$Res>
           _$ServerFailure value, $Res Function(_$ServerFailure) then) =
       __$$ServerFailureCopyWithImpl<$Res>;
   @override
-  $Res call({AuthenticationError error});
+  $Res call({MainError error});
 
   @override
-  $AuthenticationErrorCopyWith<$Res> get error;
+  $MainErrorCopyWith<$Res> get error;
 }
 
 /// @nodoc
@@ -273,7 +272,7 @@ class __$$ServerFailureCopyWithImpl<$Res>
       error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as AuthenticationError,
+              as MainError,
     ));
   }
 }
@@ -284,7 +283,7 @@ class _$ServerFailure implements ServerFailure {
   const _$ServerFailure(this.error);
 
   @override
-  final AuthenticationError error;
+  final MainError error;
 
   @override
   String toString() {
@@ -311,8 +310,8 @@ class _$ServerFailure implements ServerFailure {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AuthenticationError error) clientFailure,
-    required TResult Function(AuthenticationError error) serverFailure,
+    required TResult Function(MainError error) clientFailure,
+    required TResult Function(MainError error) serverFailure,
   }) {
     return serverFailure(error);
   }
@@ -320,8 +319,8 @@ class _$ServerFailure implements ServerFailure {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(AuthenticationError error)? clientFailure,
-    TResult Function(AuthenticationError error)? serverFailure,
+    TResult Function(MainError error)? clientFailure,
+    TResult Function(MainError error)? serverFailure,
   }) {
     return serverFailure?.call(error);
   }
@@ -329,8 +328,8 @@ class _$ServerFailure implements ServerFailure {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AuthenticationError error)? clientFailure,
-    TResult Function(AuthenticationError error)? serverFailure,
+    TResult Function(MainError error)? clientFailure,
+    TResult Function(MainError error)? serverFailure,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -372,11 +371,10 @@ class _$ServerFailure implements ServerFailure {
 }
 
 abstract class ServerFailure implements MainFailure {
-  const factory ServerFailure(final AuthenticationError error) =
-      _$ServerFailure;
+  const factory ServerFailure(final MainError error) = _$ServerFailure;
 
   @override
-  AuthenticationError get error;
+  MainError get error;
   @override
   @JsonKey(ignore: true)
   _$$ServerFailureCopyWith<_$ServerFailure> get copyWith =>

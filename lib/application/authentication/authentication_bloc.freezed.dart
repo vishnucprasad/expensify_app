@@ -1599,7 +1599,7 @@ mixin _$AuthenticationState {
   String? get email => throw _privateConstructorUsedError;
   String? get password => throw _privateConstructorUsedError;
   Authentication? get authentication => throw _privateConstructorUsedError;
-  AuthenticationError? get error => throw _privateConstructorUsedError;
+  MainError? get error => throw _privateConstructorUsedError;
   Option<Either<MainFailure, Authentication>>
       get authenticationFailureOrSuccessOption =>
           throw _privateConstructorUsedError;
@@ -1621,12 +1621,12 @@ abstract class $AuthenticationStateCopyWith<$Res> {
       String? email,
       String? password,
       Authentication? authentication,
-      AuthenticationError? error,
+      MainError? error,
       Option<Either<MainFailure, Authentication>>
           authenticationFailureOrSuccessOption});
 
   $AuthenticationCopyWith<$Res>? get authentication;
-  $AuthenticationErrorCopyWith<$Res>? get error;
+  $MainErrorCopyWith<$Res>? get error;
 }
 
 /// @nodoc
@@ -1677,7 +1677,7 @@ class _$AuthenticationStateCopyWithImpl<$Res>
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as AuthenticationError?,
+              as MainError?,
       authenticationFailureOrSuccessOption: authenticationFailureOrSuccessOption ==
               freezed
           ? _value.authenticationFailureOrSuccessOption
@@ -1698,12 +1698,12 @@ class _$AuthenticationStateCopyWithImpl<$Res>
   }
 
   @override
-  $AuthenticationErrorCopyWith<$Res>? get error {
+  $MainErrorCopyWith<$Res>? get error {
     if (_value.error == null) {
       return null;
     }
 
-    return $AuthenticationErrorCopyWith<$Res>(_value.error!, (value) {
+    return $MainErrorCopyWith<$Res>(_value.error!, (value) {
       return _then(_value.copyWith(error: value));
     });
   }
@@ -1723,14 +1723,14 @@ abstract class _$$_AuthenticationStateCopyWith<$Res>
       String? email,
       String? password,
       Authentication? authentication,
-      AuthenticationError? error,
+      MainError? error,
       Option<Either<MainFailure, Authentication>>
           authenticationFailureOrSuccessOption});
 
   @override
   $AuthenticationCopyWith<$Res>? get authentication;
   @override
-  $AuthenticationErrorCopyWith<$Res>? get error;
+  $MainErrorCopyWith<$Res>? get error;
 }
 
 /// @nodoc
@@ -1783,7 +1783,7 @@ class __$$_AuthenticationStateCopyWithImpl<$Res>
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
-              as AuthenticationError?,
+              as MainError?,
       authenticationFailureOrSuccessOption: authenticationFailureOrSuccessOption ==
               freezed
           ? _value.authenticationFailureOrSuccessOption
@@ -1819,7 +1819,7 @@ class _$_AuthenticationState implements _AuthenticationState {
   @override
   final Authentication? authentication;
   @override
-  final AuthenticationError? error;
+  final MainError? error;
   @override
   final Option<Either<MainFailure, Authentication>>
       authenticationFailureOrSuccessOption;
@@ -1876,7 +1876,7 @@ abstract class _AuthenticationState implements AuthenticationState {
       required final String? email,
       required final String? password,
       required final Authentication? authentication,
-      required final AuthenticationError? error,
+      required final MainError? error,
       required final Option<Either<MainFailure, Authentication>>
           authenticationFailureOrSuccessOption}) = _$_AuthenticationState;
 
@@ -1893,7 +1893,7 @@ abstract class _AuthenticationState implements AuthenticationState {
   @override
   Authentication? get authentication;
   @override
-  AuthenticationError? get error;
+  MainError? get error;
   @override
   Option<Either<MainFailure, Authentication>>
       get authenticationFailureOrSuccessOption;

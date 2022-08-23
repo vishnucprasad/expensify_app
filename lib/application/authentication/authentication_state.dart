@@ -9,7 +9,7 @@ class AuthenticationState with _$AuthenticationState {
     required String? email,
     required String? password,
     required Authentication? authentication,
-    required AuthenticationError? error,
+    required MainError? error,
     required Option<Either<MainFailure, Authentication>>
         authenticationFailureOrSuccessOption,
   }) = _AuthenticationState;

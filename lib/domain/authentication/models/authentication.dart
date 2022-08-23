@@ -17,15 +17,3 @@ class Authentication with _$Authentication {
   factory Authentication.fromJson(Map<String, dynamic> json) =>
       _$AuthenticationFromJson(json);
 }
-
-@freezed
-class AuthenticationError with _$AuthenticationError {
-  const factory AuthenticationError({
-    @JsonKey(name: 'name') required String? name,
-    @JsonKey(name: 'message') required String? message,
-    @JsonKey(name: 'status') required int? status,
-  }) = _AuthenticationError;
-
-  factory AuthenticationError.fromJson(Map<String, dynamic> json) =>
-      _$AuthenticationErrorFromJson(json);
-}

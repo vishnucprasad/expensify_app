@@ -5,6 +5,7 @@ import 'package:expensify/domain/authentication/i_authentication_repo.dart';
 import 'package:expensify/domain/authentication/models/authentication.dart';
 import 'package:expensify/domain/core/api_end_points.dart';
 import 'package:expensify/domain/core/failures/main_failure.dart';
+import 'package:expensify/domain/errors/main_error.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: IAuthenticationRepo)
@@ -32,7 +33,7 @@ class AuthenticationRepository implements IAuthenticationRepo {
 
       return left(
         const MainFailure.serverFailure(
-          AuthenticationError(
+          MainError(
             name: "InternalServerError",
             message: "The server has encountered a problem",
             status: 500,
@@ -43,13 +44,13 @@ class AuthenticationRepository implements IAuthenticationRepo {
       if (e.response?.statusCode == 401 ||
           e.response?.statusCode == 409 ||
           e.response?.statusCode == 404) {
-        return left(MainFailure.serverFailure(
-            AuthenticationError.fromJson(e.response?.data)));
+        return left(
+            MainFailure.serverFailure(MainError.fromJson(e.response?.data)));
       }
 
       return left(
         const MainFailure.serverFailure(
-          AuthenticationError(
+          MainError(
             name: "RequestTimeOutError",
             message: "Request time out cannot connect to the server",
             status: 408,
@@ -59,7 +60,7 @@ class AuthenticationRepository implements IAuthenticationRepo {
     } catch (_) {
       return left(
         const MainFailure.clientFailure(
-          AuthenticationError(
+          MainError(
             name: "BadRequestError",
             message: "Bad request from client",
             status: 400,
@@ -90,7 +91,7 @@ class AuthenticationRepository implements IAuthenticationRepo {
 
       return left(
         const MainFailure.serverFailure(
-          AuthenticationError(
+          MainError(
             name: "InternalServerError",
             message: "The server has encountered a problem",
             status: 500,
@@ -101,13 +102,13 @@ class AuthenticationRepository implements IAuthenticationRepo {
       if (e.response?.statusCode == 401 ||
           e.response?.statusCode == 409 ||
           e.response?.statusCode == 404) {
-        return left(MainFailure.serverFailure(
-            AuthenticationError.fromJson(e.response?.data)));
+        return left(
+            MainFailure.serverFailure(MainError.fromJson(e.response?.data)));
       }
 
       return left(
         const MainFailure.serverFailure(
-          AuthenticationError(
+          MainError(
             name: "RequestTimeOutError",
             message: "Request time out cannot connect to the server",
             status: 408,
@@ -117,7 +118,7 @@ class AuthenticationRepository implements IAuthenticationRepo {
     } catch (_) {
       return left(
         const MainFailure.clientFailure(
-          AuthenticationError(
+          MainError(
             name: "BadRequestError",
             message: "Bad request from client",
             status: 400,
@@ -148,7 +149,7 @@ class AuthenticationRepository implements IAuthenticationRepo {
 
       return left(
         const MainFailure.serverFailure(
-          AuthenticationError(
+          MainError(
             name: "InternalServerError",
             message: "The server has encountered a problem",
             status: 500,
@@ -159,13 +160,13 @@ class AuthenticationRepository implements IAuthenticationRepo {
       if (e.response?.statusCode == 401 ||
           e.response?.statusCode == 409 ||
           e.response?.statusCode == 404) {
-        return left(MainFailure.serverFailure(
-            AuthenticationError.fromJson(e.response?.data)));
+        return left(
+            MainFailure.serverFailure(MainError.fromJson(e.response?.data)));
       }
 
       return left(
         const MainFailure.serverFailure(
-          AuthenticationError(
+          MainError(
             name: "RequestTimeOutError",
             message: "Request time out cannot connect to the server",
             status: 408,
@@ -175,7 +176,7 @@ class AuthenticationRepository implements IAuthenticationRepo {
     } catch (_) {
       return left(
         const MainFailure.clientFailure(
-          AuthenticationError(
+          MainError(
             name: "BadRequestError",
             message: "Bad request from client",
             status: 400,
