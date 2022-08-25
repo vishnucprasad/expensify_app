@@ -14,25 +14,13 @@ class MenuListItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: onTap,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Text(
-                  text,
-                  style: kBlackSmallTextBold,
-                ),
-                const Spacer(),
-                Icon(icon),
-              ],
-            ),
-          ),
-        ),
-      ],
+    return ListTile(
+      leading: Text(
+        text,
+        style: kBlackSmallTextBold,
+      ),
+      trailing: Icon(icon),
+      onTap: onTap,
     );
   }
 }

@@ -1,14 +1,16 @@
+import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/presentation/categories/categories_screen.dart';
 import 'package:expensify/presentation/menu/widgets/menu_list_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MenuListWidget extends StatelessWidget {
   const MenuListWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final List<MenuListItemWidget> menuList = getMenuList(context);
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -23,21 +25,56 @@ class MenuListWidget extends StatelessWidget {
             kHeight,
             Expanded(
               child: Container(
-                decoration: const BoxDecoration(
-                  color: whiteColor,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10),
+                  decoration: const BoxDecoration(
+                    color: whiteColor,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
                   ),
-                ),
-                child: ListView.separated(
-                  itemBuilder: (ctx, index) => menuList[index],
-                  separatorBuilder: (ctx, index) => const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Divider(),
-                  ),
-                  itemCount: menuList.length,
-                ),
-              ),
+                  child: ListView(
+                    children: [
+                      MenuListItemWidget(
+                        icon: Icons.category,
+                        text: 'Categories',
+                        onTap: () {
+                          Navigator.of(context).push(
+                            PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) =>
+                                      BlocBuilder<AuthenticationBloc,
+                                          AuthenticationState>(
+                                builder: (context, state) {
+                                  return CategoriesScreen(
+                                    authtoken: state.authentication?.authtoken,
+                                  );
+                                },
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      const MenuListItemWidget(
+                        icon: Icons.edit,
+                        text: 'Edit profile',
+                      ),
+                      const MenuListItemWidget(
+                        icon: Icons.help,
+                        text: 'Help Center',
+                      ),
+                      const MenuListItemWidget(
+                        icon: Icons.feedback,
+                        text: 'Feedback',
+                      ),
+                      const MenuListItemWidget(
+                        icon: Icons.phone,
+                        text: 'Contact us',
+                      ),
+                      const MenuListItemWidget(
+                        icon: Icons.info,
+                        text: 'About',
+                      ),
+                    ],
+                  )),
             )
           ],
         ),

@@ -4,7 +4,7 @@ import 'package:expensify/domain/category/i_category_repo.dart';
 import 'package:expensify/domain/core/api_end_points.dart';
 import 'package:expensify/domain/core/failures/main_failure.dart';
 import 'package:expensify/domain/category/models/category.dart';
-import 'package:expensify/domain/errors/main_error.dart';
+import 'package:expensify/domain/core/errors/main_error.dart';
 import 'package:injectable/injectable.dart';
 
 @LazySingleton(as: ICategoryRepo)

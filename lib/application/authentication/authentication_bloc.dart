@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:expensify/domain/authentication/i_authentication_repo.dart';
 import 'package:expensify/domain/authentication/models/authentication.dart';
 import 'package:expensify/domain/core/failures/main_failure.dart';
-import 'package:expensify/domain/errors/main_error.dart';
+import 'package:expensify/domain/core/errors/main_error.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
