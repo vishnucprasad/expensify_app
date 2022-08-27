@@ -4,6 +4,11 @@ import 'package:expensify/domain/core/failures/main_failure.dart';
 
 abstract class ICategoryRepo {
   Future<Either<MainFailure, CategoryList>> getCategories(
-    String? authToken,
+    String? authtoken,
+  );
+  Future<Either<MainFailure, CategoryList>> addCategory(
+    String? authtoken,
+    String? title,
+    String? type,
   );
 }

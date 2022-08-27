@@ -22,12 +22,80 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
             emit(
               state.copyWith(
                 isLoading: true,
+                categoryList: null,
                 categoryFailureOrSuccessOption: none(),
               ),
             );
 
             final Either<MainFailure, CategoryList> categoryOptions =
                 await _categoryRepo.getCategories(value.authtoken);
+
+            emit(
+              categoryOptions.fold(
+                (failure) {
+                  return failure.map(
+                    clientFailure: (ClientFailure value) => state.copyWith(
+                      isLoading: false,
+                      categoryFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                    serverFailure: (ServerFailure value) => state.copyWith(
+                      isLoading: false,
+                      categoryFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                  );
+                },
+                (success) => state.copyWith(
+                  isLoading: false,
+                  categoryList: success,
+                  error: null,
+                  categoryFailureOrSuccessOption: some(
+                    right(success),
+                  ),
+                ),
+              ),
+            );
+          },
+          titleChangeEvent: (_TitleChangeEvent value) {
+            emit(
+              state.copyWith(
+                title: value.title,
+              ),
+            );
+          },
+          typeChangeEvent: (_TypeChangeEvent value) {
+            emit(
+              state.copyWith(
+                type: value.type,
+              ),
+            );
+          },
+          categoryTypeIndexChangeEvent: (_CategoryTypeIndexChangeEvent value) {
+            emit(
+              state.copyWith(
+                categoryTypeindex: value.index,
+              ),
+            );
+          },
+          addCategory: (_AddCategory value) async {
+            emit(
+              state.copyWith(
+                isLoading: true,
+                categoryFailureOrSuccessOption: none(),
+              ),
+            );
+
+            final Either<MainFailure, CategoryList> categoryOptions =
+                await _categoryRepo.addCategory(
+              value.authtoken,
+              value.title,
+              value.type,
+            );
 
             emit(
               categoryOptions.fold(

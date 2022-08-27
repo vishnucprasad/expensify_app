@@ -3,6 +3,7 @@ import 'package:expensify/application/category/category_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/presentation/categories/widgets/category_list_Item_widget.dart';
+import 'package:expensify/presentation/widgets/category_bottom_sheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -129,10 +130,35 @@ class CategoriesScreen extends StatelessWidget {
           ),
           floatingActionButton: FloatingActionButton(
             backgroundColor: infoColor,
-            onPressed: () {},
+            onPressed: () {
+              openAddCategorySheet(context);
+            },
             child: const Icon(Icons.add),
           ),
         ),
+      ),
+    );
+  }
+
+  void openAddCategorySheet(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (ctx) => BlocBuilder<CategoryBloc, CategoryState>(
+        builder: (context, state) {
+          return CategoryBottomSheetWidget(
+            title: 'Add Category',
+            onSubmit: () {
+              context.read<CategoryBloc>().add(
+                    CategoryEvent.addCategory(
+                      authtoken,
+                      state.title,
+                      state.type,
+                    ),
+                  );
+              Navigator.of(context).pop();
+            },
+          );
+        },
       ),
     );
   }

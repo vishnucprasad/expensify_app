@@ -1,24 +1,23 @@
+import 'package:expensify/application/category/category_bloc.dart';
 import 'package:expensify/core/constants.dart';
-import 'package:expensify/presentation/widgets/dropdow_widget.dart';
+import 'package:expensify/presentation/widgets/custom_toggle_button_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class TransactionsBottomSheetWidget extends StatelessWidget {
+class CategoryBottomSheetWidget extends StatelessWidget {
   final String title;
-  TransactionsBottomSheetWidget({
+  final void Function() onSubmit;
+  const CategoryBottomSheetWidget({
     required this.title,
+    required this.onSubmit,
     Key? key,
   }) : super(key: key);
-
-  final List<String> dropDownList = [
-    "Travel",
-    "Food & Drink",
-    "Entertainment",
-  ];
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
+      height: 300,
       color: Colors.transparent,
       child: Container(
         padding: EdgeInsets.only(
@@ -41,42 +40,39 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
               title,
               style: kBlackMediumTextBold,
             ),
-            DropdownWidget(dropDownList: dropDownList),
+            kHeight,
             const Text(
-              "TOTAL AMOUNT",
+              "Category Title",
               style: kSecondarySmallText,
             ),
             TextFormField(
-              initialValue: "100",
-              style: Theme.of(context).textTheme.headline4,
+              style: kBlackMediumTextBold,
+              decoration: const InputDecoration(
+                hintText: "Title",
+                hintStyle: kSecondaryMediumText,
+              ),
+              onChanged: (value) {
+                context.read<CategoryBloc>().add(
+                      CategoryEvent.titleChangeEvent(value),
+                    );
+              },
             ),
-            kHeight20,
+            kHeight,
             const Text(
-              "TOTAL AMOUNT",
+              "Category Type",
               style: kSecondarySmallText,
             ),
             kHeight,
-            ElevatedButton.icon(
-              onPressed: () async {
-                final selectedDateTemp = await showDatePicker(
-                  context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime.now().subtract(
-                    const Duration(
-                      days: 30,
-                    ),
-                  ),
-                  lastDate: DateTime.now(),
-                );
-
-                if (selectedDateTemp == null) {
-                  return;
-                }
-              },
-              icon: const Icon(Icons.calendar_today),
-              label: const Text(
-                'Select Date',
-                style: kWhiteMediumTextBold,
+            CustomToggleButtonWidget(),
+            kHeight,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Colors.lightBlue,
+                minimumSize: const Size.fromHeight(50), // NEW
+              ),
+              onPressed: onSubmit,
+              child: const Text(
+                'Save',
               ),
             ),
           ],

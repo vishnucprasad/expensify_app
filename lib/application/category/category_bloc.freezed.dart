@@ -16,42 +16,67 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$CategoryEvent {
-  String? get authtoken => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? authtoken) getCategories,
+    required TResult Function(String? title) titleChangeEvent,
+    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(int index) categoryTypeIndexChangeEvent,
+    required TResult Function(String? authtoken, String? title, String? type)
+        addCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_TitleChangeEvent value) titleChangeEvent,
+    required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_CategoryTypeIndexChangeEvent value)
+        categoryTypeIndexChangeEvent,
+    required TResult Function(_AddCategory value) addCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $CategoryEventCopyWith<CategoryEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,7 +85,6 @@ abstract class $CategoryEventCopyWith<$Res> {
   factory $CategoryEventCopyWith(
           CategoryEvent value, $Res Function(CategoryEvent) then) =
       _$CategoryEventCopyWithImpl<$Res>;
-  $Res call({String? authtoken});
 }
 
 /// @nodoc
@@ -71,27 +95,13 @@ class _$CategoryEventCopyWithImpl<$Res>
   final CategoryEvent _value;
   // ignore: unused_field
   final $Res Function(CategoryEvent) _then;
-
-  @override
-  $Res call({
-    Object? authtoken = freezed,
-  }) {
-    return _then(_value.copyWith(
-      authtoken: authtoken == freezed
-          ? _value.authtoken
-          : authtoken // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
 }
 
 /// @nodoc
-abstract class _$$_GetCategoriesCopyWith<$Res>
-    implements $CategoryEventCopyWith<$Res> {
+abstract class _$$_GetCategoriesCopyWith<$Res> {
   factory _$$_GetCategoriesCopyWith(
           _$_GetCategories value, $Res Function(_$_GetCategories) then) =
       __$$_GetCategoriesCopyWithImpl<$Res>;
-  @override
   $Res call({String? authtoken});
 }
 
@@ -153,6 +163,11 @@ class _$_GetCategories implements _GetCategories {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? authtoken) getCategories,
+    required TResult Function(String? title) titleChangeEvent,
+    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(int index) categoryTypeIndexChangeEvent,
+    required TResult Function(String? authtoken, String? title, String? type)
+        addCategory,
   }) {
     return getCategories(authtoken);
   }
@@ -161,6 +176,11 @@ class _$_GetCategories implements _GetCategories {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
   }) {
     return getCategories?.call(authtoken);
   }
@@ -169,6 +189,11 @@ class _$_GetCategories implements _GetCategories {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
     required TResult orElse(),
   }) {
     if (getCategories != null) {
@@ -181,6 +206,11 @@ class _$_GetCategories implements _GetCategories {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_TitleChangeEvent value) titleChangeEvent,
+    required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_CategoryTypeIndexChangeEvent value)
+        categoryTypeIndexChangeEvent,
+    required TResult Function(_AddCategory value) addCategory,
   }) {
     return getCategories(this);
   }
@@ -189,6 +219,11 @@ class _$_GetCategories implements _GetCategories {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
   }) {
     return getCategories?.call(this);
   }
@@ -197,6 +232,11 @@ class _$_GetCategories implements _GetCategories {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
     required TResult orElse(),
   }) {
     if (getCategories != null) {
@@ -209,17 +249,678 @@ class _$_GetCategories implements _GetCategories {
 abstract class _GetCategories implements CategoryEvent {
   const factory _GetCategories(final String? authtoken) = _$_GetCategories;
 
-  @override
   String? get authtoken;
-  @override
   @JsonKey(ignore: true)
   _$$_GetCategoriesCopyWith<_$_GetCategories> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
+abstract class _$$_TitleChangeEventCopyWith<$Res> {
+  factory _$$_TitleChangeEventCopyWith(
+          _$_TitleChangeEvent value, $Res Function(_$_TitleChangeEvent) then) =
+      __$$_TitleChangeEventCopyWithImpl<$Res>;
+  $Res call({String? title});
+}
+
+/// @nodoc
+class __$$_TitleChangeEventCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res>
+    implements _$$_TitleChangeEventCopyWith<$Res> {
+  __$$_TitleChangeEventCopyWithImpl(
+      _$_TitleChangeEvent _value, $Res Function(_$_TitleChangeEvent) _then)
+      : super(_value, (v) => _then(v as _$_TitleChangeEvent));
+
+  @override
+  _$_TitleChangeEvent get _value => super._value as _$_TitleChangeEvent;
+
+  @override
+  $Res call({
+    Object? title = freezed,
+  }) {
+    return _then(_$_TitleChangeEvent(
+      title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TitleChangeEvent implements _TitleChangeEvent {
+  const _$_TitleChangeEvent(this.title);
+
+  @override
+  final String? title;
+
+  @override
+  String toString() {
+    return 'CategoryEvent.titleChangeEvent(title: $title)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TitleChangeEvent &&
+            const DeepCollectionEquality().equals(other.title, title));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(title));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_TitleChangeEventCopyWith<_$_TitleChangeEvent> get copyWith =>
+      __$$_TitleChangeEventCopyWithImpl<_$_TitleChangeEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? authtoken) getCategories,
+    required TResult Function(String? title) titleChangeEvent,
+    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(int index) categoryTypeIndexChangeEvent,
+    required TResult Function(String? authtoken, String? title, String? type)
+        addCategory,
+  }) {
+    return titleChangeEvent(title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
+  }) {
+    return titleChangeEvent?.call(title);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
+    required TResult orElse(),
+  }) {
+    if (titleChangeEvent != null) {
+      return titleChangeEvent(title);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_TitleChangeEvent value) titleChangeEvent,
+    required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_CategoryTypeIndexChangeEvent value)
+        categoryTypeIndexChangeEvent,
+    required TResult Function(_AddCategory value) addCategory,
+  }) {
+    return titleChangeEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
+  }) {
+    return titleChangeEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
+    required TResult orElse(),
+  }) {
+    if (titleChangeEvent != null) {
+      return titleChangeEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TitleChangeEvent implements CategoryEvent {
+  const factory _TitleChangeEvent(final String? title) = _$_TitleChangeEvent;
+
+  String? get title;
+  @JsonKey(ignore: true)
+  _$$_TitleChangeEventCopyWith<_$_TitleChangeEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_TypeChangeEventCopyWith<$Res> {
+  factory _$$_TypeChangeEventCopyWith(
+          _$_TypeChangeEvent value, $Res Function(_$_TypeChangeEvent) then) =
+      __$$_TypeChangeEventCopyWithImpl<$Res>;
+  $Res call({String? type});
+}
+
+/// @nodoc
+class __$$_TypeChangeEventCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res>
+    implements _$$_TypeChangeEventCopyWith<$Res> {
+  __$$_TypeChangeEventCopyWithImpl(
+      _$_TypeChangeEvent _value, $Res Function(_$_TypeChangeEvent) _then)
+      : super(_value, (v) => _then(v as _$_TypeChangeEvent));
+
+  @override
+  _$_TypeChangeEvent get _value => super._value as _$_TypeChangeEvent;
+
+  @override
+  $Res call({
+    Object? type = freezed,
+  }) {
+    return _then(_$_TypeChangeEvent(
+      type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TypeChangeEvent implements _TypeChangeEvent {
+  const _$_TypeChangeEvent(this.type);
+
+  @override
+  final String? type;
+
+  @override
+  String toString() {
+    return 'CategoryEvent.typeChangeEvent(type: $type)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TypeChangeEvent &&
+            const DeepCollectionEquality().equals(other.type, type));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(type));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_TypeChangeEventCopyWith<_$_TypeChangeEvent> get copyWith =>
+      __$$_TypeChangeEventCopyWithImpl<_$_TypeChangeEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? authtoken) getCategories,
+    required TResult Function(String? title) titleChangeEvent,
+    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(int index) categoryTypeIndexChangeEvent,
+    required TResult Function(String? authtoken, String? title, String? type)
+        addCategory,
+  }) {
+    return typeChangeEvent(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
+  }) {
+    return typeChangeEvent?.call(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
+    required TResult orElse(),
+  }) {
+    if (typeChangeEvent != null) {
+      return typeChangeEvent(type);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_TitleChangeEvent value) titleChangeEvent,
+    required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_CategoryTypeIndexChangeEvent value)
+        categoryTypeIndexChangeEvent,
+    required TResult Function(_AddCategory value) addCategory,
+  }) {
+    return typeChangeEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
+  }) {
+    return typeChangeEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
+    required TResult orElse(),
+  }) {
+    if (typeChangeEvent != null) {
+      return typeChangeEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TypeChangeEvent implements CategoryEvent {
+  const factory _TypeChangeEvent(final String? type) = _$_TypeChangeEvent;
+
+  String? get type;
+  @JsonKey(ignore: true)
+  _$$_TypeChangeEventCopyWith<_$_TypeChangeEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_CategoryTypeIndexChangeEventCopyWith<$Res> {
+  factory _$$_CategoryTypeIndexChangeEventCopyWith(
+          _$_CategoryTypeIndexChangeEvent value,
+          $Res Function(_$_CategoryTypeIndexChangeEvent) then) =
+      __$$_CategoryTypeIndexChangeEventCopyWithImpl<$Res>;
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$_CategoryTypeIndexChangeEventCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res>
+    implements _$$_CategoryTypeIndexChangeEventCopyWith<$Res> {
+  __$$_CategoryTypeIndexChangeEventCopyWithImpl(
+      _$_CategoryTypeIndexChangeEvent _value,
+      $Res Function(_$_CategoryTypeIndexChangeEvent) _then)
+      : super(_value, (v) => _then(v as _$_CategoryTypeIndexChangeEvent));
+
+  @override
+  _$_CategoryTypeIndexChangeEvent get _value =>
+      super._value as _$_CategoryTypeIndexChangeEvent;
+
+  @override
+  $Res call({
+    Object? index = freezed,
+  }) {
+    return _then(_$_CategoryTypeIndexChangeEvent(
+      index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_CategoryTypeIndexChangeEvent implements _CategoryTypeIndexChangeEvent {
+  const _$_CategoryTypeIndexChangeEvent(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'CategoryEvent.categoryTypeIndexChangeEvent(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_CategoryTypeIndexChangeEvent &&
+            const DeepCollectionEquality().equals(other.index, index));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_CategoryTypeIndexChangeEventCopyWith<_$_CategoryTypeIndexChangeEvent>
+      get copyWith => __$$_CategoryTypeIndexChangeEventCopyWithImpl<
+          _$_CategoryTypeIndexChangeEvent>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? authtoken) getCategories,
+    required TResult Function(String? title) titleChangeEvent,
+    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(int index) categoryTypeIndexChangeEvent,
+    required TResult Function(String? authtoken, String? title, String? type)
+        addCategory,
+  }) {
+    return categoryTypeIndexChangeEvent(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
+  }) {
+    return categoryTypeIndexChangeEvent?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
+    required TResult orElse(),
+  }) {
+    if (categoryTypeIndexChangeEvent != null) {
+      return categoryTypeIndexChangeEvent(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_TitleChangeEvent value) titleChangeEvent,
+    required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_CategoryTypeIndexChangeEvent value)
+        categoryTypeIndexChangeEvent,
+    required TResult Function(_AddCategory value) addCategory,
+  }) {
+    return categoryTypeIndexChangeEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
+  }) {
+    return categoryTypeIndexChangeEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
+    required TResult orElse(),
+  }) {
+    if (categoryTypeIndexChangeEvent != null) {
+      return categoryTypeIndexChangeEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CategoryTypeIndexChangeEvent implements CategoryEvent {
+  const factory _CategoryTypeIndexChangeEvent(final int index) =
+      _$_CategoryTypeIndexChangeEvent;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_CategoryTypeIndexChangeEventCopyWith<_$_CategoryTypeIndexChangeEvent>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddCategoryCopyWith<$Res> {
+  factory _$$_AddCategoryCopyWith(
+          _$_AddCategory value, $Res Function(_$_AddCategory) then) =
+      __$$_AddCategoryCopyWithImpl<$Res>;
+  $Res call({String? authtoken, String? title, String? type});
+}
+
+/// @nodoc
+class __$$_AddCategoryCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res>
+    implements _$$_AddCategoryCopyWith<$Res> {
+  __$$_AddCategoryCopyWithImpl(
+      _$_AddCategory _value, $Res Function(_$_AddCategory) _then)
+      : super(_value, (v) => _then(v as _$_AddCategory));
+
+  @override
+  _$_AddCategory get _value => super._value as _$_AddCategory;
+
+  @override
+  $Res call({
+    Object? authtoken = freezed,
+    Object? title = freezed,
+    Object? type = freezed,
+  }) {
+    return _then(_$_AddCategory(
+      authtoken == freezed
+          ? _value.authtoken
+          : authtoken // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddCategory implements _AddCategory {
+  const _$_AddCategory(this.authtoken, this.title, this.type);
+
+  @override
+  final String? authtoken;
+  @override
+  final String? title;
+  @override
+  final String? type;
+
+  @override
+  String toString() {
+    return 'CategoryEvent.addCategory(authtoken: $authtoken, title: $title, type: $type)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddCategory &&
+            const DeepCollectionEquality().equals(other.authtoken, authtoken) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.type, type));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(authtoken),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(type));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_AddCategoryCopyWith<_$_AddCategory> get copyWith =>
+      __$$_AddCategoryCopyWithImpl<_$_AddCategory>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? authtoken) getCategories,
+    required TResult Function(String? title) titleChangeEvent,
+    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(int index) categoryTypeIndexChangeEvent,
+    required TResult Function(String? authtoken, String? title, String? type)
+        addCategory,
+  }) {
+    return addCategory(authtoken, title, type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
+  }) {
+    return addCategory?.call(authtoken, title, type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
+    required TResult orElse(),
+  }) {
+    if (addCategory != null) {
+      return addCategory(authtoken, title, type);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_TitleChangeEvent value) titleChangeEvent,
+    required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_CategoryTypeIndexChangeEvent value)
+        categoryTypeIndexChangeEvent,
+    required TResult Function(_AddCategory value) addCategory,
+  }) {
+    return addCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
+  }) {
+    return addCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
+    required TResult orElse(),
+  }) {
+    if (addCategory != null) {
+      return addCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddCategory implements CategoryEvent {
+  const factory _AddCategory(
+          final String? authtoken, final String? title, final String? type) =
+      _$_AddCategory;
+
+  String? get authtoken;
+  String? get title;
+  String? get type;
+  @JsonKey(ignore: true)
+  _$$_AddCategoryCopyWith<_$_AddCategory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CategoryState {
   bool get isLoading => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get type => throw _privateConstructorUsedError;
+  int get categoryTypeindex => throw _privateConstructorUsedError;
   CategoryList? get categoryList => throw _privateConstructorUsedError;
   MainError? get error => throw _privateConstructorUsedError;
   Option<Either<MainFailure, CategoryList>>
@@ -237,6 +938,9 @@ abstract class $CategoryStateCopyWith<$Res> {
       _$CategoryStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
+      String? title,
+      String? type,
+      int categoryTypeindex,
       CategoryList? categoryList,
       MainError? error,
       Option<Either<MainFailure, CategoryList>>
@@ -258,6 +962,9 @@ class _$CategoryStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? title = freezed,
+    Object? type = freezed,
+    Object? categoryTypeindex = freezed,
     Object? categoryList = freezed,
     Object? error = freezed,
     Object? categoryFailureOrSuccessOption = freezed,
@@ -267,6 +974,18 @@ class _$CategoryStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      categoryTypeindex: categoryTypeindex == freezed
+          ? _value.categoryTypeindex
+          : categoryTypeindex // ignore: cast_nullable_to_non_nullable
+              as int,
       categoryList: categoryList == freezed
           ? _value.categoryList
           : categoryList // ignore: cast_nullable_to_non_nullable
@@ -314,6 +1033,9 @@ abstract class _$$_CategoryStateCopyWith<$Res>
   @override
   $Res call(
       {bool isLoading,
+      String? title,
+      String? type,
+      int categoryTypeindex,
       CategoryList? categoryList,
       MainError? error,
       Option<Either<MainFailure, CategoryList>>
@@ -339,6 +1061,9 @@ class __$$_CategoryStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? title = freezed,
+    Object? type = freezed,
+    Object? categoryTypeindex = freezed,
     Object? categoryList = freezed,
     Object? error = freezed,
     Object? categoryFailureOrSuccessOption = freezed,
@@ -348,6 +1073,18 @@ class __$$_CategoryStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      categoryTypeindex: categoryTypeindex == freezed
+          ? _value.categoryTypeindex
+          : categoryTypeindex // ignore: cast_nullable_to_non_nullable
+              as int,
       categoryList: categoryList == freezed
           ? _value.categoryList
           : categoryList // ignore: cast_nullable_to_non_nullable
@@ -369,12 +1106,21 @@ class __$$_CategoryStateCopyWithImpl<$Res>
 class _$_CategoryState implements _CategoryState {
   const _$_CategoryState(
       {required this.isLoading,
+      required this.title,
+      required this.type,
+      required this.categoryTypeindex,
       required this.categoryList,
       required this.error,
       required this.categoryFailureOrSuccessOption});
 
   @override
   final bool isLoading;
+  @override
+  final String? title;
+  @override
+  final String? type;
+  @override
+  final int categoryTypeindex;
   @override
   final CategoryList? categoryList;
   @override
@@ -385,7 +1131,7 @@ class _$_CategoryState implements _CategoryState {
 
   @override
   String toString() {
-    return 'CategoryState(isLoading: $isLoading, categoryList: $categoryList, error: $error, categoryFailureOrSuccessOption: $categoryFailureOrSuccessOption)';
+    return 'CategoryState(isLoading: $isLoading, title: $title, type: $type, categoryTypeindex: $categoryTypeindex, categoryList: $categoryList, error: $error, categoryFailureOrSuccessOption: $categoryFailureOrSuccessOption)';
   }
 
   @override
@@ -394,6 +1140,10 @@ class _$_CategoryState implements _CategoryState {
         (other.runtimeType == runtimeType &&
             other is _$_CategoryState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality()
+                .equals(other.categoryTypeindex, categoryTypeindex) &&
             const DeepCollectionEquality()
                 .equals(other.categoryList, categoryList) &&
             const DeepCollectionEquality().equals(other.error, error) &&
@@ -406,6 +1156,9 @@ class _$_CategoryState implements _CategoryState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(categoryTypeindex),
       const DeepCollectionEquality().hash(categoryList),
       const DeepCollectionEquality().hash(error),
       const DeepCollectionEquality().hash(categoryFailureOrSuccessOption));
@@ -419,6 +1172,9 @@ class _$_CategoryState implements _CategoryState {
 abstract class _CategoryState implements CategoryState {
   const factory _CategoryState(
       {required final bool isLoading,
+      required final String? title,
+      required final String? type,
+      required final int categoryTypeindex,
       required final CategoryList? categoryList,
       required final MainError? error,
       required final Option<Either<MainFailure, CategoryList>>
@@ -426,6 +1182,12 @@ abstract class _CategoryState implements CategoryState {
 
   @override
   bool get isLoading;
+  @override
+  String? get title;
+  @override
+  String? get type;
+  @override
+  int get categoryTypeindex;
   @override
   CategoryList? get categoryList;
   @override
