@@ -60,7 +60,12 @@ class CategoryListItemWidget extends StatelessWidget {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.read<CategoryBloc>().add(
+                              CategoryEvent.deleteCategory(
+                                  authtoken, category?.id),
+                            );
+                      },
                       icon: const Icon(
                         Icons.delete,
                         size: 30,

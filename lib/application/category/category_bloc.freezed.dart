@@ -27,6 +27,7 @@ mixin _$CategoryEvent {
     required TResult Function(
             String? authtoken, String? id, String? title, String? type)
         editCategory,
+    required TResult Function(String? authtoken, String? id) deleteCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +41,7 @@ mixin _$CategoryEvent {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +55,7 @@ mixin _$CategoryEvent {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -65,6 +68,7 @@ mixin _$CategoryEvent {
         categoryTypeIndexChangeEvent,
     required TResult Function(_AddCategory value) addCategory,
     required TResult Function(_EditCategory value) editCategory,
+    required TResult Function(_DeleteCategory value) deleteCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +80,7 @@ mixin _$CategoryEvent {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,6 +92,7 @@ mixin _$CategoryEvent {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -183,6 +189,7 @@ class _$_GetCategories implements _GetCategories {
     required TResult Function(
             String? authtoken, String? id, String? title, String? type)
         editCategory,
+    required TResult Function(String? authtoken, String? id) deleteCategory,
   }) {
     return getCategories(authtoken);
   }
@@ -199,6 +206,7 @@ class _$_GetCategories implements _GetCategories {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
   }) {
     return getCategories?.call(authtoken);
   }
@@ -215,6 +223,7 @@ class _$_GetCategories implements _GetCategories {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
     required TResult orElse(),
   }) {
     if (getCategories != null) {
@@ -233,6 +242,7 @@ class _$_GetCategories implements _GetCategories {
         categoryTypeIndexChangeEvent,
     required TResult Function(_AddCategory value) addCategory,
     required TResult Function(_EditCategory value) editCategory,
+    required TResult Function(_DeleteCategory value) deleteCategory,
   }) {
     return getCategories(this);
   }
@@ -247,6 +257,7 @@ class _$_GetCategories implements _GetCategories {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
   }) {
     return getCategories?.call(this);
   }
@@ -261,6 +272,7 @@ class _$_GetCategories implements _GetCategories {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) {
     if (getCategories != null) {
@@ -353,6 +365,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
     required TResult Function(
             String? authtoken, String? id, String? title, String? type)
         editCategory,
+    required TResult Function(String? authtoken, String? id) deleteCategory,
   }) {
     return titleChangeEvent(title);
   }
@@ -369,6 +382,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
   }) {
     return titleChangeEvent?.call(title);
   }
@@ -385,6 +399,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
     required TResult orElse(),
   }) {
     if (titleChangeEvent != null) {
@@ -403,6 +418,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
         categoryTypeIndexChangeEvent,
     required TResult Function(_AddCategory value) addCategory,
     required TResult Function(_EditCategory value) editCategory,
+    required TResult Function(_DeleteCategory value) deleteCategory,
   }) {
     return titleChangeEvent(this);
   }
@@ -417,6 +433,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
   }) {
     return titleChangeEvent?.call(this);
   }
@@ -431,6 +448,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) {
     if (titleChangeEvent != null) {
@@ -523,6 +541,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
     required TResult Function(
             String? authtoken, String? id, String? title, String? type)
         editCategory,
+    required TResult Function(String? authtoken, String? id) deleteCategory,
   }) {
     return typeChangeEvent(type);
   }
@@ -539,6 +558,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
   }) {
     return typeChangeEvent?.call(type);
   }
@@ -555,6 +575,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
     required TResult orElse(),
   }) {
     if (typeChangeEvent != null) {
@@ -573,6 +594,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
         categoryTypeIndexChangeEvent,
     required TResult Function(_AddCategory value) addCategory,
     required TResult Function(_EditCategory value) editCategory,
+    required TResult Function(_DeleteCategory value) deleteCategory,
   }) {
     return typeChangeEvent(this);
   }
@@ -587,6 +609,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
   }) {
     return typeChangeEvent?.call(this);
   }
@@ -601,6 +624,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) {
     if (typeChangeEvent != null) {
@@ -697,6 +721,7 @@ class _$_CategoryTypeIndexChangeEvent implements _CategoryTypeIndexChangeEvent {
     required TResult Function(
             String? authtoken, String? id, String? title, String? type)
         editCategory,
+    required TResult Function(String? authtoken, String? id) deleteCategory,
   }) {
     return categoryTypeIndexChangeEvent(index);
   }
@@ -713,6 +738,7 @@ class _$_CategoryTypeIndexChangeEvent implements _CategoryTypeIndexChangeEvent {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
   }) {
     return categoryTypeIndexChangeEvent?.call(index);
   }
@@ -729,6 +755,7 @@ class _$_CategoryTypeIndexChangeEvent implements _CategoryTypeIndexChangeEvent {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
     required TResult orElse(),
   }) {
     if (categoryTypeIndexChangeEvent != null) {
@@ -747,6 +774,7 @@ class _$_CategoryTypeIndexChangeEvent implements _CategoryTypeIndexChangeEvent {
         categoryTypeIndexChangeEvent,
     required TResult Function(_AddCategory value) addCategory,
     required TResult Function(_EditCategory value) editCategory,
+    required TResult Function(_DeleteCategory value) deleteCategory,
   }) {
     return categoryTypeIndexChangeEvent(this);
   }
@@ -761,6 +789,7 @@ class _$_CategoryTypeIndexChangeEvent implements _CategoryTypeIndexChangeEvent {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
   }) {
     return categoryTypeIndexChangeEvent?.call(this);
   }
@@ -775,6 +804,7 @@ class _$_CategoryTypeIndexChangeEvent implements _CategoryTypeIndexChangeEvent {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) {
     if (categoryTypeIndexChangeEvent != null) {
@@ -887,6 +917,7 @@ class _$_AddCategory implements _AddCategory {
     required TResult Function(
             String? authtoken, String? id, String? title, String? type)
         editCategory,
+    required TResult Function(String? authtoken, String? id) deleteCategory,
   }) {
     return addCategory(authtoken, title, type);
   }
@@ -903,6 +934,7 @@ class _$_AddCategory implements _AddCategory {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
   }) {
     return addCategory?.call(authtoken, title, type);
   }
@@ -919,6 +951,7 @@ class _$_AddCategory implements _AddCategory {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
     required TResult orElse(),
   }) {
     if (addCategory != null) {
@@ -937,6 +970,7 @@ class _$_AddCategory implements _AddCategory {
         categoryTypeIndexChangeEvent,
     required TResult Function(_AddCategory value) addCategory,
     required TResult Function(_EditCategory value) editCategory,
+    required TResult Function(_DeleteCategory value) deleteCategory,
   }) {
     return addCategory(this);
   }
@@ -951,6 +985,7 @@ class _$_AddCategory implements _AddCategory {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
   }) {
     return addCategory?.call(this);
   }
@@ -965,6 +1000,7 @@ class _$_AddCategory implements _AddCategory {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) {
     if (addCategory != null) {
@@ -1089,6 +1125,7 @@ class _$_EditCategory implements _EditCategory {
     required TResult Function(
             String? authtoken, String? id, String? title, String? type)
         editCategory,
+    required TResult Function(String? authtoken, String? id) deleteCategory,
   }) {
     return editCategory(authtoken, id, title, type);
   }
@@ -1105,6 +1142,7 @@ class _$_EditCategory implements _EditCategory {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
   }) {
     return editCategory?.call(authtoken, id, title, type);
   }
@@ -1121,6 +1159,7 @@ class _$_EditCategory implements _EditCategory {
     TResult Function(
             String? authtoken, String? id, String? title, String? type)?
         editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
     required TResult orElse(),
   }) {
     if (editCategory != null) {
@@ -1139,6 +1178,7 @@ class _$_EditCategory implements _EditCategory {
         categoryTypeIndexChangeEvent,
     required TResult Function(_AddCategory value) addCategory,
     required TResult Function(_EditCategory value) editCategory,
+    required TResult Function(_DeleteCategory value) deleteCategory,
   }) {
     return editCategory(this);
   }
@@ -1153,6 +1193,7 @@ class _$_EditCategory implements _EditCategory {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
   }) {
     return editCategory?.call(this);
   }
@@ -1167,6 +1208,7 @@ class _$_EditCategory implements _EditCategory {
         categoryTypeIndexChangeEvent,
     TResult Function(_AddCategory value)? addCategory,
     TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
     required TResult orElse(),
   }) {
     if (editCategory != null) {
@@ -1186,6 +1228,194 @@ abstract class _EditCategory implements CategoryEvent {
   String? get type;
   @JsonKey(ignore: true)
   _$$_EditCategoryCopyWith<_$_EditCategory> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_DeleteCategoryCopyWith<$Res> {
+  factory _$$_DeleteCategoryCopyWith(
+          _$_DeleteCategory value, $Res Function(_$_DeleteCategory) then) =
+      __$$_DeleteCategoryCopyWithImpl<$Res>;
+  $Res call({String? authtoken, String? id});
+}
+
+/// @nodoc
+class __$$_DeleteCategoryCopyWithImpl<$Res>
+    extends _$CategoryEventCopyWithImpl<$Res>
+    implements _$$_DeleteCategoryCopyWith<$Res> {
+  __$$_DeleteCategoryCopyWithImpl(
+      _$_DeleteCategory _value, $Res Function(_$_DeleteCategory) _then)
+      : super(_value, (v) => _then(v as _$_DeleteCategory));
+
+  @override
+  _$_DeleteCategory get _value => super._value as _$_DeleteCategory;
+
+  @override
+  $Res call({
+    Object? authtoken = freezed,
+    Object? id = freezed,
+  }) {
+    return _then(_$_DeleteCategory(
+      authtoken == freezed
+          ? _value.authtoken
+          : authtoken // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DeleteCategory implements _DeleteCategory {
+  const _$_DeleteCategory(this.authtoken, this.id);
+
+  @override
+  final String? authtoken;
+  @override
+  final String? id;
+
+  @override
+  String toString() {
+    return 'CategoryEvent.deleteCategory(authtoken: $authtoken, id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_DeleteCategory &&
+            const DeepCollectionEquality().equals(other.authtoken, authtoken) &&
+            const DeepCollectionEquality().equals(other.id, id));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(authtoken),
+      const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_DeleteCategoryCopyWith<_$_DeleteCategory> get copyWith =>
+      __$$_DeleteCategoryCopyWithImpl<_$_DeleteCategory>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? authtoken) getCategories,
+    required TResult Function(String? title) titleChangeEvent,
+    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(int index) categoryTypeIndexChangeEvent,
+    required TResult Function(String? authtoken, String? title, String? type)
+        addCategory,
+    required TResult Function(
+            String? authtoken, String? id, String? title, String? type)
+        editCategory,
+    required TResult Function(String? authtoken, String? id) deleteCategory,
+  }) {
+    return deleteCategory(authtoken, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
+    TResult Function(
+            String? authtoken, String? id, String? title, String? type)?
+        editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
+  }) {
+    return deleteCategory?.call(authtoken, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? authtoken)? getCategories,
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(int index)? categoryTypeIndexChangeEvent,
+    TResult Function(String? authtoken, String? title, String? type)?
+        addCategory,
+    TResult Function(
+            String? authtoken, String? id, String? title, String? type)?
+        editCategory,
+    TResult Function(String? authtoken, String? id)? deleteCategory,
+    required TResult orElse(),
+  }) {
+    if (deleteCategory != null) {
+      return deleteCategory(authtoken, id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCategories value) getCategories,
+    required TResult Function(_TitleChangeEvent value) titleChangeEvent,
+    required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_CategoryTypeIndexChangeEvent value)
+        categoryTypeIndexChangeEvent,
+    required TResult Function(_AddCategory value) addCategory,
+    required TResult Function(_EditCategory value) editCategory,
+    required TResult Function(_DeleteCategory value) deleteCategory,
+  }) {
+    return deleteCategory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
+    TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
+  }) {
+    return deleteCategory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCategories value)? getCategories,
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_CategoryTypeIndexChangeEvent value)?
+        categoryTypeIndexChangeEvent,
+    TResult Function(_AddCategory value)? addCategory,
+    TResult Function(_EditCategory value)? editCategory,
+    TResult Function(_DeleteCategory value)? deleteCategory,
+    required TResult orElse(),
+  }) {
+    if (deleteCategory != null) {
+      return deleteCategory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeleteCategory implements CategoryEvent {
+  const factory _DeleteCategory(final String? authtoken, final String? id) =
+      _$_DeleteCategory;
+
+  String? get authtoken;
+  String? get id;
+  @JsonKey(ignore: true)
+  _$$_DeleteCategoryCopyWith<_$_DeleteCategory> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

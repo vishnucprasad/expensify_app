@@ -19,4 +19,8 @@ class CategoryEvent with _$CategoryEvent {
     String? title,
     String? type,
   ) = _EditCategory;
+  const factory CategoryEvent.deleteCategory(
+    String? authtoken,
+    String? id,
+  ) = _DeleteCategory;
 }

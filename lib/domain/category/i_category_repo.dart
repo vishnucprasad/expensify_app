@@ -17,4 +17,8 @@ abstract class ICategoryRepo {
     String? title,
     String? type,
   );
+  Future<Either<MainFailure, CategoryList>> deleteCategory(
+    String? authtoken,
+    String? id,
+  );
 }
