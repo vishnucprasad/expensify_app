@@ -121,6 +121,57 @@ class CategoryBloc extends Bloc<CategoryEvent, CategoryState> {
                   isLoading: false,
                   categoryList: success,
                   error: null,
+                  title: null,
+                  categoryFailureOrSuccessOption: some(
+                    right(success),
+                  ),
+                ),
+              ),
+            );
+          },
+          editCategory: (_EditCategory value) async {
+            emit(
+              state.copyWith(
+                isLoading: true,
+                categoryFailureOrSuccessOption: none(),
+              ),
+            );
+
+            final Either<MainFailure, CategoryList> categoryOptions =
+                await _categoryRepo.editCategory(
+              value.authtoken,
+              value.id,
+              value.title,
+              value.type,
+            );
+
+            print(categoryOptions.toString());
+
+            emit(
+              categoryOptions.fold(
+                (failure) {
+                  return failure.map(
+                    clientFailure: (ClientFailure value) => state.copyWith(
+                      isLoading: false,
+                      categoryFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                    serverFailure: (ServerFailure value) => state.copyWith(
+                      isLoading: false,
+                      categoryFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                  );
+                },
+                (success) => state.copyWith(
+                  isLoading: false,
+                  categoryList: success,
+                  error: null,
+                  title: null,
                   categoryFailureOrSuccessOption: some(
                     right(success),
                   ),

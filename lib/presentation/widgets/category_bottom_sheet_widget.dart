@@ -45,16 +45,21 @@ class CategoryBottomSheetWidget extends StatelessWidget {
               "Category Title",
               style: kSecondarySmallText,
             ),
-            TextFormField(
-              style: kBlackMediumTextBold,
-              decoration: const InputDecoration(
-                hintText: "Title",
-                hintStyle: kSecondaryMediumText,
-              ),
-              onChanged: (value) {
-                context.read<CategoryBloc>().add(
-                      CategoryEvent.titleChangeEvent(value),
-                    );
+            BlocBuilder<CategoryBloc, CategoryState>(
+              builder: (context, state) {
+                return TextFormField(
+                  initialValue: state.title,
+                  style: kBlackMediumTextBold,
+                  decoration: const InputDecoration(
+                    hintText: "Title",
+                    hintStyle: kSecondaryMediumText,
+                  ),
+                  onChanged: (value) {
+                    context.read<CategoryBloc>().add(
+                          CategoryEvent.titleChangeEvent(value),
+                        );
+                  },
+                );
               },
             ),
             kHeight,

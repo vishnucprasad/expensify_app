@@ -13,4 +13,10 @@ class CategoryEvent with _$CategoryEvent {
     String? title,
     String? type,
   ) = _AddCategory;
+  const factory CategoryEvent.editCategory(
+    String? authtoken,
+    String? id,
+    String? title,
+    String? type,
+  ) = _EditCategory;
 }

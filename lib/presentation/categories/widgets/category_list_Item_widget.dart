@@ -1,13 +1,18 @@
+import 'package:expensify/application/category/category_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/domain/category/models/category.dart';
+import 'package:expensify/presentation/widgets/category_bottom_sheet_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 
 class CategoryListItemWidget extends StatelessWidget {
   final Category? category;
+  final String? authtoken;
   const CategoryListItemWidget({
     required this.category,
+    required this.authtoken,
     Key? key,
   }) : super(key: key);
 
@@ -45,7 +50,9 @@ class CategoryListItemWidget extends StatelessWidget {
                 Row(
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        openEditCategorySheet(context);
+                      },
                       icon: Icon(
                         Icons.edit_note,
                         size: 30,
@@ -68,5 +75,46 @@ class CategoryListItemWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void openEditCategorySheet(BuildContext context) {
+    context.read<CategoryBloc>().add(
+          CategoryEvent.categoryTypeIndexChangeEvent(
+            category?.type == 'income' ? 0 : 1,
+          ),
+        );
+    context.read<CategoryBloc>().add(
+          CategoryEvent.titleChangeEvent(category?.title),
+        );
+    Future<void> future = showModalBottomSheet(
+      context: context,
+      builder: (ctx) => BlocBuilder<CategoryBloc, CategoryState>(
+        builder: (context, state) {
+          return CategoryBottomSheetWidget(
+            title: 'Edit Category',
+            onSubmit: () {
+              context.read<CategoryBloc>().add(
+                    CategoryEvent.editCategory(
+                      authtoken,
+                      category?.id,
+                      state.title,
+                      state.type,
+                    ),
+                  );
+              Navigator.of(context).pop();
+            },
+          );
+        },
+      ),
+    );
+
+    future.then((_) {
+      context.read<CategoryBloc>().add(
+            const CategoryEvent.titleChangeEvent(null),
+          );
+      context.read<CategoryBloc>().add(
+            const CategoryEvent.categoryTypeIndexChangeEvent(0),
+          );
+    });
   }
 }

@@ -81,6 +81,7 @@ class CategoriesScreen extends StatelessWidget {
                       return ListView.separated(
                         itemBuilder: (ctx, index) => CategoryListItemWidget(
                           category: categoryList[index],
+                          authtoken: authtoken,
                         ),
                         separatorBuilder: (ctx, index) => kHeight,
                         itemCount: categoryList.length,
@@ -114,6 +115,7 @@ class CategoriesScreen extends StatelessWidget {
                       return ListView.separated(
                         itemBuilder: (ctx, index) => CategoryListItemWidget(
                           category: categoryList[index],
+                          authtoken: authtoken,
                         ),
                         separatorBuilder: (ctx, index) => kHeight,
                         itemCount: categoryList.length,

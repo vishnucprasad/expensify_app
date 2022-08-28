@@ -6,7 +6,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
 
 class CustomToggleButtonWidget extends StatelessWidget {
-  CustomToggleButtonWidget({Key? key}) : super(key: key);
+  CustomToggleButtonWidget({
+    Key? key,
+  }) : super(key: key);
 
   final labelList = ["income", "expense"];
 

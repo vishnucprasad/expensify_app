@@ -11,4 +11,10 @@ abstract class ICategoryRepo {
     String? title,
     String? type,
   );
+  Future<Either<MainFailure, CategoryList>> editCategory(
+    String? authtoken,
+    String? id,
+    String? title,
+    String? type,
+  );
 }
