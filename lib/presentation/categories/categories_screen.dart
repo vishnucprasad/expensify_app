@@ -73,6 +73,16 @@ class CategoriesScreen extends StatelessWidget {
                       );
                     }
 
+                    if (state.error != null) {
+                      return Center(
+                        child: Text(
+                          state.error?.message ?? "Something went wrong!",
+                          style: kBlackSmallTextBold,
+                          textAlign: TextAlign.center,
+                        ),
+                      );
+                    }
+
                     final categoryList = state.categoryList?.categoryList
                         .where((e) => e.type == 'income')
                         .toList();
@@ -103,6 +113,16 @@ class CategoriesScreen extends StatelessWidget {
                         child: CircularProgressIndicator(
                           backgroundColor: primaryColor,
                           strokeWidth: 5,
+                        ),
+                      );
+                    }
+
+                    if (state.error != null) {
+                      return Center(
+                        child: Text(
+                          state.error?.message ?? "Something went wrong!",
+                          style: kBlackSmallTextBold,
+                          textAlign: TextAlign.center,
                         ),
                       );
                     }
