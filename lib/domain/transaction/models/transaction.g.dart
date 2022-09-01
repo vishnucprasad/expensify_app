@@ -14,6 +14,7 @@ _$_Transaction _$$_TransactionFromJson(Map<String, dynamic> json) =>
           ? null
           : Category.fromJson(json['category'] as Map<String, dynamic>),
       date: json['date'] as int?,
+      note: json['note'] as String?,
     );
 
 Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$$_TransactionToJson(_$_Transaction instance) =>
       'amount': instance.amount,
       'category': instance.category,
       'date': instance.date,
+      'note': instance.note,
     };

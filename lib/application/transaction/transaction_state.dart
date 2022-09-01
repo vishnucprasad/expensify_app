@@ -7,6 +7,7 @@ class TransactionState with _$TransactionState {
     required Category? category,
     required double? amount,
     required int? date,
+    required String? note,
     required List<Transaction>? transactionList,
     required MainError? error,
     required Option<Either<MainFailure, List<Transaction>>>
@@ -16,8 +17,9 @@ class TransactionState with _$TransactionState {
     return TransactionState(
       isLoading: true,
       category: null,
-      amount: null,
+      amount: 100,
       date: null,
+      note: null,
       transactionList: null,
       error: null,
       transactionFailureOrSuccessOption: none(),

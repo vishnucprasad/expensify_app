@@ -13,6 +13,7 @@ class Transaction with _$Transaction {
     @JsonKey(name: 'amount') required int? amount,
     @JsonKey(name: 'category') required Category? category,
     @JsonKey(name: 'date') required int? date,
+    @JsonKey(name: 'note') required String? note,
   }) = _Transaction;
 
   factory Transaction.fromJson(Map<String, dynamic> json) =>

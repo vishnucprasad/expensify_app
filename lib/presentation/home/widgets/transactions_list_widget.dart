@@ -49,11 +49,21 @@ class TransactionsListWidget extends StatelessWidget {
               ),
               body: BlocBuilder<TransactionBloc, TransactionState>(
                 builder: (context, state) {
+                  if (state.isLoading) {
+                    return Center(
+                      child: CircularProgressIndicator(
+                        backgroundColor: primaryColor,
+                        strokeWidth: 5,
+                      ),
+                    );
+                  }
+
                   if (state.error != null) {
                     return Center(
                       child: Text(
                         state.error?.message ?? "Something went wrong!",
                         style: kBlackSmallTextBold,
+                        textAlign: TextAlign.center,
                       ),
                     );
                   }
@@ -80,7 +90,7 @@ class TransactionsListWidget extends StatelessWidget {
                             )
                           : ListView.separated(
                               itemBuilder: (ctx, index) {
-                                final transaction = incomeTransctionList[0];
+                                final transaction = incomeTransctionList[index];
 
                                 return TransactionsCardWidget(
                                   amount: transaction.amount,
@@ -101,7 +111,8 @@ class TransactionsListWidget extends StatelessWidget {
                             )
                           : ListView.separated(
                               itemBuilder: (ctx, index) {
-                                final transaction = expenseTransctionList[0];
+                                final transaction =
+                                    expenseTransctionList[index];
 
                                 return TransactionsCardWidget(
                                   amount: transaction.amount,

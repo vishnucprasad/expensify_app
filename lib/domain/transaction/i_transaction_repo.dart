@@ -4,5 +4,13 @@ import 'package:expensify/domain/transaction/models/transaction.dart';
 
 abstract class ITransactionRepo {
   Future<Either<MainFailure, List<Transaction>>> getTransactions(
-      String? authtoken);
+    String? authtoken,
+  );
+  Future<Either<MainFailure, List<Transaction>>> addTransaction(
+    String? authtoken,
+    double? amount,
+    String? category,
+    int? date,
+    String? note,
+  );
 }

@@ -51,9 +51,14 @@ class MainPageScreen extends StatelessWidget {
 
   void openAddTransactionsSheet(BuildContext context) {
     showModalBottomSheet(
+      isScrollControlled: true,
       context: context,
-      builder: (ctx) => TransactionsBottomSheetWidget(
-        title: "Add new transaction",
+      builder: (ctx) => Wrap(
+        children: [
+          TransactionsBottomSheetWidget(
+            title: "Add new transaction",
+          ),
+        ],
       ),
     );
   }

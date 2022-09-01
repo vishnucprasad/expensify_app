@@ -34,6 +34,11 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
               state.copyWith(date: value.date),
             );
           },
+          noteChangeEvent: (_NoteChangeEvent value) {
+            emit(
+              state.copyWith(note: value.note),
+            );
+          },
           getTransactions: (_GetTransactions value) async {
             emit(
               state.copyWith(
@@ -67,6 +72,58 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
                 },
                 (success) => state.copyWith(
                   isLoading: false,
+                  transactionList: success,
+                  error: null,
+                  transactionFailureOrSuccessOption: some(
+                    right(success),
+                  ),
+                ),
+              ),
+            );
+          },
+          addTransaction: (_AddTransaction value) async {
+            emit(
+              state.copyWith(
+                  isLoading: true,
+                  transactionList: null,
+                  transactionFailureOrSuccessOption: none()),
+            );
+
+            final Either<MainFailure, List<Transaction>> transactionOptions =
+                await _transactionRepo.addTransaction(
+              value.authToken,
+              value.amount,
+              value.category,
+              value.date,
+              value.note,
+            );
+
+            emit(
+              transactionOptions.fold(
+                (failure) {
+                  return failure.map(
+                    clientFailure: (ClientFailure value) => state.copyWith(
+                      isLoading: false,
+                      transactionFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                    serverFailure: (ServerFailure value) => state.copyWith(
+                      isLoading: false,
+                      transactionFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                  );
+                },
+                (success) => state.copyWith(
+                  isLoading: false,
+                  category: null,
+                  amount: 100,
+                  date: null,
+                  note: null,
                   transactionList: success,
                   error: null,
                   transactionFailureOrSuccessOption: some(

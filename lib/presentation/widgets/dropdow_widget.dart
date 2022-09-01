@@ -21,7 +21,7 @@ class DropdownWidget extends StatelessWidget {
           return BlocBuilder<CategoryBloc, CategoryState>(
               builder: (context, categoryState) {
             return DropdownButton<Category>(
-              itemHeight: 100,
+              itemHeight: 70,
               borderRadius: BorderRadius.circular(20),
               underline: const SizedBox(),
               dropdownColor: whiteColor,
@@ -36,24 +36,27 @@ class DropdownWidget extends StatelessWidget {
                         );
                   },
                   value: e,
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        height: 50,
-                        width: 50,
-                        child: ProfilePicture(
-                          name: e.title!,
-                          radius: 50,
-                          fontsize: 20,
-                          count: 2,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: ProfilePicture(
+                            name: e.title!,
+                            radius: 50,
+                            fontsize: 20,
+                            count: 2,
+                          ),
                         ),
-                      ),
-                      kWidth,
-                      Text(
-                        e.title!,
-                        style: kBlackSmallTextBold,
-                      )
-                    ],
+                        kWidth,
+                        Text(
+                          e.title!,
+                          style: kBlackSmallTextBold,
+                        )
+                      ],
+                    ),
                   ),
                 );
               }).toList(),

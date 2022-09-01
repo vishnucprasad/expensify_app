@@ -1,3 +1,4 @@
+import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/presentation/widgets/dropdow_widget.dart';
@@ -44,10 +45,15 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
               title,
               style: kBlackMediumTextBold,
             ),
+            kHeight20,
+            const Text(
+              "TRANSACTION CATEGORY",
+              style: kBlackSmallText,
+            ),
             const DropdownWidget(),
             const Text(
               "TOTAL AMOUNT",
-              style: kSecondarySmallText,
+              style: kBlackSmallText,
             ),
             TextFormField(
               initialValue: "100",
@@ -62,8 +68,8 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
             ),
             kHeight20,
             const Text(
-              "TOTAL AMOUNT",
-              style: kSecondarySmallText,
+              "TRANSACTION DATE",
+              style: kBlackSmallText,
             ),
             kHeight,
             ElevatedButton.icon(
@@ -100,17 +106,53 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
               ),
             ),
             kHeight,
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: Colors.lightBlue,
-                minimumSize: const Size.fromHeight(50), // NEW
+            const Text(
+              "NOTE",
+              style: kBlackSmallText,
+            ),
+            kHeight,
+            TextFormField(
+              onChanged: (value) {},
+              maxLines: 4,
+              decoration: const InputDecoration(
+                hintText: "Write your note here",
               ),
-              onPressed: () {},
-              child: const Text(
-                'Save',
-                style: kWhiteMediumTextBold,
-              ),
-            )
+            ),
+            kHeight,
+            BlocBuilder<TransactionBloc, TransactionState>(
+              builder: (context, transactionState) {
+                return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                  builder: (context, authenticationState) {
+                    return ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50), // NEW
+                      ),
+                      onPressed: () {
+                        if (transactionState.amount != null &&
+                            transactionState.category != null &&
+                            transactionState.date != null) {
+                          context.read<TransactionBloc>().add(
+                                TransactionEvent.addTransaction(
+                                  authenticationState.authentication?.authtoken,
+                                  transactionState.amount,
+                                  transactionState.category?.id,
+                                  transactionState.date,
+                                  transactionState.note,
+                                ),
+                              );
+                          Navigator.of(context).pop();
+                        }
+                      },
+                      child: const Text(
+                        'Save',
+                        style: kWhiteMediumTextBold,
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+            kHeight,
           ],
         ),
       ),

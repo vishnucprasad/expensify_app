@@ -28,6 +28,8 @@ mixin _$Transaction {
   Category? get category => throw _privateConstructorUsedError;
   @JsonKey(name: 'date')
   int? get date => throw _privateConstructorUsedError;
+  @JsonKey(name: 'note')
+  String? get note => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +46,8 @@ abstract class $TransactionCopyWith<$Res> {
       {@JsonKey(name: '_id') String? id,
       @JsonKey(name: 'amount') int? amount,
       @JsonKey(name: 'category') Category? category,
-      @JsonKey(name: 'date') int? date});
+      @JsonKey(name: 'date') int? date,
+      @JsonKey(name: 'note') String? note});
 
   $CategoryCopyWith<$Res>? get category;
 }
@@ -63,6 +66,7 @@ class _$TransactionCopyWithImpl<$Res> implements $TransactionCopyWith<$Res> {
     Object? amount = freezed,
     Object? category = freezed,
     Object? date = freezed,
+    Object? note = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -81,6 +85,10 @@ class _$TransactionCopyWithImpl<$Res> implements $TransactionCopyWith<$Res> {
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as int?,
+      note: note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -107,7 +115,8 @@ abstract class _$$_TransactionCopyWith<$Res>
       {@JsonKey(name: '_id') String? id,
       @JsonKey(name: 'amount') int? amount,
       @JsonKey(name: 'category') Category? category,
-      @JsonKey(name: 'date') int? date});
+      @JsonKey(name: 'date') int? date,
+      @JsonKey(name: 'note') String? note});
 
   @override
   $CategoryCopyWith<$Res>? get category;
@@ -129,6 +138,7 @@ class __$$_TransactionCopyWithImpl<$Res> extends _$TransactionCopyWithImpl<$Res>
     Object? amount = freezed,
     Object? category = freezed,
     Object? date = freezed,
+    Object? note = freezed,
   }) {
     return _then(_$_Transaction(
       id: id == freezed
@@ -147,6 +157,10 @@ class __$$_TransactionCopyWithImpl<$Res> extends _$TransactionCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as int?,
+      note: note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -158,7 +172,8 @@ class _$_Transaction implements _Transaction {
       {@JsonKey(name: '_id') required this.id,
       @JsonKey(name: 'amount') required this.amount,
       @JsonKey(name: 'category') required this.category,
-      @JsonKey(name: 'date') required this.date});
+      @JsonKey(name: 'date') required this.date,
+      @JsonKey(name: 'note') required this.note});
 
   factory _$_Transaction.fromJson(Map<String, dynamic> json) =>
       _$$_TransactionFromJson(json);
@@ -175,10 +190,13 @@ class _$_Transaction implements _Transaction {
   @override
   @JsonKey(name: 'date')
   final int? date;
+  @override
+  @JsonKey(name: 'note')
+  final String? note;
 
   @override
   String toString() {
-    return 'Transaction(id: $id, amount: $amount, category: $category, date: $date)';
+    return 'Transaction(id: $id, amount: $amount, category: $category, date: $date, note: $note)';
   }
 
   @override
@@ -189,7 +207,8 @@ class _$_Transaction implements _Transaction {
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.amount, amount) &&
             const DeepCollectionEquality().equals(other.category, category) &&
-            const DeepCollectionEquality().equals(other.date, date));
+            const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.note, note));
   }
 
   @JsonKey(ignore: true)
@@ -199,7 +218,8 @@ class _$_Transaction implements _Transaction {
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(amount),
       const DeepCollectionEquality().hash(category),
-      const DeepCollectionEquality().hash(date));
+      const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(note));
 
   @JsonKey(ignore: true)
   @override
@@ -219,7 +239,8 @@ abstract class _Transaction implements Transaction {
       {@JsonKey(name: '_id') required final String? id,
       @JsonKey(name: 'amount') required final int? amount,
       @JsonKey(name: 'category') required final Category? category,
-      @JsonKey(name: 'date') required final int? date}) = _$_Transaction;
+      @JsonKey(name: 'date') required final int? date,
+      @JsonKey(name: 'note') required final String? note}) = _$_Transaction;
 
   factory _Transaction.fromJson(Map<String, dynamic> json) =
       _$_Transaction.fromJson;
@@ -236,6 +257,9 @@ abstract class _Transaction implements Transaction {
   @override
   @JsonKey(name: 'date')
   int? get date;
+  @override
+  @JsonKey(name: 'note')
+  String? get note;
   @override
   @JsonKey(ignore: true)
   _$$_TransactionCopyWith<_$_Transaction> get copyWith =>
