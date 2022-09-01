@@ -1,4 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:expensify/application/authentication/authentication_bloc.dart';
+import 'package:expensify/application/category/category_bloc.dart';
+import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/presentation/main_page/main_page_screen.dart';
@@ -158,8 +162,20 @@ class LoginScreen extends StatelessWidget {
         kTokenKey,
         state.authentication!.authtoken!,
       );
-      // ignore: use_build_context_synchronously
+
       goToHomeScreen(context);
+
+      context.read<CategoryBloc>().add(
+            CategoryEvent.getCategories(
+              state.authentication?.authtoken,
+            ),
+          );
+
+      context.read<TransactionBloc>().add(
+            TransactionEvent.getTransactions(
+              state.authentication?.authtoken,
+            ),
+          );
     }
   }
 

@@ -2,6 +2,7 @@ import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/presentation/login/login_screen.dart';
+import 'package:expensify/presentation/main_page/widgets/bottom_nav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -104,6 +105,8 @@ class MenuHeaderWidget extends StatelessWidget {
     context.read<AuthenticationBloc>().add(
           const AuthenticationEvent.logoutEvent(),
         );
+
+    indexChangeNotifier.value = 0;
 
     // ignore: use_build_context_synchronously
     goToLoginPage(context);
