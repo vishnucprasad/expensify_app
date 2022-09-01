@@ -1,6 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:expensify/application/authentication/authentication_bloc.dart';
+import 'package:expensify/application/category/category_bloc.dart';
+import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/presentation/login/login_screen.dart';
@@ -25,6 +27,12 @@ class SplashScreen extends StatelessWidget {
       }
 
       if (state.authentication != null && state.authentication?.id != null) {
+        context.read<CategoryBloc>().add(
+              CategoryEvent.getCategories(state.authentication?.authtoken),
+            );
+        context.read<TransactionBloc>().add(
+              TransactionEvent.getTransactions(state.authentication?.authtoken),
+            );
         return goToMainPage(context);
       }
 

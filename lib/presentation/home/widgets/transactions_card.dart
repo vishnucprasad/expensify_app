@@ -1,30 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TransactionsCardWidget extends StatelessWidget {
-  const TransactionsCardWidget({Key? key}) : super(key: key);
+  final int? amount;
+  final String? category;
+  final int? date;
+  const TransactionsCardWidget({
+    required this.amount,
+    required this.category,
+    required this.date,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: EdgeInsets.all(0),
+      margin: const EdgeInsets.all(0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12.0),
       ),
       elevation: 0,
-      child: const ListTile(
-        leading: CircleAvatar(
+      child: ListTile(
+        leading: const CircleAvatar(
+            // ignore: sort_child_properties_last
             child: Icon(Icons.attach_money_sharp),
             radius: 25,
             foregroundColor: Colors.white,
             backgroundColor: Colors.greenAccent),
         title: Text(
-          '\$ 2000',
-          style: TextStyle(
+          '\$ $amount',
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
           ),
         ),
-        subtitle: Text("Income"),
-        trailing: Text("24th July 2022"),
+        subtitle: Text(category ?? ""),
+        trailing: Text(
+          date != null
+              ? DateFormat("MMMM d y").format(
+                  DateTime.fromMillisecondsSinceEpoch(date!),
+                )
+              : "",
+        ),
       ),
     );
   }

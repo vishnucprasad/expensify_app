@@ -16,13 +16,6 @@ class CategoriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) {
-        context.read<CategoryBloc>().add(
-              CategoryEvent.getCategories(authtoken),
-            );
-      },
-    );
     return SizedBox(
       height: double.infinity,
       width: double.infinity,

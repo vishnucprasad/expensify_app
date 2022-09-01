@@ -5,4 +5,5 @@ class ApiEndPoints {
   static const login = '$kBaseUrl/user/login';
   static const authenticate = '$kBaseUrl/user/auth/';
   static const categoryEndPoint = '$kBaseUrl/category';
+  static const transactionEndPoint = '$kBaseUrl/transaction';
 }

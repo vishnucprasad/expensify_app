@@ -1,8 +1,11 @@
 import 'package:bubble_tab_indicator/bubble_tab_indicator.dart';
+import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/domain/transaction/models/transaction.dart';
 import 'package:expensify/presentation/home/widgets/transactions_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TransactionsListWidget extends StatelessWidget {
   const TransactionsListWidget({
@@ -44,17 +47,74 @@ class TransactionsListWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              body: TabBarView(
-                children: [
-                  ListView.separated(
-                    itemBuilder: (ctx, index) => const TransactionsCardWidget(),
-                    separatorBuilder: (ctx, index) => kHeight,
-                    itemCount: 20,
-                  ),
-                  const Center(
-                    child: Text('Expense list is empty'),
-                  ),
-                ],
+              body: BlocBuilder<TransactionBloc, TransactionState>(
+                builder: (context, state) {
+                  if (state.error != null) {
+                    return Center(
+                      child: Text(
+                        state.error?.message ?? "Something went wrong!",
+                        style: kBlackSmallTextBold,
+                      ),
+                    );
+                  }
+
+                  final List<Transaction>? incomeTransctionList =
+                      state.transactionList?.where((transaction) {
+                    return transaction.category?.type == "income";
+                  }).toList();
+
+                  final List<Transaction>? expenseTransctionList =
+                      state.transactionList?.where((transaction) {
+                    return transaction.category?.type == "expense";
+                  }).toList();
+
+                  return TabBarView(
+                    children: [
+                      incomeTransctionList == null ||
+                              incomeTransctionList.isEmpty
+                          ? const Center(
+                              child: Text(
+                                'Income list is empty',
+                                style: kBlackSmallTextBold,
+                              ),
+                            )
+                          : ListView.separated(
+                              itemBuilder: (ctx, index) {
+                                final transaction = incomeTransctionList[0];
+
+                                return TransactionsCardWidget(
+                                  amount: transaction.amount,
+                                  category: transaction.category?.title,
+                                  date: transaction.date,
+                                );
+                              },
+                              separatorBuilder: (ctx, index) => kHeight,
+                              itemCount: incomeTransctionList.length,
+                            ),
+                      expenseTransctionList == null ||
+                              expenseTransctionList.isEmpty
+                          ? const Center(
+                              child: Text(
+                                'Expense list is empty',
+                                style: kBlackSmallTextBold,
+                              ),
+                            )
+                          : ListView.separated(
+                              itemBuilder: (ctx, index) {
+                                final transaction = expenseTransctionList[0];
+
+                                return TransactionsCardWidget(
+                                  amount: transaction.amount,
+                                  category: transaction.category?.title,
+                                  date: transaction.date,
+                                );
+                              },
+                              separatorBuilder: (ctx, index) => kHeight,
+                              itemCount: expenseTransctionList.length,
+                            ),
+                    ],
+                  );
+                },
               ),
             ),
           ),
