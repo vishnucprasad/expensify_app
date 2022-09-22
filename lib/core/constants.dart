@@ -92,6 +92,12 @@ const kBlackSmallText = TextStyle(
   fontSize: 16,
 );
 
+const kBlackXSmallTextBold = TextStyle(
+  color: blackColor,
+  fontSize: 12,
+  fontWeight: FontWeight.bold,
+);
+
 const kBlackSmallTextBold = TextStyle(
   color: blackColor,
   fontSize: 16,
@@ -101,6 +107,18 @@ const kBlackSmallTextBold = TextStyle(
 const kBlackMediumTextBold = TextStyle(
   color: blackColor,
   fontSize: 18,
+  fontWeight: FontWeight.bold,
+);
+
+const kSuccessSmallTextBold = TextStyle(
+  color: successColor,
+  fontSize: 16,
+  fontWeight: FontWeight.bold,
+);
+
+const kDangerSmallTextBold = TextStyle(
+  color: dangerColor,
+  fontSize: 16,
   fontWeight: FontWeight.bold,
 );
 

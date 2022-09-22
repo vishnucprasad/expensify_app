@@ -58,11 +58,13 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
             TextFormField(
               initialValue: "100",
               onChanged: (value) {
-                context.read<TransactionBloc>().add(
-                      TransactionEvent.amountChangeEvent(
-                        double.parse(value),
-                      ),
-                    );
+                if (value.isNotEmpty) {
+                  context.read<TransactionBloc>().add(
+                        TransactionEvent.amountChangeEvent(
+                          double.parse(value),
+                        ),
+                      );
+                }
               },
               style: Theme.of(context).textTheme.headline4,
             ),
@@ -112,7 +114,13 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
             ),
             kHeight,
             TextFormField(
-              onChanged: (value) {},
+              onChanged: (value) {
+                context.read<TransactionBloc>().add(
+                      TransactionEvent.noteChangeEvent(
+                        value,
+                      ),
+                    );
+              },
               maxLines: 4,
               decoration: const InputDecoration(
                 hintText: "Write your note here",

@@ -5,5 +5,6 @@ final primaryColor = Colors.blue[900];
 const secondaryColor = Colors.grey;
 final infoColor = Colors.lightBlue[300];
 const dangerColor = Colors.red;
+const successColor = Colors.greenAccent;
 const whiteColor = Colors.white;
 const blackColor = Colors.black;

@@ -93,9 +93,7 @@ class TransactionsListWidget extends StatelessWidget {
                                 final transaction = incomeTransctionList[index];
 
                                 return TransactionsCardWidget(
-                                  amount: transaction.amount,
-                                  category: transaction.category?.title,
-                                  date: transaction.date,
+                                  transaction: transaction,
                                 );
                               },
                               separatorBuilder: (ctx, index) => kHeight,
@@ -115,9 +113,7 @@ class TransactionsListWidget extends StatelessWidget {
                                     expenseTransctionList[index];
 
                                 return TransactionsCardWidget(
-                                  amount: transaction.amount,
-                                  category: transaction.category?.title,
-                                  date: transaction.date,
+                                  transaction: transaction,
                                 );
                               },
                               separatorBuilder: (ctx, index) => kHeight,
