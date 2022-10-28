@@ -1,6 +1,8 @@
+import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MenuWalletWidget extends StatelessWidget {
   const MenuWalletWidget({Key? key}) : super(key: key);
@@ -17,7 +19,7 @@ class MenuWalletWidget extends StatelessWidget {
           width: MediaQuery.of(context).size.width - 30,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            color: whiteColor,
+            color: kWhiteColor,
           ),
           child: Padding(
             padding: const EdgeInsets.all(16.0),
@@ -39,17 +41,25 @@ class MenuWalletWidget extends StatelessWidget {
                         style: kBlackSmallTextBold,
                       ),
                     ),
-                    const Text(
-                      '36,570',
-                      style: kBlackLargeTextBold,
+                    BlocBuilder<TransactionBloc, TransactionState>(
+                      builder: (context, state) {
+                        double totalBalance = 0;
+                        state.transactionList?.forEach((transaction) {
+                          if (transaction.category?.type == "income") {
+                            totalBalance += transaction.amount ?? 0;
+                          } else {
+                            totalBalance -= transaction.amount ?? 0;
+                          }
+                        });
+                        return Text(
+                          '$totalBalance',
+                          style: kBlackLargeTextBold,
+                        );
+                      },
                     ),
                     const Spacer(),
                     TextButton(
                       onPressed: () {},
-                      child: const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: Text('My Wallet'),
-                      ),
                       style: ButtonStyle(
                         foregroundColor: MaterialStateProperty.all<Color>(
                           Colors.white,
@@ -64,6 +74,10 @@ class MenuWalletWidget extends StatelessWidget {
                           ),
                         ),
                       ),
+                      child: const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Text('My Wallet'),
+                      ),
                     )
                   ],
                 ),
@@ -74,18 +88,6 @@ class MenuWalletWidget extends StatelessWidget {
                     Expanded(
                       child: TextButton(
                         onPressed: () {},
-                        child: Row(
-                          children: const [
-                            CircleAvatar(
-                              child: Icon(Icons.money),
-                            ),
-                            kWidth,
-                            Text(
-                              'Add Money',
-                              style: kBlackSmallTextBold,
-                            ),
-                          ],
-                        ),
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
                             Colors.transparent,
@@ -100,28 +102,26 @@ class MenuWalletWidget extends StatelessWidget {
                             ),
                           ),
                         ),
+                        child: Row(
+                          children: const [
+                            CircleAvatar(
+                              child: Icon(Icons.money),
+                            ),
+                            kWidth,
+                            Flexible(
+                              child: Text(
+                                'Add Money',
+                                style: kBlackSmallTextBold,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     kWidth,
                     Expanded(
                       child: TextButton(
                         onPressed: () {},
-                        child: Row(
-                          children: const [
-                            CircleAvatar(
-                              backgroundColor: Colors.amber,
-                              child: Icon(
-                                Icons.compare_arrows,
-                                color: Colors.white,
-                              ),
-                            ),
-                            kWidth,
-                            Text(
-                              'Transfer',
-                              style: kBlackSmallTextBold,
-                            ),
-                          ],
-                        ),
                         style: ButtonStyle(
                           foregroundColor: MaterialStateProperty.all<Color>(
                             Colors.blue.shade900,
@@ -134,10 +134,28 @@ class MenuWalletWidget extends StatelessWidget {
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
                               side: const BorderSide(
-                                color: Colors.black,
+                                color: kBlackColor,
                               ),
                             ),
                           ),
+                        ),
+                        child: Row(
+                          children: const [
+                            CircleAvatar(
+                              backgroundColor: Colors.amber,
+                              child: Icon(
+                                Icons.compare_arrows,
+                                color: Colors.white,
+                              ),
+                            ),
+                            kWidth,
+                            Flexible(
+                              child: Text(
+                                'Transfer',
+                                style: kBlackSmallTextBold,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),

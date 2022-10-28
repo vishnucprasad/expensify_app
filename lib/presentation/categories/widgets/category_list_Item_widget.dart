@@ -20,7 +20,7 @@ class CategoryListItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: whiteColor,
+        color: kWhiteColor,
         borderRadius: BorderRadius.all(
           Radius.circular(10),
         ),
@@ -56,7 +56,7 @@ class CategoryListItemWidget extends StatelessWidget {
                       icon: Icon(
                         Icons.edit_note,
                         size: 30,
-                        color: primaryColor,
+                        color: kPrimaryColor,
                       ),
                     ),
                     IconButton(
@@ -69,7 +69,7 @@ class CategoryListItemWidget extends StatelessWidget {
                       icon: const Icon(
                         Icons.delete,
                         size: 30,
-                        color: dangerColor,
+                        color: kDangerColor,
                       ),
                     ),
                   ],

@@ -26,7 +26,7 @@ class MenuListWidget extends StatelessWidget {
             Expanded(
               child: Container(
                   decoration: const BoxDecoration(
-                    color: whiteColor,
+                    color: kWhiteColor,
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),

@@ -1,3 +1,4 @@
+import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/domain/transaction/models/transaction.dart';
 import 'package:expensify/presentation/home/widgets/transaction_dialog_widget.dart';
@@ -18,7 +19,8 @@ class TransactionsCardWidget extends StatelessWidget {
         openTransactionDialog(context);
       },
       child: Card(
-        margin: const EdgeInsets.all(0),
+        margin: const EdgeInsets.symmetric(horizontal: 16.0),
+        color: kBackgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0),
         ),
@@ -34,6 +36,7 @@ class TransactionsCardWidget extends StatelessWidget {
             '\$ ${transaction.amount}',
             style: const TextStyle(
               fontWeight: FontWeight.bold,
+              color: kBlackColor,
             ),
           ),
           subtitle: Text(transaction.category?.title ?? ""),

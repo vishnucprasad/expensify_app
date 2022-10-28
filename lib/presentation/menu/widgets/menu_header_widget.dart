@@ -14,12 +14,13 @@ class MenuHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Column(
       children: [
         Container(
-          height: 300,
+          height: size.height / 2.5,
           width: double.infinity,
-          color: primaryColor,
+          color: kPrimaryColor,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
@@ -44,18 +45,22 @@ class MenuHeaderWidget extends StatelessWidget {
                     kWidth20,
                     BlocBuilder<AuthenticationBloc, AuthenticationState>(
                       builder: (context, state) {
-                        return Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "${state.authentication?.firstname} ${state.authentication?.lastname}",
-                              style: kWhiteLargeTextBold,
-                            ),
-                            Text(
-                              "${state.authentication?.email}",
-                              style: kSecondarySmallText,
-                            )
-                          ],
+                        return SizedBox(
+                          width: MediaQuery.of(context).size.width - 200,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "${state.authentication?.firstname} ${state.authentication?.lastname}",
+                                style: kWhiteLargeTextBold.copyWith(
+                                    overflow: TextOverflow.ellipsis),
+                              ),
+                              Text(
+                                "${state.authentication?.email}",
+                                style: kSecondarySmallText,
+                              )
+                            ],
+                          ),
                         );
                       },
                     ),
@@ -68,7 +73,7 @@ class MenuHeaderWidget extends StatelessWidget {
                         },
                         icon: const Icon(
                           Icons.logout,
-                          color: whiteColor,
+                          color: kWhiteColor,
                         ),
                       ),
                     )

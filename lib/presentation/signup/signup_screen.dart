@@ -33,14 +33,14 @@ class SignupScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               height: double.infinity,
-              color: infoColor,
+              color: kInfoColor,
             ),
             ClipPath(
               clipper: DiagonalPathClipper(),
               child: Container(
                 height: MediaQuery.of(context).size.height - 100,
                 width: double.infinity,
-                color: primaryColor,
+                color: kPrimaryColor,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 36.0),
                   child: Column(
@@ -111,23 +111,18 @@ class SignupScreen extends StatelessWidget {
                         },
                       ),
                       kHeight,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Already Have an account ?",
-                            style: kWhiteSmallText,
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: Text(
-                              "Login now",
-                              style: kInfoSmallText,
-                            ),
-                          ),
-                        ],
+                      const Text(
+                        "Already Have an account ?",
+                        style: kWhiteSmallText,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          "Login now",
+                          style: kInfoSmallText,
+                        ),
                       ),
                     ],
                   ),

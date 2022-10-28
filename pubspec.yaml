@@ -35,7 +35,7 @@ dependencies:
   fl_chart: 0.55.0
   flutter:
     sdk: flutter
-  flutter_bloc: 8.0.1
+  flutter_bloc: ^8.1.1
   flutter_profile_picture: 2.0.0
   flutter_toggle_tab: 1.2.0
   freezed_annotation: 2.1.0

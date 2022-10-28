@@ -24,7 +24,7 @@ class DropdownWidget extends StatelessWidget {
               itemHeight: 70,
               borderRadius: BorderRadius.circular(20),
               underline: const SizedBox(),
-              dropdownColor: whiteColor,
+              dropdownColor: kWhiteColor,
               isExpanded: true,
               hint: const Text('Select Category'),
               value: transactionState.category,

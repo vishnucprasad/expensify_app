@@ -12,28 +12,30 @@ class AnalyticsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Align(
-      alignment: Alignment.topCenter,
+      alignment: Alignment.center,
       child: Column(
         children: [
           Container(
-            margin: const EdgeInsets.only(top: 240),
-            height: 135,
-            width: MediaQuery.of(context).size.width - 30,
+            margin: EdgeInsets.only(top: size.height / 3.4),
+            height: size.height / 6,
+            width: size.width - 30,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: whiteColor,
+              color: kWhiteColor,
             ),
             child: const BarChartWidget(),
           ),
           kHeight,
           Container(
             decoration: BoxDecoration(
-              color: whiteColor,
+              color: kWhiteColor,
               borderRadius: BorderRadius.circular(8),
             ),
             padding: const EdgeInsets.all(8.0),
-            width: MediaQuery.of(context).size.width - 30,
+            width: size.width - 30,
+            height: size.height / 12.5,
             child: BlocBuilder<TransactionBloc, TransactionState>(
               builder: (context, state) {
                 double totalIncome = 0;

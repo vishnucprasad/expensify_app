@@ -13,7 +13,7 @@ class TopSubscriptionsCardWidget extends StatelessWidget {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
-      color: backgroundColor,
+      color: kBackgroundColor,
       elevation: 0,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -25,7 +25,7 @@ class TopSubscriptionsCardWidget extends StatelessWidget {
                   height: 50,
                   width: 50,
                   decoration: const BoxDecoration(
-                    color: blackColor,
+                    color: kBlackColor,
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     image: DecorationImage(
                       image: AssetImage(netflixLogo),

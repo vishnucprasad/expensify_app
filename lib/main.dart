@@ -4,6 +4,7 @@ import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/domain/core/di/injectable.dart';
 import 'package:expensify/presentation/splash/splash_screen.dart';
+import 'package:expensify/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: primaryColor, //or set color with: Color(0xFF0000FF)
+        statusBarColor: kPrimaryColor, //or set color with: Color(0xFF0000FF)
       ),
     );
     return MultiBlocProvider(
@@ -32,21 +33,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: ((context) => getIt<TransactionBloc>())),
       ],
       child: MaterialApp(
-        theme: ThemeData(
-          primaryColor: primaryColor,
-          backgroundColor: primaryColor,
-          scaffoldBackgroundColor: backgroundColor,
-          canvasColor: Colors.transparent,
-          fontFamily: GoogleFonts.montserrat().fontFamily,
-          textTheme: const TextTheme(
-            bodyText1: TextStyle(
-              color: blackColor,
-            ),
-            bodyText2: TextStyle(
-              color: blackColor,
-            ),
-          ),
-        ),
+        theme: buildLightTheme(),
         debugShowCheckedModeBanner: false,
         home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
           builder: (context, state) {

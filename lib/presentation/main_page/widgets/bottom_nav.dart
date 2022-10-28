@@ -14,7 +14,7 @@ class BottomNavigationWidget extends StatelessWidget {
         return BottomAppBar(
           shape: const CircularNotchedRectangle(),
           notchMargin: 8,
-          child: Container(
+          child: SizedBox(
             height: 75,
             child: Row(
               mainAxisSize: MainAxisSize.max,
@@ -25,8 +25,8 @@ class BottomNavigationWidget extends StatelessWidget {
                   child: IconButton(
                     iconSize: 30.0,
                     color: indexChangeNotifier.value == 0
-                        ? primaryColor
-                        : secondaryColor,
+                        ? kPrimaryColor
+                        : kSecondaryColor,
                     icon: indexChangeNotifier.value == 0
                         ? const Icon(Icons.home)
                         : const Icon(Icons.home_outlined),
@@ -40,8 +40,8 @@ class BottomNavigationWidget extends StatelessWidget {
                   child: IconButton(
                     iconSize: 30.0,
                     color: indexChangeNotifier.value == 1
-                        ? primaryColor
-                        : secondaryColor,
+                        ? kPrimaryColor
+                        : kSecondaryColor,
                     icon: indexChangeNotifier.value == 1
                         ? const Icon(Icons.subscriptions)
                         : const Icon(Icons.subscriptions_outlined),
@@ -53,8 +53,8 @@ class BottomNavigationWidget extends StatelessWidget {
                 IconButton(
                   iconSize: 30.0,
                   color: indexChangeNotifier.value == 2
-                      ? primaryColor
-                      : secondaryColor,
+                      ? kPrimaryColor
+                      : kSecondaryColor,
                   icon: indexChangeNotifier.value == 2
                       ? const Icon(Icons.receipt_long)
                       : const Icon(Icons.receipt_long_outlined),
@@ -67,8 +67,8 @@ class BottomNavigationWidget extends StatelessWidget {
                   child: IconButton(
                     iconSize: 30.0,
                     color: indexChangeNotifier.value == 3
-                        ? primaryColor
-                        : secondaryColor,
+                        ? kPrimaryColor
+                        : kSecondaryColor,
                     icon: const Icon(Icons.menu),
                     onPressed: () {
                       indexChangeNotifier.value = 3;

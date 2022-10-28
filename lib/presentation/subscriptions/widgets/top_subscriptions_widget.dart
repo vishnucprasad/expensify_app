@@ -35,7 +35,7 @@ class TopSubscriptionsWidget extends StatelessWidget {
                 height: 200,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color: whiteColor,
+                  color: kWhiteColor,
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),

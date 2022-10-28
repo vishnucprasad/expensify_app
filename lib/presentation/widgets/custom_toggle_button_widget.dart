@@ -21,7 +21,7 @@ class CustomToggleButtonWidget extends StatelessWidget {
           borderRadius: 30,
           height: 50,
           selectedIndex: state.categoryTypeindex,
-          selectedBackgroundColors: [infoColor!, infoColor!],
+          selectedBackgroundColors: [kInfoColor!, kInfoColor!],
           selectedTextStyle: kWhiteMediumTextBold,
           unSelectedTextStyle: kSecondaryMediumText,
           labels: labelList,

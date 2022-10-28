@@ -1,6 +1,8 @@
+import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainHeaderWidget extends StatelessWidget {
   final String title;
@@ -13,10 +15,11 @@ class MainHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Container(
-      height: 300,
+      height: size.height / 2.5,
       width: double.infinity,
-      color: primaryColor,
+      color: kPrimaryColor,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -53,11 +56,11 @@ class MainHeaderWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    backgroundColor: infoColor,
+                    backgroundColor: kInfoColor,
                     radius: 20,
                     child: const Icon(
                       Icons.account_balance_wallet_outlined,
-                      color: whiteColor,
+                      color: kWhiteColor,
                       size: 20,
                     ),
                   ),
@@ -71,17 +74,29 @@ class MainHeaderWidget extends StatelessWidget {
                       ),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Padding(
+                        children: [
+                          const Padding(
                             padding: EdgeInsets.only(top: 4),
                             child: Text(
                               '\$',
                               style: kSecondarySmallText,
                             ),
                           ),
-                          Text(
-                            '36,570',
-                            style: kWhiteXLargeText,
+                          BlocBuilder<TransactionBloc, TransactionState>(
+                            builder: (context, state) {
+                              double totalBalance = 0;
+                              state.transactionList?.forEach((transaction) {
+                                if (transaction.category?.type == "income") {
+                                  totalBalance += transaction.amount ?? 0;
+                                } else {
+                                  totalBalance -= transaction.amount ?? 0;
+                                }
+                              });
+                              return Text(
+                                '$totalBalance',
+                                style: kWhiteXLargeText,
+                              );
+                            },
                           ),
                         ],
                       ),
@@ -90,10 +105,6 @@ class MainHeaderWidget extends StatelessWidget {
                   const Spacer(),
                   TextButton(
                     onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text('View Details'),
-                    ),
                     style: ButtonStyle(
                       foregroundColor: MaterialStateProperty.all<Color>(
                         Colors.white,
@@ -106,6 +117,10 @@ class MainHeaderWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(18.0),
                         ),
                       ),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('View Details'),
                     ),
                   )
                 ],

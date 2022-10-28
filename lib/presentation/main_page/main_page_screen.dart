@@ -34,7 +34,7 @@ class MainPageScreen extends StatelessWidget {
           ),
           bottomNavigationBar: const BottomNavigationWidget(),
           floatingActionButton: FloatingActionButton(
-            backgroundColor: infoColor,
+            backgroundColor: kInfoColor,
             onPressed: () {
               if (newIndex == 0) {
                 openAddTransactionsSheet(context);

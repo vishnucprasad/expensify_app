@@ -41,14 +41,14 @@ class LoginScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               height: double.infinity,
-              color: infoColor,
+              color: kInfoColor,
             ),
             ClipPath(
               clipper: DiagonalPathClipper(),
               child: Container(
                 height: MediaQuery.of(context).size.height - 100,
                 width: double.infinity,
-                color: primaryColor,
+                color: kPrimaryColor,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 36.0),
                   child: Column(
@@ -104,36 +104,31 @@ class LoginScreen extends StatelessWidget {
                               if (state.isAuthenticating)
                                 LinearProgressIndicator(
                                   value: null,
-                                  color: infoColor,
+                                  color: kInfoColor,
                                 ),
                             ],
                           );
                         },
                       ),
                       kHeight,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Text(
-                            "Create an account now ?",
-                            style: kWhiteSmallText,
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).push(
-                                PageRouteBuilder(
-                                  pageBuilder: (context, animation,
-                                          secondaryAnimation) =>
+                      const Text(
+                        "Create an account now ?",
+                        style: kWhiteSmallText,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) =>
                                       SignupScreen(state: state),
-                                ),
-                              );
-                            },
-                            child: Text(
-                              "Signup now",
-                              style: kInfoSmallText,
                             ),
-                          ),
-                        ],
+                          );
+                        },
+                        child: Text(
+                          "Signup now",
+                          style: kInfoSmallText,
+                        ),
                       ),
                     ],
                   ),

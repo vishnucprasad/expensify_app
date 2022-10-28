@@ -23,7 +23,7 @@ class CategoriesScreen extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: primaryColor,
+            backgroundColor: kPrimaryColor,
             elevation: 0,
             automaticallyImplyLeading: false,
             title: const Text(
@@ -31,8 +31,8 @@ class CategoriesScreen extends StatelessWidget {
               style: kWhiteLargeTextBold,
             ),
             bottom: const TabBar(
-              labelColor: whiteColor,
-              unselectedLabelColor: secondaryColor,
+              labelColor: kWhiteColor,
+              unselectedLabelColor: kSecondaryColor,
               labelStyle: TextStyle(
                 fontSize: 18,
               ),
@@ -60,7 +60,7 @@ class CategoriesScreen extends StatelessWidget {
                     if (state.isLoading) {
                       return Center(
                         child: CircularProgressIndicator(
-                          backgroundColor: primaryColor,
+                          backgroundColor: kPrimaryColor,
                           strokeWidth: 5,
                         ),
                       );
@@ -104,7 +104,7 @@ class CategoriesScreen extends StatelessWidget {
                     if (state.isLoading) {
                       return Center(
                         child: CircularProgressIndicator(
-                          backgroundColor: primaryColor,
+                          backgroundColor: kPrimaryColor,
                           strokeWidth: 5,
                         ),
                       );
@@ -144,7 +144,7 @@ class CategoriesScreen extends StatelessWidget {
             ],
           ),
           floatingActionButton: FloatingActionButton(
-            backgroundColor: infoColor,
+            backgroundColor: kInfoColor,
             onPressed: () {
               openAddCategorySheet(context);
             },

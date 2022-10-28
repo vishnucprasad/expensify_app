@@ -11,7 +11,7 @@ class SubscriptionsListItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: whiteColor,
+        color: kWhiteColor,
         borderRadius: BorderRadius.all(
           Radius.circular(10),
         ),
@@ -26,7 +26,7 @@ class SubscriptionsListItemWidget extends StatelessWidget {
                   height: 50,
                   width: 50,
                   decoration: BoxDecoration(
-                    color: blackColor,
+                    color: kBlackColor,
                     borderRadius: BorderRadius.circular(10),
                     image: const DecorationImage(
                       image: AssetImage(netflixLogo),

@@ -12,7 +12,7 @@ class BillsOnDueListItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: whiteColor,
+        color: kWhiteColor,
         borderRadius: BorderRadius.all(
           Radius.circular(10),
         ),

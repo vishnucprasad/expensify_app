@@ -45,14 +45,14 @@ class SplashScreen extends StatelessWidget {
             Container(
               width: double.infinity,
               height: double.infinity,
-              color: infoColor,
+              color: kInfoColor,
             ),
             ClipPath(
               clipper: DiagonalPathClipper(),
               child: Container(
                 height: MediaQuery.of(context).size.height - 100,
                 width: double.infinity,
-                color: primaryColor,
+                color: kPrimaryColor,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -67,7 +67,7 @@ class SplashScreen extends StatelessWidget {
                             fontSize: 30,
                             letterSpacing: 8,
                             fontWeight: FontWeight.w900,
-                            color: whiteColor,
+                            color: kWhiteColor,
                           ),
                         ),
                       ],
@@ -75,7 +75,7 @@ class SplashScreen extends StatelessWidget {
                     kHeight,
                     Container(
                       decoration: BoxDecoration(
-                        color: whiteColor,
+                        color: kWhiteColor,
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: const Padding(
@@ -87,7 +87,7 @@ class SplashScreen extends StatelessWidget {
                           "GET YOUR FINANCIAL GAME PLAN",
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            color: blackColor,
+                            color: kBlackColor,
                             fontSize: 12,
                             fontWeight: FontWeight.w900,
                             wordSpacing: 4,

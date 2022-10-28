@@ -1,6 +1,7 @@
 import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/domain/transaction/models/transaction.dart';
 import 'package:expensify/presentation/widgets/dropdow_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,8 +9,10 @@ import 'package:intl/intl.dart';
 
 class TransactionsBottomSheetWidget extends StatelessWidget {
   final String title;
+  final Transaction? transaction;
   TransactionsBottomSheetWidget({
     required this.title,
+    this.transaction,
     Key? key,
   }) : super(key: key);
 
@@ -56,7 +59,8 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
               style: kBlackSmallText,
             ),
             TextFormField(
-              initialValue: "100",
+              initialValue:
+                  transaction != null ? transaction?.amount.toString() : "100",
               onChanged: (value) {
                 if (value.isNotEmpty) {
                   context.read<TransactionBloc>().add(
@@ -78,7 +82,9 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
               onPressed: () async {
                 final selectedDate = await showDatePicker(
                   context: context,
-                  initialDate: DateTime.now(),
+                  initialDate: transaction != null
+                      ? DateTime.fromMillisecondsSinceEpoch(transaction!.date!)
+                      : DateTime.now(),
                   firstDate: DateTime.now().subtract(
                     const Duration(
                       days: 30,
@@ -97,11 +103,17 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
               label: BlocBuilder<TransactionBloc, TransactionState>(
                 builder: (context, state) {
                   return Text(
-                    state.date == null
-                        ? 'Select Date'
-                        : DateFormat("MMMM d y").format(
-                            DateTime.fromMillisecondsSinceEpoch(state.date!),
-                          ),
+                    transaction != null
+                        ? DateFormat("MMMM d y").format(
+                            DateTime.fromMillisecondsSinceEpoch(
+                                transaction!.date!),
+                          )
+                        : state.date == null
+                            ? 'Select Date'
+                            : DateFormat("MMMM d y").format(
+                                DateTime.fromMillisecondsSinceEpoch(
+                                    state.date!),
+                              ),
                     style: kWhiteMediumTextBold,
                   );
                 },
@@ -114,6 +126,7 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
             ),
             kHeight,
             TextFormField(
+              initialValue: transaction != null ? transaction?.note : "",
               onChanged: (value) {
                 context.read<TransactionBloc>().add(
                       TransactionEvent.noteChangeEvent(

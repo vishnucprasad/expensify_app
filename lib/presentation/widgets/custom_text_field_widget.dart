@@ -18,12 +18,12 @@ class CustomTextFieldWidget extends StatelessWidget {
       obscureText: obscureText ?? false,
       onChanged: onChange,
       style: const TextStyle(
-        color: whiteColor,
+        color: kWhiteColor,
       ),
       decoration: InputDecoration(
         labelText: labelText,
         labelStyle: const TextStyle(
-          color: whiteColor,
+          color: kWhiteColor,
         ),
         enabledBorder: OutlineInputBorder(
           borderSide: const BorderSide(
