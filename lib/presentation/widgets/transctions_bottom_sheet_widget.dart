@@ -1,5 +1,6 @@
 import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/application/transaction/transaction_bloc.dart';
+import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/domain/transaction/models/transaction.dart';
 import 'package:expensify/presentation/widgets/dropdow_widget.dart';
@@ -10,17 +11,11 @@ import 'package:intl/intl.dart';
 class TransactionsBottomSheetWidget extends StatelessWidget {
   final String title;
   final Transaction? transaction;
-  TransactionsBottomSheetWidget({
+  const TransactionsBottomSheetWidget({
     required this.title,
     this.transaction,
     Key? key,
   }) : super(key: key);
-
-  final List<String> dropDownList = [
-    "Travel",
-    "Food & Drink",
-    "Entertainment",
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -42,22 +37,31 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
           ),
         ),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               title,
-              style: kBlackMediumTextBold,
+              style: kBlackLargeTextBold.copyWith(color: kPrimaryColor),
             ),
             kHeight20,
-            const Text(
-              "TRANSACTION CATEGORY",
-              style: kBlackSmallText,
+            const SizedBox(
+              width: double.infinity,
+              child: Text(
+                "TRANSACTION CATEGORY",
+                style: kBlackXSmallTextBold,
+              ),
             ),
+            kHeight5,
             const DropdownWidget(),
-            const Text(
-              "TOTAL AMOUNT",
-              style: kBlackSmallText,
+            kHeight20,
+            const SizedBox(
+              width: double.infinity,
+              child: Text(
+                "TOTAL AMOUNT",
+                style: kBlackXSmallTextBold,
+              ),
             ),
+            kHeight5,
             TextFormField(
               initialValue:
                   transaction != null ? transaction?.amount.toString() : "100",
@@ -70,59 +74,83 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
                       );
                 }
               },
-              style: Theme.of(context).textTheme.headline4,
+              decoration: const InputDecoration(border: OutlineInputBorder()),
+              style: kBlackMediumTextBold,
             ),
             kHeight20,
-            const Text(
-              "TRANSACTION DATE",
-              style: kBlackSmallText,
+            const SizedBox(
+              width: double.infinity,
+              child: Text(
+                "TRANSACTION DATE",
+                style: kBlackXSmallTextBold,
+              ),
             ),
-            kHeight,
-            ElevatedButton.icon(
-              onPressed: () async {
-                final selectedDate = await showDatePicker(
-                  context: context,
-                  initialDate: transaction != null
-                      ? DateTime.fromMillisecondsSinceEpoch(transaction!.date!)
-                      : DateTime.now(),
-                  firstDate: DateTime.now().subtract(
-                    const Duration(
-                      days: 30,
+            kHeight5,
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                style: ButtonStyle(
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(kBlackColor),
+                  elevation: MaterialStateProperty.all<double>(0),
+                  side: MaterialStateProperty.all<BorderSide>(
+                    const BorderSide(
+                      width: 0.5,
                     ),
                   ),
-                  lastDate: DateTime.now(),
-                );
-
-                // ignore: use_build_context_synchronously
-                context.read<TransactionBloc>().add(
-                      TransactionEvent.dateChangeEvent(
-                          selectedDate?.millisecondsSinceEpoch),
-                    );
-              },
-              icon: const Icon(Icons.calendar_today),
-              label: BlocBuilder<TransactionBloc, TransactionState>(
-                builder: (context, state) {
-                  return Text(
-                    transaction != null
-                        ? DateFormat("MMMM d y").format(
-                            DateTime.fromMillisecondsSinceEpoch(
-                                transaction!.date!),
-                          )
-                        : state.date == null
-                            ? 'Select Date'
-                            : DateFormat("MMMM d y").format(
-                                DateTime.fromMillisecondsSinceEpoch(
-                                    state.date!),
-                              ),
-                    style: kWhiteMediumTextBold,
+                  alignment: Alignment.centerLeft,
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(kBackgroundColor!),
+                ),
+                onPressed: () async {
+                  final selectedDate = await showDatePicker(
+                    context: context,
+                    initialDate: transaction != null
+                        ? DateTime.fromMillisecondsSinceEpoch(
+                            transaction!.date!)
+                        : DateTime.now(),
+                    firstDate: DateTime.now().subtract(
+                      const Duration(
+                        days: 30,
+                      ),
+                    ),
+                    lastDate: DateTime.now(),
                   );
+
+                  // ignore: use_build_context_synchronously
+                  context.read<TransactionBloc>().add(
+                        TransactionEvent.dateChangeEvent(
+                            selectedDate?.millisecondsSinceEpoch),
+                      );
                 },
+                icon: const Icon(Icons.calendar_today),
+                label: BlocBuilder<TransactionBloc, TransactionState>(
+                  builder: (context, state) {
+                    return Text(
+                      transaction != null
+                          ? DateFormat("MMMM d y").format(
+                              DateTime.fromMillisecondsSinceEpoch(
+                                  transaction!.date!),
+                            )
+                          : state.date == null
+                              ? 'Select Date'
+                              : DateFormat("MMMM d y").format(
+                                  DateTime.fromMillisecondsSinceEpoch(
+                                      state.date!),
+                                ),
+                      style: kBlackSmallTextBold,
+                    );
+                  },
+                ),
               ),
             ),
             kHeight,
-            const Text(
-              "NOTE",
-              style: kBlackSmallText,
+            const SizedBox(
+              width: double.infinity,
+              child: Text(
+                "NOTE",
+                style: kBlackXSmallTextBold,
+              ),
             ),
             kHeight,
             TextFormField(
@@ -136,37 +164,44 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
               },
               maxLines: 4,
               decoration: const InputDecoration(
+                border: OutlineInputBorder(),
                 hintText: "Write your note here",
               ),
+              style: kBlackSmallTextBold,
             ),
             kHeight,
             BlocBuilder<TransactionBloc, TransactionState>(
               builder: (context, transactionState) {
                 return BlocBuilder<AuthenticationBloc, AuthenticationState>(
                   builder: (context, authenticationState) {
-                    return ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.fromHeight(50), // NEW
-                      ),
-                      onPressed: () {
-                        if (transactionState.amount != null &&
-                            transactionState.category != null &&
-                            transactionState.date != null) {
-                          context.read<TransactionBloc>().add(
-                                TransactionEvent.addTransaction(
-                                  authenticationState.authentication?.authtoken,
-                                  transactionState.amount,
-                                  transactionState.category?.id,
-                                  transactionState.date,
-                                  transactionState.note,
-                                ),
-                              );
-                          Navigator.of(context).pop();
-                        }
-                      },
-                      child: const Text(
-                        'Save',
-                        style: kWhiteMediumTextBold,
+                    return SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(kPrimaryColor!),
+                        ),
+                        onPressed: () {
+                          if (transactionState.amount != null &&
+                              transactionState.category != null &&
+                              transactionState.date != null) {
+                            context.read<TransactionBloc>().add(
+                                  TransactionEvent.addTransaction(
+                                    authenticationState
+                                        .authentication?.authtoken,
+                                    transactionState.amount,
+                                    transactionState.category?.id,
+                                    transactionState.date,
+                                    transactionState.note,
+                                  ),
+                                );
+                            Navigator.of(context).pop();
+                          }
+                        },
+                        child: const Text(
+                          'Save',
+                          style: kWhiteMediumTextBold,
+                        ),
                       ),
                     );
                   },
