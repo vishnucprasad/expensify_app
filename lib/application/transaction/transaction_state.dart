@@ -17,7 +17,7 @@ class TransactionState with _$TransactionState {
     return TransactionState(
       isLoading: true,
       category: null,
-      amount: 100,
+      amount: null,
       date: null,
       note: null,
       transactionList: null,

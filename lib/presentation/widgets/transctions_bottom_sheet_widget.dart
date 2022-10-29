@@ -11,8 +11,10 @@ import 'package:intl/intl.dart';
 class TransactionsBottomSheetWidget extends StatelessWidget {
   final String title;
   final Transaction? transaction;
+  final EventType event;
   const TransactionsBottomSheetWidget({
     required this.title,
+    required this.event,
     this.transaction,
     Key? key,
   }) : super(key: key);
@@ -52,7 +54,7 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
               ),
             ),
             kHeight5,
-            const DropdownWidget(),
+            DropdownWidget(transaction: transaction),
             kHeight20,
             const SizedBox(
               width: double.infinity,
@@ -64,7 +66,7 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
             kHeight5,
             TextFormField(
               initialValue:
-                  transaction != null ? transaction?.amount.toString() : "100",
+                  transaction != null ? transaction?.amount.toString() : "",
               onChanged: (value) {
                 if (value.isNotEmpty) {
                   context.read<TransactionBloc>().add(
@@ -182,17 +184,36 @@ class TransactionsBottomSheetWidget extends StatelessWidget {
                               MaterialStateProperty.all<Color>(kPrimaryColor!),
                         ),
                         onPressed: () {
-                          if (transactionState.amount != null &&
-                              transactionState.category != null &&
-                              transactionState.date != null) {
+                          if (event == EventType.create) {
+                            if (transactionState.amount != null &&
+                                transactionState.category != null &&
+                                transactionState.date != null) {
+                              context.read<TransactionBloc>().add(
+                                    TransactionEvent.addTransaction(
+                                      authenticationState
+                                          .authentication?.authtoken,
+                                      transactionState.amount,
+                                      transactionState.category?.id,
+                                      transactionState.date,
+                                      transactionState.note,
+                                    ),
+                                  );
+                              Navigator.of(context).pop();
+                            }
+                          }
+
+                          if (event == EventType.update) {
                             context.read<TransactionBloc>().add(
-                                  TransactionEvent.addTransaction(
+                                  TransactionEvent.editTransaction(
                                     authenticationState
                                         .authentication?.authtoken,
-                                    transactionState.amount,
-                                    transactionState.category?.id,
-                                    transactionState.date,
-                                    transactionState.note,
+                                    transaction?.id,
+                                    transactionState.amount ??
+                                        transaction?.amount as double,
+                                    transactionState.category?.id ??
+                                        transaction?.category?.id,
+                                    transactionState.date ?? transaction?.date,
+                                    transactionState.note ?? transaction?.note,
                                   ),
                                 );
                             Navigator.of(context).pop();

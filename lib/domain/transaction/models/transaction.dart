@@ -10,7 +10,7 @@ part 'transaction.g.dart';
 class Transaction with _$Transaction {
   const factory Transaction({
     @JsonKey(name: '_id') required String? id,
-    @JsonKey(name: 'amount') required int? amount,
+    @JsonKey(name: 'amount') required double? amount,
     @JsonKey(name: 'category') required Category? category,
     @JsonKey(name: 'date') required int? date,
     @JsonKey(name: 'note') required String? note,

@@ -52,7 +52,9 @@ class MenuWalletWidget extends StatelessWidget {
                           }
                         });
                         return Text(
-                          '$totalBalance',
+                          totalBalance
+                              .toString()
+                              .replaceAll(RegExp(r'([.]*0)(?!.*\d)'), ''),
                           style: kBlackLargeTextBold,
                         );
                       },

@@ -1,3 +1,4 @@
+import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/domain/transaction/models/transaction.dart';
 import 'package:expensify/presentation/widgets/transctions_bottom_sheet_widget.dart';
@@ -16,6 +17,9 @@ class TransactionDialogWidget extends StatelessWidget {
     return FittedBox(
       fit: BoxFit.scaleDown,
       child: AlertDialog(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
         title: Center(
           child: Text(
             transaction.category?.title ?? "",
@@ -33,8 +37,12 @@ class TransactionDialogWidget extends StatelessWidget {
                 ),
                 const Spacer(),
                 Text(
-                  '${transaction.amount}',
-                  style: kDangerSmallTextBold,
+                  transaction.amount
+                      .toString()
+                      .replaceAll(RegExp(r'([.]*0)(?!.*\d)'), ''),
+                  style: transaction.category?.type == "income"
+                      ? kSuccessSmallTextBold
+                      : kDangerSmallTextBold,
                 ),
               ],
             ),
@@ -74,73 +82,82 @@ class TransactionDialogWidget extends StatelessWidget {
                 ),
               ],
             ),
+            if (transaction.note != null)
+              Column(
+                children: [
+                  kHeight15,
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: kBackgroundColor,
+                        borderRadius: BorderRadius.circular(5)),
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      transaction.note ?? "",
+                      style: kBlackSmallText,
+                    ),
+                  ),
+                ],
+              ),
+            kHeight,
+            Row(
+              children: [
+                Expanded(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        builder: (context) => Wrap(
+                          children: [
+                            TransactionsBottomSheetWidget(
+                              title: "Edit Transaction",
+                              transaction: transaction,
+                              event: EventType.update,
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all<Color>(
+                        Colors.white,
+                      ),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Theme.of(context).colorScheme.primary.withOpacity(0.8),
+                      ),
+                    ),
+                    child: Text(
+                      'Modify',
+                      style: kWhiteSmallText.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+                kWidth,
+                TextButton(
+                  onPressed: () {},
+                  style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all<Color>(
+                      Colors.white,
+                    ),
+                    backgroundColor: MaterialStateProperty.all<Color>(
+                      Colors.red.withOpacity(0.8),
+                    ),
+                  ),
+                  child: Text(
+                    'Delete',
+                    style: kWhiteSmallText.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
-        actions: [
-          TextButton(
-            onPressed: () {},
-            style: ButtonStyle(
-              minimumSize: MaterialStateProperty.all<Size>(
-                const Size.fromHeight(30),
-              ),
-              foregroundColor: MaterialStateProperty.all<Color>(
-                Colors.white,
-              ),
-              backgroundColor: MaterialStateProperty.all<Color>(
-                Colors.red.withOpacity(0.8),
-              ),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                ),
-              ),
-            ),
-            child: Text(
-              'Delete',
-              style: kWhiteSmallText.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          TextButton(
-            onPressed: () {
-              showModalBottomSheet(
-                isScrollControlled: true,
-                context: context,
-                builder: (context) => Wrap(
-                  children: [
-                    TransactionsBottomSheetWidget(
-                      title: "Edit Transaction",
-                      transaction: transaction,
-                    ),
-                  ],
-                ),
-              );
-            },
-            style: ButtonStyle(
-              minimumSize: MaterialStateProperty.all<Size>(
-                const Size.fromHeight(30),
-              ),
-              foregroundColor: MaterialStateProperty.all<Color>(
-                Colors.white,
-              ),
-              backgroundColor: MaterialStateProperty.all<Color>(
-                Theme.of(context).colorScheme.primary.withOpacity(0.8),
-              ),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
-                ),
-              ),
-            ),
-            child: Text(
-              'Modify',
-              style: kWhiteSmallText.copyWith(
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }

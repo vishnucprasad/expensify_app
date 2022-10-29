@@ -1,5 +1,6 @@
 import 'package:bottom_bar_page_transition/bottom_bar_page_transition.dart';
 import 'package:expensify/core/colors.dart';
+import 'package:expensify/core/constants.dart';
 import 'package:expensify/presentation/bills/bills_screen.dart';
 import 'package:expensify/presentation/home/home_screen.dart';
 import 'package:expensify/presentation/main_page/widgets/bottom_nav.dart';
@@ -54,9 +55,10 @@ class MainPageScreen extends StatelessWidget {
       isScrollControlled: true,
       context: context,
       builder: (ctx) => Wrap(
-        children: [
+        children: const [
           TransactionsBottomSheetWidget(
             title: "Add new transaction",
+            event: EventType.create,
           ),
         ],
       ),

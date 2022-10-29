@@ -93,7 +93,9 @@ class MainHeaderWidget extends StatelessWidget {
                                 }
                               });
                               return Text(
-                                '$totalBalance',
+                                totalBalance
+                                    .toString()
+                                    .replaceAll(RegExp(r'([.]*0)(?!.*\d)'), ''),
                                 style: kWhiteXLargeText,
                               );
                             },

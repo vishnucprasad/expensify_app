@@ -13,4 +13,12 @@ abstract class ITransactionRepo {
     int? date,
     String? note,
   );
+  Future<Either<MainFailure, List<Transaction>>> editTransaction(
+    String? authtoken,
+    String? id,
+    double? amount,
+    String? category,
+    int? date,
+    String? note,
+  );
 }

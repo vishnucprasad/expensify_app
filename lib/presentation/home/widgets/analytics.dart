@@ -55,7 +55,7 @@ class AnalyticsWidget extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          "+ $totalIncome",
+                          "+ ${totalIncome.toString().replaceAll(RegExp(r'([.]*0)(?!.*\d)'), '')}",
                           style: kSuccessSmallTextBold,
                         ),
                         kHeight,
@@ -69,7 +69,7 @@ class AnalyticsWidget extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          "- $totalExpense",
+                          "- ${totalExpense.toString().replaceAll(RegExp(r'([.]*0)(?!.*\d)'), '')}",
                           style: kDangerSmallTextBold,
                         ),
                         kHeight,

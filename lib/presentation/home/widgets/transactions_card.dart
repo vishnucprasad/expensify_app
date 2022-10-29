@@ -33,7 +33,7 @@ class TransactionsCardWidget extends StatelessWidget {
               foregroundColor: Colors.white,
               backgroundColor: Colors.greenAccent),
           title: Text(
-            '\$ ${transaction.amount}',
+            '\$ ${transaction.amount.toString().replaceAll(RegExp(r'([.]*0)(?!.*\d)'), '')}',
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               color: kBlackColor,

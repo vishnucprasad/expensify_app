@@ -164,3 +164,8 @@ SnackBar customSnackBar({required String? errorMessage}) {
     behavior: SnackBarBehavior.floating,
   );
 }
+
+enum EventType {
+  create,
+  update,
+}

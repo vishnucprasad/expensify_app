@@ -3,14 +3,18 @@ import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/domain/category/models/category.dart';
+import 'package:expensify/domain/transaction/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 
 class DropdownWidget extends StatelessWidget {
   const DropdownWidget({
+    required this.transaction,
     Key? key,
   }) : super(key: key);
+
+  final Transaction? transaction;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +39,7 @@ class DropdownWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 isExpanded: true,
                 hint: const Text('Select Category'),
-                value: transactionState.category,
+                value: transactionState.category ?? transaction?.category,
                 items: categoryState.categoryList?.categoryList.map((e) {
                   return DropdownMenuItem(
                     onTap: () {

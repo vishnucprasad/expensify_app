@@ -26,6 +26,9 @@ mixin _$TransactionEvent {
     required TResult Function(String? authToken, double? amount,
             String? category, int? date, String? note)
         addTransaction,
+    required TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)
+        editTransaction,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +41,9 @@ mixin _$TransactionEvent {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +56,9 @@ mixin _$TransactionEvent {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,6 +70,7 @@ mixin _$TransactionEvent {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetTransactions value) getTransactions,
     required TResult Function(_AddTransaction value) addTransaction,
+    required TResult Function(_EditTransaction value) editTransaction,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +81,7 @@ mixin _$TransactionEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +92,7 @@ mixin _$TransactionEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -190,6 +202,9 @@ class _$_CategoryChangeEvent implements _CategoryChangeEvent {
     required TResult Function(String? authToken, double? amount,
             String? category, int? date, String? note)
         addTransaction,
+    required TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)
+        editTransaction,
   }) {
     return categoryChangeEvent(category);
   }
@@ -205,6 +220,9 @@ class _$_CategoryChangeEvent implements _CategoryChangeEvent {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
   }) {
     return categoryChangeEvent?.call(category);
   }
@@ -220,6 +238,9 @@ class _$_CategoryChangeEvent implements _CategoryChangeEvent {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
     required TResult orElse(),
   }) {
     if (categoryChangeEvent != null) {
@@ -237,6 +258,7 @@ class _$_CategoryChangeEvent implements _CategoryChangeEvent {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetTransactions value) getTransactions,
     required TResult Function(_AddTransaction value) addTransaction,
+    required TResult Function(_EditTransaction value) editTransaction,
   }) {
     return categoryChangeEvent(this);
   }
@@ -250,6 +272,7 @@ class _$_CategoryChangeEvent implements _CategoryChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
   }) {
     return categoryChangeEvent?.call(this);
   }
@@ -263,6 +286,7 @@ class _$_CategoryChangeEvent implements _CategoryChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
     required TResult orElse(),
   }) {
     if (categoryChangeEvent != null) {
@@ -356,6 +380,9 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     required TResult Function(String? authToken, double? amount,
             String? category, int? date, String? note)
         addTransaction,
+    required TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)
+        editTransaction,
   }) {
     return amountChangeEvent(amount);
   }
@@ -371,6 +398,9 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
   }) {
     return amountChangeEvent?.call(amount);
   }
@@ -386,6 +416,9 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
     required TResult orElse(),
   }) {
     if (amountChangeEvent != null) {
@@ -403,6 +436,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetTransactions value) getTransactions,
     required TResult Function(_AddTransaction value) addTransaction,
+    required TResult Function(_EditTransaction value) editTransaction,
   }) {
     return amountChangeEvent(this);
   }
@@ -416,6 +450,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
   }) {
     return amountChangeEvent?.call(this);
   }
@@ -429,6 +464,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
     required TResult orElse(),
   }) {
     if (amountChangeEvent != null) {
@@ -520,6 +556,9 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     required TResult Function(String? authToken, double? amount,
             String? category, int? date, String? note)
         addTransaction,
+    required TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)
+        editTransaction,
   }) {
     return dateChangeEvent(date);
   }
@@ -535,6 +574,9 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
   }) {
     return dateChangeEvent?.call(date);
   }
@@ -550,6 +592,9 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
     required TResult orElse(),
   }) {
     if (dateChangeEvent != null) {
@@ -567,6 +612,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetTransactions value) getTransactions,
     required TResult Function(_AddTransaction value) addTransaction,
+    required TResult Function(_EditTransaction value) editTransaction,
   }) {
     return dateChangeEvent(this);
   }
@@ -580,6 +626,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
   }) {
     return dateChangeEvent?.call(this);
   }
@@ -593,6 +640,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
     required TResult orElse(),
   }) {
     if (dateChangeEvent != null) {
@@ -684,6 +732,9 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     required TResult Function(String? authToken, double? amount,
             String? category, int? date, String? note)
         addTransaction,
+    required TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)
+        editTransaction,
   }) {
     return noteChangeEvent(note);
   }
@@ -699,6 +750,9 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
   }) {
     return noteChangeEvent?.call(note);
   }
@@ -714,6 +768,9 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
     required TResult orElse(),
   }) {
     if (noteChangeEvent != null) {
@@ -731,6 +788,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetTransactions value) getTransactions,
     required TResult Function(_AddTransaction value) addTransaction,
+    required TResult Function(_EditTransaction value) editTransaction,
   }) {
     return noteChangeEvent(this);
   }
@@ -744,6 +802,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
   }) {
     return noteChangeEvent?.call(this);
   }
@@ -757,6 +816,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
     required TResult orElse(),
   }) {
     if (noteChangeEvent != null) {
@@ -848,6 +908,9 @@ class _$_GetTransactions implements _GetTransactions {
     required TResult Function(String? authToken, double? amount,
             String? category, int? date, String? note)
         addTransaction,
+    required TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)
+        editTransaction,
   }) {
     return getTransactions(authtoken);
   }
@@ -863,6 +926,9 @@ class _$_GetTransactions implements _GetTransactions {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
   }) {
     return getTransactions?.call(authtoken);
   }
@@ -878,6 +944,9 @@ class _$_GetTransactions implements _GetTransactions {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
     required TResult orElse(),
   }) {
     if (getTransactions != null) {
@@ -895,6 +964,7 @@ class _$_GetTransactions implements _GetTransactions {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetTransactions value) getTransactions,
     required TResult Function(_AddTransaction value) addTransaction,
+    required TResult Function(_EditTransaction value) editTransaction,
   }) {
     return getTransactions(this);
   }
@@ -908,6 +978,7 @@ class _$_GetTransactions implements _GetTransactions {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
   }) {
     return getTransactions?.call(this);
   }
@@ -921,6 +992,7 @@ class _$_GetTransactions implements _GetTransactions {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
     required TResult orElse(),
   }) {
     if (getTransactions != null) {
@@ -1055,6 +1127,9 @@ class _$_AddTransaction implements _AddTransaction {
     required TResult Function(String? authToken, double? amount,
             String? category, int? date, String? note)
         addTransaction,
+    required TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)
+        editTransaction,
   }) {
     return addTransaction(authToken, amount, category, date, note);
   }
@@ -1070,6 +1145,9 @@ class _$_AddTransaction implements _AddTransaction {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
   }) {
     return addTransaction?.call(authToken, amount, category, date, note);
   }
@@ -1085,6 +1163,9 @@ class _$_AddTransaction implements _AddTransaction {
     TResult Function(String? authToken, double? amount, String? category,
             int? date, String? note)?
         addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
     required TResult orElse(),
   }) {
     if (addTransaction != null) {
@@ -1102,6 +1183,7 @@ class _$_AddTransaction implements _AddTransaction {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetTransactions value) getTransactions,
     required TResult Function(_AddTransaction value) addTransaction,
+    required TResult Function(_EditTransaction value) editTransaction,
   }) {
     return addTransaction(this);
   }
@@ -1115,6 +1197,7 @@ class _$_AddTransaction implements _AddTransaction {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
   }) {
     return addTransaction?.call(this);
   }
@@ -1128,6 +1211,7 @@ class _$_AddTransaction implements _AddTransaction {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetTransactions value)? getTransactions,
     TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
     required TResult orElse(),
   }) {
     if (addTransaction != null) {
@@ -1152,6 +1236,246 @@ abstract class _AddTransaction implements TransactionEvent {
   String? get note;
   @JsonKey(ignore: true)
   _$$_AddTransactionCopyWith<_$_AddTransaction> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_EditTransactionCopyWith<$Res> {
+  factory _$$_EditTransactionCopyWith(
+          _$_EditTransaction value, $Res Function(_$_EditTransaction) then) =
+      __$$_EditTransactionCopyWithImpl<$Res>;
+  $Res call(
+      {String? authToken,
+      String? id,
+      double? amount,
+      String? category,
+      int? date,
+      String? note});
+}
+
+/// @nodoc
+class __$$_EditTransactionCopyWithImpl<$Res>
+    extends _$TransactionEventCopyWithImpl<$Res>
+    implements _$$_EditTransactionCopyWith<$Res> {
+  __$$_EditTransactionCopyWithImpl(
+      _$_EditTransaction _value, $Res Function(_$_EditTransaction) _then)
+      : super(_value, (v) => _then(v as _$_EditTransaction));
+
+  @override
+  _$_EditTransaction get _value => super._value as _$_EditTransaction;
+
+  @override
+  $Res call({
+    Object? authToken = freezed,
+    Object? id = freezed,
+    Object? amount = freezed,
+    Object? category = freezed,
+    Object? date = freezed,
+    Object? note = freezed,
+  }) {
+    return _then(_$_EditTransaction(
+      authToken == freezed
+          ? _value.authToken
+          : authToken // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double?,
+      category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String?,
+      date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as int?,
+      note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_EditTransaction implements _EditTransaction {
+  const _$_EditTransaction(this.authToken, this.id, this.amount, this.category,
+      this.date, this.note);
+
+  @override
+  final String? authToken;
+  @override
+  final String? id;
+  @override
+  final double? amount;
+  @override
+  final String? category;
+  @override
+  final int? date;
+  @override
+  final String? note;
+
+  @override
+  String toString() {
+    return 'TransactionEvent.editTransaction(authToken: $authToken, id: $id, amount: $amount, category: $category, date: $date, note: $note)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_EditTransaction &&
+            const DeepCollectionEquality().equals(other.authToken, authToken) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.amount, amount) &&
+            const DeepCollectionEquality().equals(other.category, category) &&
+            const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.note, note));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(authToken),
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(amount),
+      const DeepCollectionEquality().hash(category),
+      const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(note));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_EditTransactionCopyWith<_$_EditTransaction> get copyWith =>
+      __$$_EditTransactionCopyWithImpl<_$_EditTransaction>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(Category? category) categoryChangeEvent,
+    required TResult Function(double? amount) amountChangeEvent,
+    required TResult Function(int? date) dateChangeEvent,
+    required TResult Function(String? note) noteChangeEvent,
+    required TResult Function(String? authtoken) getTransactions,
+    required TResult Function(String? authToken, double? amount,
+            String? category, int? date, String? note)
+        addTransaction,
+    required TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)
+        editTransaction,
+  }) {
+    return editTransaction(authToken, id, amount, category, date, note);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Category? category)? categoryChangeEvent,
+    TResult Function(double? amount)? amountChangeEvent,
+    TResult Function(int? date)? dateChangeEvent,
+    TResult Function(String? note)? noteChangeEvent,
+    TResult Function(String? authtoken)? getTransactions,
+    TResult Function(String? authToken, double? amount, String? category,
+            int? date, String? note)?
+        addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
+  }) {
+    return editTransaction?.call(authToken, id, amount, category, date, note);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Category? category)? categoryChangeEvent,
+    TResult Function(double? amount)? amountChangeEvent,
+    TResult Function(int? date)? dateChangeEvent,
+    TResult Function(String? note)? noteChangeEvent,
+    TResult Function(String? authtoken)? getTransactions,
+    TResult Function(String? authToken, double? amount, String? category,
+            int? date, String? note)?
+        addTransaction,
+    TResult Function(String? authToken, String? id, double? amount,
+            String? category, int? date, String? note)?
+        editTransaction,
+    required TResult orElse(),
+  }) {
+    if (editTransaction != null) {
+      return editTransaction(authToken, id, amount, category, date, note);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CategoryChangeEvent value) categoryChangeEvent,
+    required TResult Function(_AmountChangeEvent value) amountChangeEvent,
+    required TResult Function(_DateChangeEvent value) dateChangeEvent,
+    required TResult Function(_NoteChangeEvent value) noteChangeEvent,
+    required TResult Function(_GetTransactions value) getTransactions,
+    required TResult Function(_AddTransaction value) addTransaction,
+    required TResult Function(_EditTransaction value) editTransaction,
+  }) {
+    return editTransaction(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_CategoryChangeEvent value)? categoryChangeEvent,
+    TResult Function(_AmountChangeEvent value)? amountChangeEvent,
+    TResult Function(_DateChangeEvent value)? dateChangeEvent,
+    TResult Function(_NoteChangeEvent value)? noteChangeEvent,
+    TResult Function(_GetTransactions value)? getTransactions,
+    TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
+  }) {
+    return editTransaction?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CategoryChangeEvent value)? categoryChangeEvent,
+    TResult Function(_AmountChangeEvent value)? amountChangeEvent,
+    TResult Function(_DateChangeEvent value)? dateChangeEvent,
+    TResult Function(_NoteChangeEvent value)? noteChangeEvent,
+    TResult Function(_GetTransactions value)? getTransactions,
+    TResult Function(_AddTransaction value)? addTransaction,
+    TResult Function(_EditTransaction value)? editTransaction,
+    required TResult orElse(),
+  }) {
+    if (editTransaction != null) {
+      return editTransaction(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditTransaction implements TransactionEvent {
+  const factory _EditTransaction(
+      final String? authToken,
+      final String? id,
+      final double? amount,
+      final String? category,
+      final int? date,
+      final String? note) = _$_EditTransaction;
+
+  String? get authToken;
+  String? get id;
+  double? get amount;
+  String? get category;
+  int? get date;
+  String? get note;
+  @JsonKey(ignore: true)
+  _$$_EditTransactionCopyWith<_$_EditTransaction> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

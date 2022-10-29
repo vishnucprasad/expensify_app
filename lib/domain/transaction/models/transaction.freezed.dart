@@ -23,7 +23,7 @@ mixin _$Transaction {
   @JsonKey(name: '_id')
   String? get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'amount')
-  int? get amount => throw _privateConstructorUsedError;
+  double? get amount => throw _privateConstructorUsedError;
   @JsonKey(name: 'category')
   Category? get category => throw _privateConstructorUsedError;
   @JsonKey(name: 'date')
@@ -44,7 +44,7 @@ abstract class $TransactionCopyWith<$Res> {
       _$TransactionCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: '_id') String? id,
-      @JsonKey(name: 'amount') int? amount,
+      @JsonKey(name: 'amount') double? amount,
       @JsonKey(name: 'category') Category? category,
       @JsonKey(name: 'date') int? date,
       @JsonKey(name: 'note') String? note});
@@ -76,7 +76,7 @@ class _$TransactionCopyWithImpl<$Res> implements $TransactionCopyWith<$Res> {
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -113,7 +113,7 @@ abstract class _$$_TransactionCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: '_id') String? id,
-      @JsonKey(name: 'amount') int? amount,
+      @JsonKey(name: 'amount') double? amount,
       @JsonKey(name: 'category') Category? category,
       @JsonKey(name: 'date') int? date,
       @JsonKey(name: 'note') String? note});
@@ -148,7 +148,7 @@ class __$$_TransactionCopyWithImpl<$Res> extends _$TransactionCopyWithImpl<$Res>
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       category: category == freezed
           ? _value.category
           : category // ignore: cast_nullable_to_non_nullable
@@ -183,7 +183,7 @@ class _$_Transaction implements _Transaction {
   final String? id;
   @override
   @JsonKey(name: 'amount')
-  final int? amount;
+  final double? amount;
   @override
   @JsonKey(name: 'category')
   final Category? category;
@@ -237,7 +237,7 @@ class _$_Transaction implements _Transaction {
 abstract class _Transaction implements Transaction {
   const factory _Transaction(
       {@JsonKey(name: '_id') required final String? id,
-      @JsonKey(name: 'amount') required final int? amount,
+      @JsonKey(name: 'amount') required final double? amount,
       @JsonKey(name: 'category') required final Category? category,
       @JsonKey(name: 'date') required final int? date,
       @JsonKey(name: 'note') required final String? note}) = _$_Transaction;
@@ -250,7 +250,7 @@ abstract class _Transaction implements Transaction {
   String? get id;
   @override
   @JsonKey(name: 'amount')
-  int? get amount;
+  double? get amount;
   @override
   @JsonKey(name: 'category')
   Category? get category;

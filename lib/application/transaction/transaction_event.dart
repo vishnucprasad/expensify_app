@@ -18,4 +18,12 @@ class TransactionEvent with _$TransactionEvent {
     int? date,
     String? note,
   ) = _AddTransaction;
+  const factory TransactionEvent.editTransaction(
+    String? authToken,
+    String? id,
+    double? amount,
+    String? category,
+    int? date,
+    String? note,
+  ) = _EditTransaction;
 }
