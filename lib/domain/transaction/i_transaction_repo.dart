@@ -21,4 +21,8 @@ abstract class ITransactionRepo {
     int? date,
     String? note,
   );
+  Future<Either<MainFailure, List<Transaction>>> deleteTransaction(
+    String? authtoken,
+    String? id,
+  );
 }

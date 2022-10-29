@@ -26,12 +26,15 @@ class TransactionsCardWidget extends StatelessWidget {
         ),
         elevation: 0,
         child: ListTile(
-          leading: const CircleAvatar(
-              // ignore: sort_child_properties_last
-              child: Icon(Icons.attach_money_sharp),
-              radius: 25,
-              foregroundColor: Colors.white,
-              backgroundColor: Colors.greenAccent),
+          leading: CircleAvatar(
+            // ignore: sort_child_properties_last
+            child: const Icon(Icons.attach_money_sharp),
+            radius: 25,
+            foregroundColor: Colors.white,
+            backgroundColor: transaction.category?.type == "income"
+                ? kSuccessColor
+                : kDangerColor,
+          ),
           title: Text(
             '\$ ${transaction.amount.toString().replaceAll(RegExp(r'([.]*0)(?!.*\d)'), '')}',
             style: const TextStyle(

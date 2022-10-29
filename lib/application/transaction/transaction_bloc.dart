@@ -189,6 +189,52 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
               ),
             );
           },
+          deleteTransaction: (_DeleteTransaction value) async {
+            emit(
+              state.copyWith(
+                isLoading: true,
+                transactionList: null,
+                transactionFailureOrSuccessOption: none(),
+              ),
+            );
+
+            final Either<MainFailure, List<Transaction>> transactionOptions =
+                await _transactionRepo.deleteTransaction(
+              value.authToken,
+              value.id,
+            );
+
+            emit(
+              transactionOptions.fold(
+                (failure) {
+                  return failure.map(
+                    clientFailure: (ClientFailure value) => state.copyWith(
+                      isLoading: false,
+                      transactionFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                    serverFailure: (ServerFailure value) => state.copyWith(
+                      isLoading: false,
+                      transactionFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                  );
+                },
+                (success) => state.copyWith(
+                  isLoading: false,
+                  transactionList: success,
+                  error: null,
+                  transactionFailureOrSuccessOption: some(
+                    right(success),
+                  ),
+                ),
+              ),
+            );
+          },
         );
       },
     );

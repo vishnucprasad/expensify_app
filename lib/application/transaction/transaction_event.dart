@@ -26,4 +26,8 @@ class TransactionEvent with _$TransactionEvent {
     int? date,
     String? note,
   ) = _EditTransaction;
+  const factory TransactionEvent.deleteTransaction(
+    String? authToken,
+    String? id,
+  ) = _DeleteTransaction;
 }

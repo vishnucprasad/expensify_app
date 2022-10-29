@@ -1,9 +1,12 @@
+import 'package:expensify/application/authentication/authentication_bloc.dart';
+import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/domain/transaction/models/transaction.dart';
 import 'package:expensify/presentation/widgets/transctions_bottom_sheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TransactionDialogWidget extends StatelessWidget {
   final Transaction transaction;
@@ -137,22 +140,34 @@ class TransactionDialogWidget extends StatelessWidget {
                   ),
                 ),
                 kWidth,
-                TextButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                    foregroundColor: MaterialStateProperty.all<Color>(
-                      Colors.white,
-                    ),
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                      Colors.red.withOpacity(0.8),
-                    ),
-                  ),
-                  child: Text(
-                    'Delete',
-                    style: kWhiteSmallText.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                BlocBuilder<AuthenticationBloc, AuthenticationState>(
+                  builder: (context, authenticationState) {
+                    return TextButton(
+                      onPressed: () {
+                        context.read<TransactionBloc>().add(
+                              TransactionEvent.deleteTransaction(
+                                authenticationState.authentication?.authtoken,
+                                transaction.id,
+                              ),
+                            );
+                        Navigator.pop(context);
+                      },
+                      style: ButtonStyle(
+                        foregroundColor: MaterialStateProperty.all<Color>(
+                          Colors.white,
+                        ),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                          Colors.red.withOpacity(0.8),
+                        ),
+                      ),
+                      child: Text(
+                        'Delete',
+                        style: kWhiteSmallText.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             )

@@ -215,4 +215,65 @@ class TransactionRepository implements ITransactionRepo {
       );
     }
   }
+
+  @override
+  Future<Either<MainFailure, List<Transaction>>> deleteTransaction(
+    String? authtoken,
+    String? id,
+  ) async {
+    try {
+      final response = await Dio(BaseOptions(
+        headers: {
+          "authorization": 'Bearer $authtoken',
+        },
+      )).delete('${ApiEndPoints.transactionEndPoint}/$id');
+
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        final transactionList = (response.data as List)
+            .map(
+              (transaction) => Transaction.fromJson(transaction),
+            )
+            .toList();
+
+        return right(transactionList);
+      }
+
+      return left(
+        const MainFailure.serverFailure(
+          MainError(
+            name: "InternalServerError",
+            message: "The server has encountered a problem",
+            status: 500,
+          ),
+        ),
+      );
+    } on DioError catch (e) {
+      if (e.response?.statusCode == 401 ||
+          e.response?.statusCode == 409 ||
+          e.response?.statusCode == 404) {
+        return left(
+            MainFailure.serverFailure(MainError.fromJson(e.response?.data)));
+      }
+
+      return left(
+        const MainFailure.serverFailure(
+          MainError(
+            name: "RequestTimeOutError",
+            message: "Request time out cannot connect to the server",
+            status: 408,
+          ),
+        ),
+      );
+    } catch (_) {
+      return left(
+        const MainFailure.clientFailure(
+          MainError(
+            name: "BadRequestError",
+            message: "Bad request from client",
+            status: 400,
+          ),
+        ),
+      );
+    }
+  }
 }
