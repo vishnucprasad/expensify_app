@@ -1,6 +1,9 @@
+import 'package:expensify/application/subscription/subscription_bloc.dart';
+import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/presentation/subscriptions/widgets/subscriptions_list_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SubscriptionsListWidget extends StatelessWidget {
   const SubscriptionsListWidget({
@@ -12,30 +15,67 @@ class SubscriptionsListWidget extends StatelessWidget {
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-        child: Column(
-          children: [
-            Row(
-              children: const [
-                kWidth,
-                Text(
-                  'ALL SUBSCRIPTIONS',
-                  style: kSecondarySmallText,
+        child: BlocBuilder<SubscriptionBloc, SubscriptionState>(
+          builder: (context, state) {
+            if (state.isLoading == true) {
+              return Align(
+                alignment: Alignment.topCenter,
+                child: SizedBox(
+                  height: 5,
+                  child: LinearProgressIndicator(
+                    backgroundColor: kPrimaryColor,
+                  ),
                 ),
-                Spacer(),
-                Text('\$ 136.00'),
-                kWidth,
+              );
+            }
+
+            if (state.subscriptionList == null || state.error != null) {
+              return Align(
+                alignment: Alignment.topCenter,
+                child: Text(
+                  state.error?.message ?? "Something went wrong!",
+                  style: kBlackSmallTextBold,
+                  textAlign: TextAlign.center,
+                ),
+              );
+            }
+
+            double totalAmount = 0;
+            state.subscriptionList?.forEach((subscription) {
+              if (subscription.amount != null) {
+                totalAmount += subscription.amount!;
+              }
+            });
+
+            return Column(
+              children: [
+                Row(
+                  children: [
+                    kWidth,
+                    const Text(
+                      'ALL SUBSCRIPTIONS',
+                      style: kSecondarySmallText,
+                    ),
+                    const Spacer(),
+                    Text(
+                      '\$ ${totalAmount.toString().replaceAll(RegExp(r'([.]*0)(?!.*\d)'), '')}',
+                    ),
+                    kWidth,
+                  ],
+                ),
+                kHeight,
+                Expanded(
+                  child: ListView.separated(
+                    itemBuilder: (ctx, index) => SubscriptionsListItemWidget(
+                      subscription: state.subscriptionList?[index],
+                    ),
+                    separatorBuilder: (ctx, index) => kHeight,
+                    itemCount: state.subscriptionList!.length,
+                  ),
+                )
               ],
-            ),
-            kHeight,
-            Expanded(
-              child: ListView.separated(
-                itemBuilder: (ctx, index) =>
-                    const SubscriptionsListItemWidget(),
-                separatorBuilder: (ctx, index) => kHeight,
-                itemCount: 8,
-              ),
-            )
-          ],
+            );
+          },
         ),
       ),
     );

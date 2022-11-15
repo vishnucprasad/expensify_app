@@ -1,4 +1,5 @@
 import 'package:bottom_bar_page_transition/bottom_bar_page_transition.dart';
+import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/presentation/bills/bills_screen.dart';
@@ -8,13 +9,18 @@ import 'package:expensify/presentation/menu/menu_screen.dart';
 import 'package:expensify/presentation/subscriptions/subscriptions_screen.dart';
 import 'package:expensify/presentation/widgets/transctions_bottom_sheet_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainPageScreen extends StatelessWidget {
   MainPageScreen({Key? key}) : super(key: key);
 
   final _pages = [
     const HomeScreen(),
-    const SubscriptionsScreen(),
+    BlocBuilder<AuthenticationBloc, AuthenticationState>(
+      builder: (context, state) {
+        return SubscriptionsScreen(state: state);
+      },
+    ),
     const BillsScreen(),
     const MenuScreen(),
   ];

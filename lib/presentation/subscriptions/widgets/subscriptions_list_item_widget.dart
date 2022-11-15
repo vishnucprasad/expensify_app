@@ -1,11 +1,17 @@
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/domain/subscription/models/subscription.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_profile_picture/flutter_profile_picture.dart';
+import 'package:intl/intl.dart';
 
 class SubscriptionsListItemWidget extends StatelessWidget {
   const SubscriptionsListItemWidget({
+    required this.subscription,
     Key? key,
   }) : super(key: key);
+
+  final Subscription? subscription;
 
   @override
   Widget build(BuildContext context) {
@@ -22,34 +28,39 @@ class SubscriptionsListItemWidget extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                Container(
+                SizedBox(
                   height: 50,
                   width: 50,
-                  decoration: BoxDecoration(
-                    color: kBlackColor,
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
-                      image: AssetImage(netflixLogo),
-                    ),
+                  child: ProfilePicture(
+                    name: subscription?.title ?? "",
+                    radius: 50,
+                    fontsize: 20,
+                    count: 2,
                   ),
                 ),
                 kWidth,
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
-                      'Netflix',
+                      subscription?.title ?? "",
                       style: kBlackSmallTextBold,
                     ),
                     Text(
-                      'AUG 25',
+                      subscription?.date != null
+                          ? DateFormat("MMMM d").format(
+                              DateTime.fromMillisecondsSinceEpoch(
+                                subscription!.date!,
+                              ),
+                            )
+                          : "",
                       style: kSecondaryxSmallText,
                     ),
                   ],
                 ),
                 const Spacer(),
-                const Text(
-                  '\$ 11.00',
+                Text(
+                  '\$ ${subscription?.amount.toString().replaceAll(RegExp(r'([.]*0)(?!.*\d)'), '')}',
                   style: kBlackSmallTextBold,
                 )
               ],

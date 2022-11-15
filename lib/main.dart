@@ -1,6 +1,7 @@
 import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/application/category/category_bloc.dart';
 import 'package:expensify/application/transaction/transaction_bloc.dart';
+import 'package:expensify/application/subscription/subscription_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/domain/core/di/injectable.dart';
 import 'package:expensify/presentation/splash/splash_screen.dart';
@@ -8,7 +9,6 @@ import 'package:expensify/presentation/theme/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: ((context) => getIt<AuthenticationBloc>())),
         BlocProvider(create: ((context) => getIt<CategoryBloc>())),
         BlocProvider(create: ((context) => getIt<TransactionBloc>())),
+        BlocProvider(create: ((context) => getIt<SubscriptionBloc>())),
       ],
       child: MaterialApp(
         theme: buildLightTheme(),
