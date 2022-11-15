@@ -2,6 +2,7 @@
 
 import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/application/category/category_bloc.dart';
+import 'package:expensify/application/subscription/subscription_bloc.dart';
 import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
@@ -27,12 +28,20 @@ class SplashScreen extends StatelessWidget {
       }
 
       if (state.authentication != null && state.authentication?.id != null) {
+        final authtoken = state.authentication?.authtoken;
+
         context.read<CategoryBloc>().add(
-              CategoryEvent.getCategories(state.authentication?.authtoken),
+              CategoryEvent.getCategories(authtoken),
             );
+
         context.read<TransactionBloc>().add(
-              TransactionEvent.getTransactions(state.authentication?.authtoken),
+              TransactionEvent.getTransactions(authtoken),
             );
+
+        context.read<SubscriptionBloc>().add(
+              SubscriptionEvent.getSubscriptions(authtoken),
+            );
+
         return goToMainPage(context);
       }
 
