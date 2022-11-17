@@ -3,7 +3,7 @@ import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/domain/transaction/models/transaction.dart';
-import 'package:expensify/presentation/widgets/dropdow_widget.dart';
+import 'package:expensify/presentation/widgets/dropdown_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';

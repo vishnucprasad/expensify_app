@@ -3,7 +3,7 @@ import 'package:expensify/application/category/category_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/presentation/categories/widgets/category_list_Item_widget.dart';
-import 'package:expensify/presentation/widgets/category_bottom_sheet_widget.dart';
+import 'package:expensify/presentation/categories/widgets/category_bottom_sheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

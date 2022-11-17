@@ -7,7 +7,7 @@ import 'package:expensify/presentation/home/home_screen.dart';
 import 'package:expensify/presentation/main_page/widgets/bottom_nav.dart';
 import 'package:expensify/presentation/menu/menu_screen.dart';
 import 'package:expensify/presentation/subscriptions/subscriptions_screen.dart';
-import 'package:expensify/presentation/widgets/transctions_bottom_sheet_widget.dart';
+import 'package:expensify/presentation/home/widgets/transctions_bottom_sheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
