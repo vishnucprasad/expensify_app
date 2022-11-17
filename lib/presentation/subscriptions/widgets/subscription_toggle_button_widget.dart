@@ -1,4 +1,3 @@
-import 'package:expensify/application/category/category_bloc.dart';
 import 'package:expensify/application/subscription/subscription_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
@@ -24,9 +23,11 @@ class SubscriptionToggleButtonWidget extends StatelessWidget {
           width: 90,
           borderRadius: 5,
           height: 50,
-          selectedIndex: state.type == subscription?.type
-              ? state.typeIndex
-              : labelList.indexWhere((label) => label == subscription?.type),
+          selectedIndex: subscription != null
+              ? state.type == subscription?.type
+                  ? state.typeIndex
+                  : labelList.indexWhere((label) => label == subscription?.type)
+              : state.typeIndex,
           selectedBackgroundColors: [kInfoColor!, kInfoColor!],
           selectedTextStyle: kWhiteMediumTextBold,
           unSelectedTextStyle: kSecondaryMediumText,
