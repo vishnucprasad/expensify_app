@@ -25,6 +25,9 @@ mixin _$SubscriptionEvent {
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
     required TResult Function(String? authtoken) getSubscriptions,
+    required TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)
+        addSubscription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +39,9 @@ mixin _$SubscriptionEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +53,9 @@ mixin _$SubscriptionEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +68,7 @@ mixin _$SubscriptionEvent {
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetAllSubscriptions value) getSubscriptions,
+    required TResult Function(_AddSubscription value) addSubscription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +80,7 @@ mixin _$SubscriptionEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +92,7 @@ mixin _$SubscriptionEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -175,6 +187,9 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
     required TResult Function(String? authtoken) getSubscriptions,
+    required TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)
+        addSubscription,
   }) {
     return titleChangeEvent(title);
   }
@@ -189,6 +204,9 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
   }) {
     return titleChangeEvent?.call(title);
   }
@@ -203,6 +221,9 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
     required TResult orElse(),
   }) {
     if (titleChangeEvent != null) {
@@ -221,6 +242,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetAllSubscriptions value) getSubscriptions,
+    required TResult Function(_AddSubscription value) addSubscription,
   }) {
     return titleChangeEvent(this);
   }
@@ -235,6 +257,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
   }) {
     return titleChangeEvent?.call(this);
   }
@@ -249,6 +272,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
     required TResult orElse(),
   }) {
     if (titleChangeEvent != null) {
@@ -339,6 +363,9 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
     required TResult Function(String? authtoken) getSubscriptions,
+    required TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)
+        addSubscription,
   }) {
     return typeChangeEvent(type);
   }
@@ -353,6 +380,9 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
   }) {
     return typeChangeEvent?.call(type);
   }
@@ -367,6 +397,9 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
     required TResult orElse(),
   }) {
     if (typeChangeEvent != null) {
@@ -385,6 +418,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetAllSubscriptions value) getSubscriptions,
+    required TResult Function(_AddSubscription value) addSubscription,
   }) {
     return typeChangeEvent(this);
   }
@@ -399,6 +433,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
   }) {
     return typeChangeEvent?.call(this);
   }
@@ -413,6 +448,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
     required TResult orElse(),
   }) {
     if (typeChangeEvent != null) {
@@ -504,6 +540,9 @@ class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
     required TResult Function(String? authtoken) getSubscriptions,
+    required TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)
+        addSubscription,
   }) {
     return typeIndexChangeEvent(index);
   }
@@ -518,6 +557,9 @@ class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
   }) {
     return typeIndexChangeEvent?.call(index);
   }
@@ -532,6 +574,9 @@ class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
     required TResult orElse(),
   }) {
     if (typeIndexChangeEvent != null) {
@@ -550,6 +595,7 @@ class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetAllSubscriptions value) getSubscriptions,
+    required TResult Function(_AddSubscription value) addSubscription,
   }) {
     return typeIndexChangeEvent(this);
   }
@@ -564,6 +610,7 @@ class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
   }) {
     return typeIndexChangeEvent?.call(this);
   }
@@ -578,6 +625,7 @@ class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
     required TResult orElse(),
   }) {
     if (typeIndexChangeEvent != null) {
@@ -670,6 +718,9 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
     required TResult Function(String? authtoken) getSubscriptions,
+    required TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)
+        addSubscription,
   }) {
     return amountChangeEvent(amount);
   }
@@ -684,6 +735,9 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
   }) {
     return amountChangeEvent?.call(amount);
   }
@@ -698,6 +752,9 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
     required TResult orElse(),
   }) {
     if (amountChangeEvent != null) {
@@ -716,6 +773,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetAllSubscriptions value) getSubscriptions,
+    required TResult Function(_AddSubscription value) addSubscription,
   }) {
     return amountChangeEvent(this);
   }
@@ -730,6 +788,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
   }) {
     return amountChangeEvent?.call(this);
   }
@@ -744,6 +803,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
     required TResult orElse(),
   }) {
     if (amountChangeEvent != null) {
@@ -834,6 +894,9 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
     required TResult Function(String? authtoken) getSubscriptions,
+    required TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)
+        addSubscription,
   }) {
     return dateChangeEvent(date);
   }
@@ -848,6 +911,9 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
   }) {
     return dateChangeEvent?.call(date);
   }
@@ -862,6 +928,9 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
     required TResult orElse(),
   }) {
     if (dateChangeEvent != null) {
@@ -880,6 +949,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetAllSubscriptions value) getSubscriptions,
+    required TResult Function(_AddSubscription value) addSubscription,
   }) {
     return dateChangeEvent(this);
   }
@@ -894,6 +964,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
   }) {
     return dateChangeEvent?.call(this);
   }
@@ -908,6 +979,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
     required TResult orElse(),
   }) {
     if (dateChangeEvent != null) {
@@ -998,6 +1070,9 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
     required TResult Function(String? authtoken) getSubscriptions,
+    required TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)
+        addSubscription,
   }) {
     return noteChangeEvent(note);
   }
@@ -1012,6 +1087,9 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
   }) {
     return noteChangeEvent?.call(note);
   }
@@ -1026,6 +1104,9 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
     required TResult orElse(),
   }) {
     if (noteChangeEvent != null) {
@@ -1044,6 +1125,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetAllSubscriptions value) getSubscriptions,
+    required TResult Function(_AddSubscription value) addSubscription,
   }) {
     return noteChangeEvent(this);
   }
@@ -1058,6 +1140,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
   }) {
     return noteChangeEvent?.call(this);
   }
@@ -1072,6 +1155,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
     required TResult orElse(),
   }) {
     if (noteChangeEvent != null) {
@@ -1163,6 +1247,9 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
     required TResult Function(String? authtoken) getSubscriptions,
+    required TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)
+        addSubscription,
   }) {
     return getSubscriptions(authtoken);
   }
@@ -1177,6 +1264,9 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
   }) {
     return getSubscriptions?.call(authtoken);
   }
@@ -1191,6 +1281,9 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
     TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
     required TResult orElse(),
   }) {
     if (getSubscriptions != null) {
@@ -1209,6 +1302,7 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetAllSubscriptions value) getSubscriptions,
+    required TResult Function(_AddSubscription value) addSubscription,
   }) {
     return getSubscriptions(this);
   }
@@ -1223,6 +1317,7 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
   }) {
     return getSubscriptions?.call(this);
   }
@@ -1237,6 +1332,7 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
     required TResult orElse(),
   }) {
     if (getSubscriptions != null) {
@@ -1253,6 +1349,246 @@ abstract class _GetAllSubscriptions implements SubscriptionEvent {
   String? get authtoken;
   @JsonKey(ignore: true)
   _$$_GetAllSubscriptionsCopyWith<_$_GetAllSubscriptions> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_AddSubscriptionCopyWith<$Res> {
+  factory _$$_AddSubscriptionCopyWith(
+          _$_AddSubscription value, $Res Function(_$_AddSubscription) then) =
+      __$$_AddSubscriptionCopyWithImpl<$Res>;
+  $Res call(
+      {String? authtoken,
+      String? title,
+      String? type,
+      double? amount,
+      int? date,
+      String? note});
+}
+
+/// @nodoc
+class __$$_AddSubscriptionCopyWithImpl<$Res>
+    extends _$SubscriptionEventCopyWithImpl<$Res>
+    implements _$$_AddSubscriptionCopyWith<$Res> {
+  __$$_AddSubscriptionCopyWithImpl(
+      _$_AddSubscription _value, $Res Function(_$_AddSubscription) _then)
+      : super(_value, (v) => _then(v as _$_AddSubscription));
+
+  @override
+  _$_AddSubscription get _value => super._value as _$_AddSubscription;
+
+  @override
+  $Res call({
+    Object? authtoken = freezed,
+    Object? title = freezed,
+    Object? type = freezed,
+    Object? amount = freezed,
+    Object? date = freezed,
+    Object? note = freezed,
+  }) {
+    return _then(_$_AddSubscription(
+      authtoken == freezed
+          ? _value.authtoken
+          : authtoken // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double?,
+      date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as int?,
+      note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AddSubscription implements _AddSubscription {
+  const _$_AddSubscription(
+      this.authtoken, this.title, this.type, this.amount, this.date, this.note);
+
+  @override
+  final String? authtoken;
+  @override
+  final String? title;
+  @override
+  final String? type;
+  @override
+  final double? amount;
+  @override
+  final int? date;
+  @override
+  final String? note;
+
+  @override
+  String toString() {
+    return 'SubscriptionEvent.addSubscription(authtoken: $authtoken, title: $title, type: $type, amount: $amount, date: $date, note: $note)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AddSubscription &&
+            const DeepCollectionEquality().equals(other.authtoken, authtoken) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality().equals(other.amount, amount) &&
+            const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.note, note));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(authtoken),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(amount),
+      const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(note));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_AddSubscriptionCopyWith<_$_AddSubscription> get copyWith =>
+      __$$_AddSubscriptionCopyWithImpl<_$_AddSubscription>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? title) titleChangeEvent,
+    required TResult Function(String type) typeChangeEvent,
+    required TResult Function(int index) typeIndexChangeEvent,
+    required TResult Function(double? amount) amountChangeEvent,
+    required TResult Function(int? date) dateChangeEvent,
+    required TResult Function(String? note) noteChangeEvent,
+    required TResult Function(String? authtoken) getSubscriptions,
+    required TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)
+        addSubscription,
+  }) {
+    return addSubscription(authtoken, title, type, amount, date, note);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
+    TResult Function(double? amount)? amountChangeEvent,
+    TResult Function(int? date)? dateChangeEvent,
+    TResult Function(String? note)? noteChangeEvent,
+    TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
+  }) {
+    return addSubscription?.call(authtoken, title, type, amount, date, note);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
+    TResult Function(double? amount)? amountChangeEvent,
+    TResult Function(int? date)? dateChangeEvent,
+    TResult Function(String? note)? noteChangeEvent,
+    TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
+    required TResult orElse(),
+  }) {
+    if (addSubscription != null) {
+      return addSubscription(authtoken, title, type, amount, date, note);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TitleChangeEvent value) titleChangeEvent,
+    required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_TypeIndexChangeEvent value) typeIndexChangeEvent,
+    required TResult Function(_AmountChangeEvent value) amountChangeEvent,
+    required TResult Function(_DateChangeEvent value) dateChangeEvent,
+    required TResult Function(_NoteChangeEvent value) noteChangeEvent,
+    required TResult Function(_GetAllSubscriptions value) getSubscriptions,
+    required TResult Function(_AddSubscription value) addSubscription,
+  }) {
+    return addSubscription(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
+    TResult Function(_AmountChangeEvent value)? amountChangeEvent,
+    TResult Function(_DateChangeEvent value)? dateChangeEvent,
+    TResult Function(_NoteChangeEvent value)? noteChangeEvent,
+    TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
+  }) {
+    return addSubscription?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
+    TResult Function(_AmountChangeEvent value)? amountChangeEvent,
+    TResult Function(_DateChangeEvent value)? dateChangeEvent,
+    TResult Function(_NoteChangeEvent value)? noteChangeEvent,
+    TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
+    required TResult orElse(),
+  }) {
+    if (addSubscription != null) {
+      return addSubscription(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddSubscription implements SubscriptionEvent {
+  const factory _AddSubscription(
+      final String? authtoken,
+      final String? title,
+      final String? type,
+      final double? amount,
+      final int? date,
+      final String? note) = _$_AddSubscription;
+
+  String? get authtoken;
+  String? get title;
+  String? get type;
+  double? get amount;
+  int? get date;
+  String? get note;
+  @JsonKey(ignore: true)
+  _$$_AddSubscriptionCopyWith<_$_AddSubscription> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

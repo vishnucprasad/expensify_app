@@ -213,7 +213,17 @@ class SubscriptionsBottomSheetWidget extends StatelessWidget {
                               if (subscriptionState.amount != null &&
                                   subscriptionState.title != null &&
                                   subscriptionState.date != null) {
-                                // add subscription event goes here
+                                context.read<SubscriptionBloc>().add(
+                                      SubscriptionEvent.addSubscription(
+                                        authenticationState
+                                            .authentication?.authtoken,
+                                        subscriptionState.title,
+                                        subscriptionState.type,
+                                        subscriptionState.amount,
+                                        subscriptionState.date,
+                                        subscriptionState.note,
+                                      ),
+                                    );
                                 Navigator.of(context).pop();
                               }
                             }

@@ -15,4 +15,12 @@ class SubscriptionEvent with _$SubscriptionEvent {
       _NoteChangeEvent;
   const factory SubscriptionEvent.getSubscriptions(String? authtoken) =
       _GetAllSubscriptions;
+  const factory SubscriptionEvent.addSubscription(
+    String? authtoken,
+    String? title,
+    String? type,
+    double? amount,
+    int? date,
+    String? note,
+  ) = _AddSubscription;
 }

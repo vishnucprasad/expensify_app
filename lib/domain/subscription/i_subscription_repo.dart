@@ -6,4 +6,12 @@ abstract class ISubscriptionRepo {
   Future<Either<MainFailure, List<Subscription>>> getSubscriptions(
     String? authtoken,
   );
+  Future<Either<MainFailure, List<Subscription>>> addSubscription(
+    String? authtoken,
+    String? title,
+    String? type,
+    double? amount,
+    int? date,
+    String? note,
+  );
 }
