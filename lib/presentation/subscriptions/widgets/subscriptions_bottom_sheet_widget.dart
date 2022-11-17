@@ -3,6 +3,7 @@ import 'package:expensify/application/subscription/subscription_bloc.dart';
 import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/domain/subscription/models/subscription.dart';
 import 'package:expensify/domain/transaction/models/transaction.dart';
 import 'package:expensify/presentation/subscriptions/widgets/subscription_toggle_button_widget.dart';
 import 'package:flutter/material.dart';
@@ -11,12 +12,12 @@ import 'package:intl/intl.dart';
 
 class SubscriptionsBottomSheetWidget extends StatelessWidget {
   final String title;
-  final Transaction? transaction;
+  final Subscription? subscription;
   final EventType event;
   const SubscriptionsBottomSheetWidget({
     required this.title,
     required this.event,
-    this.transaction,
+    this.subscription,
     Key? key,
   }) : super(key: key);
 
@@ -57,8 +58,7 @@ class SubscriptionsBottomSheetWidget extends StatelessWidget {
               ),
               kHeight5,
               TextFormField(
-                initialValue:
-                    transaction != null ? transaction?.amount.toString() : "",
+                initialValue: subscription != null ? subscription?.title : "",
                 onChanged: (value) {
                   if (value.isNotEmpty) {
                     context.read<SubscriptionBloc>().add(
@@ -78,7 +78,7 @@ class SubscriptionsBottomSheetWidget extends StatelessWidget {
                 ),
               ),
               kHeight5,
-              SubscriptionToggleButtonWidget(),
+              SubscriptionToggleButtonWidget(subscription: subscription),
               kHeight20,
               const SizedBox(
                 width: double.infinity,
@@ -90,7 +90,7 @@ class SubscriptionsBottomSheetWidget extends StatelessWidget {
               kHeight5,
               TextFormField(
                 initialValue:
-                    transaction != null ? transaction?.amount.toString() : "",
+                    subscription != null ? subscription?.amount.toString() : "",
                 onChanged: (value) {
                   if (value.isNotEmpty) {
                     context.read<SubscriptionBloc>().add(
@@ -131,9 +131,9 @@ class SubscriptionsBottomSheetWidget extends StatelessWidget {
                   onPressed: () async {
                     final selectedDate = await showDatePicker(
                       context: context,
-                      initialDate: transaction != null
+                      initialDate: subscription != null
                           ? DateTime.fromMillisecondsSinceEpoch(
-                              transaction!.date!)
+                              subscription!.date!)
                           : DateTime.now(),
                       firstDate: DateTime.now().subtract(
                         const Duration(
@@ -154,10 +154,10 @@ class SubscriptionsBottomSheetWidget extends StatelessWidget {
                   label: BlocBuilder<SubscriptionBloc, SubscriptionState>(
                     builder: (context, state) {
                       return Text(
-                        transaction != null
+                        subscription != null
                             ? DateFormat("MMMM d y").format(
                                 DateTime.fromMillisecondsSinceEpoch(
-                                    transaction!.date!),
+                                    subscription!.date!),
                               )
                             : state.date == null
                                 ? 'Select Date'
@@ -181,7 +181,7 @@ class SubscriptionsBottomSheetWidget extends StatelessWidget {
               ),
               kHeight,
               TextFormField(
-                initialValue: transaction != null ? transaction?.note : "",
+                initialValue: subscription != null ? subscription?.note : "",
                 onChanged: (value) {
                   context.read<SubscriptionBloc>().add(
                         SubscriptionEvent.noteChangeEvent(

@@ -2,6 +2,7 @@ import 'package:expensify/application/category/category_bloc.dart';
 import 'package:expensify/application/subscription/subscription_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/domain/subscription/models/subscription.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
@@ -9,8 +10,10 @@ import 'package:flutter_toggle_tab/flutter_toggle_tab.dart';
 class SubscriptionToggleButtonWidget extends StatelessWidget {
   SubscriptionToggleButtonWidget({
     Key? key,
+    this.subscription,
   }) : super(key: key);
 
+  final Subscription? subscription;
   final labelList = ["Monthly", "Quarterly", "Annual"];
 
   @override
@@ -21,7 +24,9 @@ class SubscriptionToggleButtonWidget extends StatelessWidget {
           width: 90,
           borderRadius: 5,
           height: 50,
-          selectedIndex: state.typeIndex,
+          selectedIndex: state.type == subscription?.type
+              ? state.typeIndex
+              : labelList.indexWhere((label) => label == subscription?.type),
           selectedBackgroundColors: [kInfoColor!, kInfoColor!],
           selectedTextStyle: kWhiteMediumTextBold,
           unSelectedTextStyle: kSecondaryMediumText,
