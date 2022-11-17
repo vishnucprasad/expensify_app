@@ -1,6 +1,6 @@
 import 'package:expensify/application/category/category_bloc.dart';
 import 'package:expensify/core/constants.dart';
-import 'package:expensify/presentation/widgets/custom_toggle_button_widget.dart';
+import 'package:expensify/presentation/categories/widgets/category_toggle_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -68,7 +68,7 @@ class CategoryBottomSheetWidget extends StatelessWidget {
               style: kSecondarySmallText,
             ),
             kHeight,
-            CustomToggleButtonWidget(),
+            CategoryToggleButtonWidget(),
             kHeight,
             ElevatedButton(
               style: ElevatedButton.styleFrom(

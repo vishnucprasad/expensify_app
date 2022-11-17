@@ -19,7 +19,8 @@ mixin _$SubscriptionEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? title) titleChangeEvent,
-    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(String type) typeChangeEvent,
+    required TResult Function(int index) typeIndexChangeEvent,
     required TResult Function(double? amount) amountChangeEvent,
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
@@ -29,7 +30,8 @@ mixin _$SubscriptionEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -39,7 +41,8 @@ mixin _$SubscriptionEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -51,6 +54,7 @@ mixin _$SubscriptionEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_TitleChangeEvent value) titleChangeEvent,
     required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_TypeIndexChangeEvent value) typeIndexChangeEvent,
     required TResult Function(_AmountChangeEvent value) amountChangeEvent,
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
@@ -61,6 +65,7 @@ mixin _$SubscriptionEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -71,6 +76,7 @@ mixin _$SubscriptionEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -163,7 +169,8 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? title) titleChangeEvent,
-    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(String type) typeChangeEvent,
+    required TResult Function(int index) typeIndexChangeEvent,
     required TResult Function(double? amount) amountChangeEvent,
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
@@ -176,7 +183,8 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -189,7 +197,8 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -207,6 +216,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_TitleChangeEvent value) titleChangeEvent,
     required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_TypeIndexChangeEvent value) typeIndexChangeEvent,
     required TResult Function(_AmountChangeEvent value) amountChangeEvent,
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
@@ -220,6 +230,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -233,6 +244,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -260,7 +272,7 @@ abstract class _$$_TypeChangeEventCopyWith<$Res> {
   factory _$$_TypeChangeEventCopyWith(
           _$_TypeChangeEvent value, $Res Function(_$_TypeChangeEvent) then) =
       __$$_TypeChangeEventCopyWithImpl<$Res>;
-  $Res call({String? type});
+  $Res call({String type});
 }
 
 /// @nodoc
@@ -282,7 +294,7 @@ class __$$_TypeChangeEventCopyWithImpl<$Res>
       type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -293,7 +305,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
   const _$_TypeChangeEvent(this.type);
 
   @override
-  final String? type;
+  final String type;
 
   @override
   String toString() {
@@ -321,7 +333,8 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? title) titleChangeEvent,
-    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(String type) typeChangeEvent,
+    required TResult Function(int index) typeIndexChangeEvent,
     required TResult Function(double? amount) amountChangeEvent,
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
@@ -334,7 +347,8 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -347,7 +361,8 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -365,6 +380,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_TitleChangeEvent value) titleChangeEvent,
     required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_TypeIndexChangeEvent value) typeIndexChangeEvent,
     required TResult Function(_AmountChangeEvent value) amountChangeEvent,
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
@@ -378,6 +394,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -391,6 +408,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -405,11 +423,177 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
 }
 
 abstract class _TypeChangeEvent implements SubscriptionEvent {
-  const factory _TypeChangeEvent(final String? type) = _$_TypeChangeEvent;
+  const factory _TypeChangeEvent(final String type) = _$_TypeChangeEvent;
 
-  String? get type;
+  String get type;
   @JsonKey(ignore: true)
   _$$_TypeChangeEventCopyWith<_$_TypeChangeEvent> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_TypeIndexChangeEventCopyWith<$Res> {
+  factory _$$_TypeIndexChangeEventCopyWith(_$_TypeIndexChangeEvent value,
+          $Res Function(_$_TypeIndexChangeEvent) then) =
+      __$$_TypeIndexChangeEventCopyWithImpl<$Res>;
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$_TypeIndexChangeEventCopyWithImpl<$Res>
+    extends _$SubscriptionEventCopyWithImpl<$Res>
+    implements _$$_TypeIndexChangeEventCopyWith<$Res> {
+  __$$_TypeIndexChangeEventCopyWithImpl(_$_TypeIndexChangeEvent _value,
+      $Res Function(_$_TypeIndexChangeEvent) _then)
+      : super(_value, (v) => _then(v as _$_TypeIndexChangeEvent));
+
+  @override
+  _$_TypeIndexChangeEvent get _value => super._value as _$_TypeIndexChangeEvent;
+
+  @override
+  $Res call({
+    Object? index = freezed,
+  }) {
+    return _then(_$_TypeIndexChangeEvent(
+      index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
+  const _$_TypeIndexChangeEvent(this.index);
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'SubscriptionEvent.typeIndexChangeEvent(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TypeIndexChangeEvent &&
+            const DeepCollectionEquality().equals(other.index, index));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_TypeIndexChangeEventCopyWith<_$_TypeIndexChangeEvent> get copyWith =>
+      __$$_TypeIndexChangeEventCopyWithImpl<_$_TypeIndexChangeEvent>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? title) titleChangeEvent,
+    required TResult Function(String type) typeChangeEvent,
+    required TResult Function(int index) typeIndexChangeEvent,
+    required TResult Function(double? amount) amountChangeEvent,
+    required TResult Function(int? date) dateChangeEvent,
+    required TResult Function(String? note) noteChangeEvent,
+    required TResult Function(String? authtoken) getSubscriptions,
+  }) {
+    return typeIndexChangeEvent(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
+    TResult Function(double? amount)? amountChangeEvent,
+    TResult Function(int? date)? dateChangeEvent,
+    TResult Function(String? note)? noteChangeEvent,
+    TResult Function(String? authtoken)? getSubscriptions,
+  }) {
+    return typeIndexChangeEvent?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
+    TResult Function(double? amount)? amountChangeEvent,
+    TResult Function(int? date)? dateChangeEvent,
+    TResult Function(String? note)? noteChangeEvent,
+    TResult Function(String? authtoken)? getSubscriptions,
+    required TResult orElse(),
+  }) {
+    if (typeIndexChangeEvent != null) {
+      return typeIndexChangeEvent(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TitleChangeEvent value) titleChangeEvent,
+    required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_TypeIndexChangeEvent value) typeIndexChangeEvent,
+    required TResult Function(_AmountChangeEvent value) amountChangeEvent,
+    required TResult Function(_DateChangeEvent value) dateChangeEvent,
+    required TResult Function(_NoteChangeEvent value) noteChangeEvent,
+    required TResult Function(_GetAllSubscriptions value) getSubscriptions,
+  }) {
+    return typeIndexChangeEvent(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
+    TResult Function(_AmountChangeEvent value)? amountChangeEvent,
+    TResult Function(_DateChangeEvent value)? dateChangeEvent,
+    TResult Function(_NoteChangeEvent value)? noteChangeEvent,
+    TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+  }) {
+    return typeIndexChangeEvent?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
+    TResult Function(_AmountChangeEvent value)? amountChangeEvent,
+    TResult Function(_DateChangeEvent value)? dateChangeEvent,
+    TResult Function(_NoteChangeEvent value)? noteChangeEvent,
+    TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    required TResult orElse(),
+  }) {
+    if (typeIndexChangeEvent != null) {
+      return typeIndexChangeEvent(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TypeIndexChangeEvent implements SubscriptionEvent {
+  const factory _TypeIndexChangeEvent(final int index) =
+      _$_TypeIndexChangeEvent;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_TypeIndexChangeEventCopyWith<_$_TypeIndexChangeEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -480,7 +664,8 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? title) titleChangeEvent,
-    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(String type) typeChangeEvent,
+    required TResult Function(int index) typeIndexChangeEvent,
     required TResult Function(double? amount) amountChangeEvent,
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
@@ -493,7 +678,8 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -506,7 +692,8 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -524,6 +711,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_TitleChangeEvent value) titleChangeEvent,
     required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_TypeIndexChangeEvent value) typeIndexChangeEvent,
     required TResult Function(_AmountChangeEvent value) amountChangeEvent,
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
@@ -537,6 +725,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -550,6 +739,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -638,7 +828,8 @@ class _$_DateChangeEvent implements _DateChangeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? title) titleChangeEvent,
-    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(String type) typeChangeEvent,
+    required TResult Function(int index) typeIndexChangeEvent,
     required TResult Function(double? amount) amountChangeEvent,
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
@@ -651,7 +842,8 @@ class _$_DateChangeEvent implements _DateChangeEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -664,7 +856,8 @@ class _$_DateChangeEvent implements _DateChangeEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -682,6 +875,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_TitleChangeEvent value) titleChangeEvent,
     required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_TypeIndexChangeEvent value) typeIndexChangeEvent,
     required TResult Function(_AmountChangeEvent value) amountChangeEvent,
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
@@ -695,6 +889,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -708,6 +903,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -796,7 +992,8 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? title) titleChangeEvent,
-    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(String type) typeChangeEvent,
+    required TResult Function(int index) typeIndexChangeEvent,
     required TResult Function(double? amount) amountChangeEvent,
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
@@ -809,7 +1006,8 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -822,7 +1020,8 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -840,6 +1039,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_TitleChangeEvent value) titleChangeEvent,
     required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_TypeIndexChangeEvent value) typeIndexChangeEvent,
     required TResult Function(_AmountChangeEvent value) amountChangeEvent,
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
@@ -853,6 +1053,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -866,6 +1067,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -955,7 +1157,8 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String? title) titleChangeEvent,
-    required TResult Function(String? type) typeChangeEvent,
+    required TResult Function(String type) typeChangeEvent,
+    required TResult Function(int index) typeIndexChangeEvent,
     required TResult Function(double? amount) amountChangeEvent,
     required TResult Function(int? date) dateChangeEvent,
     required TResult Function(String? note) noteChangeEvent,
@@ -968,7 +1171,8 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -981,7 +1185,8 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String? title)? titleChangeEvent,
-    TResult Function(String? type)? typeChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
     TResult Function(double? amount)? amountChangeEvent,
     TResult Function(int? date)? dateChangeEvent,
     TResult Function(String? note)? noteChangeEvent,
@@ -999,6 +1204,7 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
   TResult map<TResult extends Object?>({
     required TResult Function(_TitleChangeEvent value) titleChangeEvent,
     required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_TypeIndexChangeEvent value) typeIndexChangeEvent,
     required TResult Function(_AmountChangeEvent value) amountChangeEvent,
     required TResult Function(_DateChangeEvent value) dateChangeEvent,
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
@@ -1012,6 +1218,7 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -1025,6 +1232,7 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_TitleChangeEvent value)? titleChangeEvent,
     TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
     TResult Function(_AmountChangeEvent value)? amountChangeEvent,
     TResult Function(_DateChangeEvent value)? dateChangeEvent,
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
@@ -1052,10 +1260,11 @@ abstract class _GetAllSubscriptions implements SubscriptionEvent {
 mixin _$SubscriptionState {
   bool? get isLoading => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
+  String get type => throw _privateConstructorUsedError;
   double? get amount => throw _privateConstructorUsedError;
   int? get date => throw _privateConstructorUsedError;
   String? get note => throw _privateConstructorUsedError;
+  int get typeIndex => throw _privateConstructorUsedError;
   List<Subscription>? get subscriptionList =>
       throw _privateConstructorUsedError;
   MainError? get error => throw _privateConstructorUsedError;
@@ -1076,10 +1285,11 @@ abstract class $SubscriptionStateCopyWith<$Res> {
   $Res call(
       {bool? isLoading,
       String? title,
-      String? type,
+      String type,
       double? amount,
       int? date,
       String? note,
+      int typeIndex,
       List<Subscription>? subscriptionList,
       MainError? error,
       Option<Either<MainFailure, List<Subscription>>>
@@ -1105,6 +1315,7 @@ class _$SubscriptionStateCopyWithImpl<$Res>
     Object? amount = freezed,
     Object? date = freezed,
     Object? note = freezed,
+    Object? typeIndex = freezed,
     Object? subscriptionList = freezed,
     Object? error = freezed,
     Object? subscriptionFailureOrSuccessOption = freezed,
@@ -1121,7 +1332,7 @@ class _$SubscriptionStateCopyWithImpl<$Res>
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -1134,6 +1345,10 @@ class _$SubscriptionStateCopyWithImpl<$Res>
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
               as String?,
+      typeIndex: typeIndex == freezed
+          ? _value.typeIndex
+          : typeIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       subscriptionList: subscriptionList == freezed
           ? _value.subscriptionList
           : subscriptionList // ignore: cast_nullable_to_non_nullable
@@ -1172,10 +1387,11 @@ abstract class _$$_SubscriptionStateCopyWith<$Res>
   $Res call(
       {bool? isLoading,
       String? title,
-      String? type,
+      String type,
       double? amount,
       int? date,
       String? note,
+      int typeIndex,
       List<Subscription>? subscriptionList,
       MainError? error,
       Option<Either<MainFailure, List<Subscription>>>
@@ -1204,6 +1420,7 @@ class __$$_SubscriptionStateCopyWithImpl<$Res>
     Object? amount = freezed,
     Object? date = freezed,
     Object? note = freezed,
+    Object? typeIndex = freezed,
     Object? subscriptionList = freezed,
     Object? error = freezed,
     Object? subscriptionFailureOrSuccessOption = freezed,
@@ -1220,7 +1437,7 @@ class __$$_SubscriptionStateCopyWithImpl<$Res>
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -1233,6 +1450,10 @@ class __$$_SubscriptionStateCopyWithImpl<$Res>
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
               as String?,
+      typeIndex: typeIndex == freezed
+          ? _value.typeIndex
+          : typeIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       subscriptionList: subscriptionList == freezed
           ? _value._subscriptionList
           : subscriptionList // ignore: cast_nullable_to_non_nullable
@@ -1260,6 +1481,7 @@ class _$_SubscriptionState implements _SubscriptionState {
       required this.amount,
       required this.date,
       required this.note,
+      required this.typeIndex,
       required final List<Subscription>? subscriptionList,
       required this.error,
       required this.subscriptionFailureOrSuccessOption})
@@ -1270,13 +1492,15 @@ class _$_SubscriptionState implements _SubscriptionState {
   @override
   final String? title;
   @override
-  final String? type;
+  final String type;
   @override
   final double? amount;
   @override
   final int? date;
   @override
   final String? note;
+  @override
+  final int typeIndex;
   final List<Subscription>? _subscriptionList;
   @override
   List<Subscription>? get subscriptionList {
@@ -1294,7 +1518,7 @@ class _$_SubscriptionState implements _SubscriptionState {
 
   @override
   String toString() {
-    return 'SubscriptionState(isLoading: $isLoading, title: $title, type: $type, amount: $amount, date: $date, note: $note, subscriptionList: $subscriptionList, error: $error, subscriptionFailureOrSuccessOption: $subscriptionFailureOrSuccessOption)';
+    return 'SubscriptionState(isLoading: $isLoading, title: $title, type: $type, amount: $amount, date: $date, note: $note, typeIndex: $typeIndex, subscriptionList: $subscriptionList, error: $error, subscriptionFailureOrSuccessOption: $subscriptionFailureOrSuccessOption)';
   }
 
   @override
@@ -1308,6 +1532,7 @@ class _$_SubscriptionState implements _SubscriptionState {
             const DeepCollectionEquality().equals(other.amount, amount) &&
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality().equals(other.typeIndex, typeIndex) &&
             const DeepCollectionEquality()
                 .equals(other._subscriptionList, _subscriptionList) &&
             const DeepCollectionEquality().equals(other.error, error) &&
@@ -1325,6 +1550,7 @@ class _$_SubscriptionState implements _SubscriptionState {
       const DeepCollectionEquality().hash(amount),
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(note),
+      const DeepCollectionEquality().hash(typeIndex),
       const DeepCollectionEquality().hash(_subscriptionList),
       const DeepCollectionEquality().hash(error),
       const DeepCollectionEquality().hash(subscriptionFailureOrSuccessOption));
@@ -1340,10 +1566,11 @@ abstract class _SubscriptionState implements SubscriptionState {
   const factory _SubscriptionState(
       {required final bool? isLoading,
       required final String? title,
-      required final String? type,
+      required final String type,
       required final double? amount,
       required final int? date,
       required final String? note,
+      required final int typeIndex,
       required final List<Subscription>? subscriptionList,
       required final MainError? error,
       required final Option<Either<MainFailure, List<Subscription>>>
@@ -1354,13 +1581,15 @@ abstract class _SubscriptionState implements SubscriptionState {
   @override
   String? get title;
   @override
-  String? get type;
+  String get type;
   @override
   double? get amount;
   @override
   int? get date;
   @override
   String? get note;
+  @override
+  int get typeIndex;
   @override
   List<Subscription>? get subscriptionList;
   @override

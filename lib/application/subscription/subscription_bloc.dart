@@ -33,6 +33,9 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
             state.copyWith(type: value.type),
           );
         },
+        typeIndexChangeEvent: (_TypeIndexChangeEvent value) {
+          emit(state.copyWith(typeIndex: value.index));
+        },
         dateChangeEvent: (_DateChangeEvent value) {
           emit(
             state.copyWith(date: value.date),

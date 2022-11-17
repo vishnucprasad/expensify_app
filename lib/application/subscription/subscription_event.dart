@@ -4,8 +4,10 @@ part of 'subscription_bloc.dart';
 class SubscriptionEvent with _$SubscriptionEvent {
   const factory SubscriptionEvent.titleChangeEvent(String? title) =
       _TitleChangeEvent;
-  const factory SubscriptionEvent.typeChangeEvent(String? type) =
+  const factory SubscriptionEvent.typeChangeEvent(String type) =
       _TypeChangeEvent;
+  const factory SubscriptionEvent.typeIndexChangeEvent(int index) =
+      _TypeIndexChangeEvent;
   const factory SubscriptionEvent.amountChangeEvent(double? amount) =
       _AmountChangeEvent;
   const factory SubscriptionEvent.dateChangeEvent(int? date) = _DateChangeEvent;

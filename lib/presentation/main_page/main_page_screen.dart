@@ -8,6 +8,7 @@ import 'package:expensify/presentation/main_page/widgets/bottom_nav.dart';
 import 'package:expensify/presentation/menu/menu_screen.dart';
 import 'package:expensify/presentation/subscriptions/subscriptions_screen.dart';
 import 'package:expensify/presentation/home/widgets/transctions_bottom_sheet_widget.dart';
+import 'package:expensify/presentation/subscriptions/widgets/subscriptions_bottom_sheet_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -44,7 +45,11 @@ class MainPageScreen extends StatelessWidget {
             backgroundColor: kInfoColor,
             onPressed: () {
               if (newIndex == 0) {
-                openAddTransactionsSheet(context);
+                return openAddTransactionsSheet(context);
+              }
+
+              if (newIndex == 1) {
+                return openAddSubscriptionsSheet(context);
               }
             },
             child: const Icon(Icons.add),
@@ -64,6 +69,21 @@ class MainPageScreen extends StatelessWidget {
         children: const [
           TransactionsBottomSheetWidget(
             title: "Add new transaction",
+            event: EventType.create,
+          ),
+        ],
+      ),
+    );
+  }
+
+  void openAddSubscriptionsSheet(BuildContext context) {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      builder: (ctx) => Wrap(
+        children: const [
+          SubscriptionsBottomSheetWidget(
+            title: "Add new subscription",
             event: EventType.create,
           ),
         ],

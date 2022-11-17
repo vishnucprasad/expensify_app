@@ -5,10 +5,11 @@ class SubscriptionState with _$SubscriptionState {
   const factory SubscriptionState({
     required bool? isLoading,
     required String? title,
-    required String? type,
+    required String type,
     required double? amount,
     required int? date,
     required String? note,
+    required int typeIndex,
     required List<Subscription>? subscriptionList,
     required MainError? error,
     required Option<Either<MainFailure, List<Subscription>>>
@@ -19,10 +20,11 @@ class SubscriptionState with _$SubscriptionState {
     return SubscriptionState(
       isLoading: true,
       title: null,
-      type: null,
+      type: "Monthly",
       amount: null,
       date: null,
       note: null,
+      typeIndex: 0,
       subscriptionList: null,
       error: null,
       subscriptionFailureOrSuccessOption: none(),
