@@ -5,7 +5,7 @@ class SubscriptionState with _$SubscriptionState {
   const factory SubscriptionState({
     required bool? isLoading,
     required String? title,
-    required String type,
+    required String? type,
     required double? amount,
     required int? date,
     required String? note,
@@ -20,7 +20,7 @@ class SubscriptionState with _$SubscriptionState {
     return SubscriptionState(
       isLoading: true,
       title: null,
-      type: "Monthly",
+      type: null,
       amount: null,
       date: null,
       note: null,

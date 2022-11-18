@@ -25,8 +25,8 @@ class SubscriptionToggleButtonWidget extends StatelessWidget {
           height: 50,
           selectedIndex: subscription != null
               ? state.type == subscription?.type
-                  ? state.typeIndex
-                  : labelList.indexWhere((label) => label == subscription?.type)
+                  ? labelList.indexWhere((label) => label == subscription?.type)
+                  : state.typeIndex
               : state.typeIndex,
           selectedBackgroundColors: [kInfoColor!, kInfoColor!],
           selectedTextStyle: kWhiteMediumTextBold,

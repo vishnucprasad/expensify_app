@@ -1,6 +1,7 @@
 import 'package:expensify/application/subscription/subscription_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/domain/subscription/models/subscription.dart';
 import 'package:expensify/presentation/subscriptions/widgets/subscriptions_list_item_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

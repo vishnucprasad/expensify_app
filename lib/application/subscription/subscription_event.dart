@@ -23,4 +23,13 @@ class SubscriptionEvent with _$SubscriptionEvent {
     int? date,
     String? note,
   ) = _AddSubscription;
+  const factory SubscriptionEvent.editSubscription(
+    String? authtoken,
+    String? id,
+    String? title,
+    String? type,
+    double? amount,
+    int? date,
+    String? note,
+  ) = _EditSubscription;
 }

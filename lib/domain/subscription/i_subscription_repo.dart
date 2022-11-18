@@ -14,4 +14,13 @@ abstract class ISubscriptionRepo {
     int? date,
     String? note,
   );
+  Future<Either<MainFailure, List<Subscription>>> editSubscription(
+    String? authtoken,
+    String? id,
+    String? title,
+    String? type,
+    double? amount,
+    int? date,
+    String? note,
+  );
 }

@@ -1,10 +1,8 @@
 import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/application/subscription/subscription_bloc.dart';
-import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/domain/subscription/models/subscription.dart';
-import 'package:expensify/domain/transaction/models/transaction.dart';
 import 'package:expensify/presentation/subscriptions/widgets/subscription_toggle_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -218,7 +216,7 @@ class SubscriptionsBottomSheetWidget extends StatelessWidget {
                                         authenticationState
                                             .authentication?.authtoken,
                                         subscriptionState.title,
-                                        subscriptionState.type,
+                                        subscriptionState.type ?? "Monthly",
                                         subscriptionState.amount,
                                         subscriptionState.date,
                                         subscriptionState.note,
@@ -229,7 +227,23 @@ class SubscriptionsBottomSheetWidget extends StatelessWidget {
                             }
 
                             if (event == EventType.update) {
-                              // edit subscription event goes here
+                              context.read<SubscriptionBloc>().add(
+                                    SubscriptionEvent.editSubscription(
+                                      authenticationState
+                                          .authentication?.authtoken,
+                                      subscription?.id,
+                                      subscriptionState.title ??
+                                          subscription?.title,
+                                      subscriptionState.type ??
+                                          subscription?.type,
+                                      subscriptionState.amount ??
+                                          subscription?.amount,
+                                      subscriptionState.date ??
+                                          subscription?.date,
+                                      subscriptionState.note ??
+                                          subscription?.note,
+                                    ),
+                                  );
                               Navigator.of(context).pop();
                             }
                           },
