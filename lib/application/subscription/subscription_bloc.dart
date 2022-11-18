@@ -196,6 +196,52 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
             ),
           );
         },
+        deleteSubscription: (_DeleteSubscription value) async {
+          emit(
+            state.copyWith(
+              isLoading: true,
+              subscriptionList: null,
+              subscriptionFailureOrSuccessOption: none(),
+            ),
+          );
+
+          final Either<MainFailure, List<Subscription>> subscriptionOption =
+              await _subscriptionRepo.deleteSubscription(
+            value.authtoken,
+            value.id,
+          );
+
+          emit(
+            subscriptionOption.fold(
+              (failure) {
+                return failure.map(
+                  clientFailure: (ClientFailure value) => state.copyWith(
+                    isLoading: false,
+                    subscriptionFailureOrSuccessOption: some(
+                      left(failure),
+                    ),
+                    error: value.error,
+                  ),
+                  serverFailure: (ServerFailure value) => state.copyWith(
+                    isLoading: false,
+                    subscriptionFailureOrSuccessOption: some(
+                      left(failure),
+                    ),
+                    error: value.error,
+                  ),
+                );
+              },
+              (success) => state.copyWith(
+                isLoading: false,
+                subscriptionList: success,
+                error: null,
+                subscriptionFailureOrSuccessOption: some(
+                  right(success),
+                ),
+              ),
+            ),
+          );
+        },
       );
     });
   }

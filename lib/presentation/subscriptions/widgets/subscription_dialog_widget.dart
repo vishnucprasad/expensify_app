@@ -1,4 +1,5 @@
 import 'package:expensify/application/authentication/authentication_bloc.dart';
+import 'package:expensify/application/subscription/subscription_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/domain/subscription/models/subscription.dart';
@@ -141,7 +142,12 @@ class SubscriptionDialogWidget extends StatelessWidget {
                   builder: (context, authenticationState) {
                     return TextButton(
                       onPressed: () {
-                        // subscription delete event goes here
+                        context
+                            .read<SubscriptionBloc>()
+                            .add(SubscriptionEvent.deleteSubscription(
+                              authenticationState.authentication?.authtoken,
+                              subscription?.id,
+                            ));
                         Navigator.pop(context);
                       },
                       style: ButtonStyle(

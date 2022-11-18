@@ -23,4 +23,8 @@ abstract class ISubscriptionRepo {
     int? date,
     String? note,
   );
+  Future<Either<MainFailure, List<Subscription>>> deleteSubscription(
+    String? authtoken,
+    String? id,
+  );
 }
