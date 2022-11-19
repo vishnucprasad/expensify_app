@@ -13,6 +13,7 @@ _$_Subscription _$$_SubscriptionFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String?,
       type: json['type'] as String?,
       date: json['date'] as int?,
+      renewedOn: json['renewedOn'] as int?,
       note: json['note'] as String?,
     );
 
@@ -23,5 +24,6 @@ Map<String, dynamic> _$$_SubscriptionToJson(_$_Subscription instance) =>
       'title': instance.title,
       'type': instance.type,
       'date': instance.date,
+      'renewedOn': instance.renewedOn,
       'note': instance.note,
     };

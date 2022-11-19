@@ -27,4 +27,8 @@ abstract class ISubscriptionRepo {
     String? authtoken,
     String? id,
   );
+  Future<Either<MainFailure, List<Subscription>>> renewSubscription(
+    String? authtoken,
+    String? id,
+  );
 }

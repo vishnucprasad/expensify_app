@@ -32,6 +32,7 @@ mixin _$SubscriptionEvent {
             String? type, double? amount, int? date, String? note)
         editSubscription,
     required TResult Function(String? authtoken, String? id) deleteSubscription,
+    required TResult Function(String? authtoken, String? id) renewSubscriptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +51,7 @@ mixin _$SubscriptionEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,6 +70,7 @@ mixin _$SubscriptionEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -83,6 +86,7 @@ mixin _$SubscriptionEvent {
     required TResult Function(_AddSubscription value) addSubscription,
     required TResult Function(_EditSubscription value) editSubscription,
     required TResult Function(_DeleteSubscription value) deleteSubscription,
+    required TResult Function(_RenewSubscriptions value) renewSubscriptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,6 +101,7 @@ mixin _$SubscriptionEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,6 +116,7 @@ mixin _$SubscriptionEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -212,6 +218,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
             String? type, double? amount, int? date, String? note)
         editSubscription,
     required TResult Function(String? authtoken, String? id) deleteSubscription,
+    required TResult Function(String? authtoken, String? id) renewSubscriptions,
   }) {
     return titleChangeEvent(title);
   }
@@ -233,6 +240,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
   }) {
     return titleChangeEvent?.call(title);
   }
@@ -254,6 +262,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (titleChangeEvent != null) {
@@ -275,6 +284,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
     required TResult Function(_AddSubscription value) addSubscription,
     required TResult Function(_EditSubscription value) editSubscription,
     required TResult Function(_DeleteSubscription value) deleteSubscription,
+    required TResult Function(_RenewSubscriptions value) renewSubscriptions,
   }) {
     return titleChangeEvent(this);
   }
@@ -292,6 +302,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
   }) {
     return titleChangeEvent?.call(this);
   }
@@ -309,6 +320,7 @@ class _$_TitleChangeEvent implements _TitleChangeEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (titleChangeEvent != null) {
@@ -406,6 +418,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
             String? type, double? amount, int? date, String? note)
         editSubscription,
     required TResult Function(String? authtoken, String? id) deleteSubscription,
+    required TResult Function(String? authtoken, String? id) renewSubscriptions,
   }) {
     return typeChangeEvent(type);
   }
@@ -427,6 +440,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
   }) {
     return typeChangeEvent?.call(type);
   }
@@ -448,6 +462,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (typeChangeEvent != null) {
@@ -469,6 +484,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
     required TResult Function(_AddSubscription value) addSubscription,
     required TResult Function(_EditSubscription value) editSubscription,
     required TResult Function(_DeleteSubscription value) deleteSubscription,
+    required TResult Function(_RenewSubscriptions value) renewSubscriptions,
   }) {
     return typeChangeEvent(this);
   }
@@ -486,6 +502,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
   }) {
     return typeChangeEvent?.call(this);
   }
@@ -503,6 +520,7 @@ class _$_TypeChangeEvent implements _TypeChangeEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (typeChangeEvent != null) {
@@ -601,6 +619,7 @@ class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
             String? type, double? amount, int? date, String? note)
         editSubscription,
     required TResult Function(String? authtoken, String? id) deleteSubscription,
+    required TResult Function(String? authtoken, String? id) renewSubscriptions,
   }) {
     return typeIndexChangeEvent(index);
   }
@@ -622,6 +641,7 @@ class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
   }) {
     return typeIndexChangeEvent?.call(index);
   }
@@ -643,6 +663,7 @@ class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (typeIndexChangeEvent != null) {
@@ -664,6 +685,7 @@ class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
     required TResult Function(_AddSubscription value) addSubscription,
     required TResult Function(_EditSubscription value) editSubscription,
     required TResult Function(_DeleteSubscription value) deleteSubscription,
+    required TResult Function(_RenewSubscriptions value) renewSubscriptions,
   }) {
     return typeIndexChangeEvent(this);
   }
@@ -681,6 +703,7 @@ class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
   }) {
     return typeIndexChangeEvent?.call(this);
   }
@@ -698,6 +721,7 @@ class _$_TypeIndexChangeEvent implements _TypeIndexChangeEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (typeIndexChangeEvent != null) {
@@ -797,6 +821,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
             String? type, double? amount, int? date, String? note)
         editSubscription,
     required TResult Function(String? authtoken, String? id) deleteSubscription,
+    required TResult Function(String? authtoken, String? id) renewSubscriptions,
   }) {
     return amountChangeEvent(amount);
   }
@@ -818,6 +843,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
   }) {
     return amountChangeEvent?.call(amount);
   }
@@ -839,6 +865,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (amountChangeEvent != null) {
@@ -860,6 +887,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     required TResult Function(_AddSubscription value) addSubscription,
     required TResult Function(_EditSubscription value) editSubscription,
     required TResult Function(_DeleteSubscription value) deleteSubscription,
+    required TResult Function(_RenewSubscriptions value) renewSubscriptions,
   }) {
     return amountChangeEvent(this);
   }
@@ -877,6 +905,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
   }) {
     return amountChangeEvent?.call(this);
   }
@@ -894,6 +923,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (amountChangeEvent != null) {
@@ -991,6 +1021,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
             String? type, double? amount, int? date, String? note)
         editSubscription,
     required TResult Function(String? authtoken, String? id) deleteSubscription,
+    required TResult Function(String? authtoken, String? id) renewSubscriptions,
   }) {
     return dateChangeEvent(date);
   }
@@ -1012,6 +1043,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
   }) {
     return dateChangeEvent?.call(date);
   }
@@ -1033,6 +1065,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (dateChangeEvent != null) {
@@ -1054,6 +1087,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     required TResult Function(_AddSubscription value) addSubscription,
     required TResult Function(_EditSubscription value) editSubscription,
     required TResult Function(_DeleteSubscription value) deleteSubscription,
+    required TResult Function(_RenewSubscriptions value) renewSubscriptions,
   }) {
     return dateChangeEvent(this);
   }
@@ -1071,6 +1105,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
   }) {
     return dateChangeEvent?.call(this);
   }
@@ -1088,6 +1123,7 @@ class _$_DateChangeEvent implements _DateChangeEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (dateChangeEvent != null) {
@@ -1185,6 +1221,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
             String? type, double? amount, int? date, String? note)
         editSubscription,
     required TResult Function(String? authtoken, String? id) deleteSubscription,
+    required TResult Function(String? authtoken, String? id) renewSubscriptions,
   }) {
     return noteChangeEvent(note);
   }
@@ -1206,6 +1243,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
   }) {
     return noteChangeEvent?.call(note);
   }
@@ -1227,6 +1265,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (noteChangeEvent != null) {
@@ -1248,6 +1287,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     required TResult Function(_AddSubscription value) addSubscription,
     required TResult Function(_EditSubscription value) editSubscription,
     required TResult Function(_DeleteSubscription value) deleteSubscription,
+    required TResult Function(_RenewSubscriptions value) renewSubscriptions,
   }) {
     return noteChangeEvent(this);
   }
@@ -1265,6 +1305,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
   }) {
     return noteChangeEvent?.call(this);
   }
@@ -1282,6 +1323,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (noteChangeEvent != null) {
@@ -1380,6 +1422,7 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
             String? type, double? amount, int? date, String? note)
         editSubscription,
     required TResult Function(String? authtoken, String? id) deleteSubscription,
+    required TResult Function(String? authtoken, String? id) renewSubscriptions,
   }) {
     return getSubscriptions(authtoken);
   }
@@ -1401,6 +1444,7 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
   }) {
     return getSubscriptions?.call(authtoken);
   }
@@ -1422,6 +1466,7 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (getSubscriptions != null) {
@@ -1443,6 +1488,7 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
     required TResult Function(_AddSubscription value) addSubscription,
     required TResult Function(_EditSubscription value) editSubscription,
     required TResult Function(_DeleteSubscription value) deleteSubscription,
+    required TResult Function(_RenewSubscriptions value) renewSubscriptions,
   }) {
     return getSubscriptions(this);
   }
@@ -1460,6 +1506,7 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
   }) {
     return getSubscriptions?.call(this);
   }
@@ -1477,6 +1524,7 @@ class _$_GetAllSubscriptions implements _GetAllSubscriptions {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (getSubscriptions != null) {
@@ -1628,6 +1676,7 @@ class _$_AddSubscription implements _AddSubscription {
             String? type, double? amount, int? date, String? note)
         editSubscription,
     required TResult Function(String? authtoken, String? id) deleteSubscription,
+    required TResult Function(String? authtoken, String? id) renewSubscriptions,
   }) {
     return addSubscription(authtoken, title, type, amount, date, note);
   }
@@ -1649,6 +1698,7 @@ class _$_AddSubscription implements _AddSubscription {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
   }) {
     return addSubscription?.call(authtoken, title, type, amount, date, note);
   }
@@ -1670,6 +1720,7 @@ class _$_AddSubscription implements _AddSubscription {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (addSubscription != null) {
@@ -1691,6 +1742,7 @@ class _$_AddSubscription implements _AddSubscription {
     required TResult Function(_AddSubscription value) addSubscription,
     required TResult Function(_EditSubscription value) editSubscription,
     required TResult Function(_DeleteSubscription value) deleteSubscription,
+    required TResult Function(_RenewSubscriptions value) renewSubscriptions,
   }) {
     return addSubscription(this);
   }
@@ -1708,6 +1760,7 @@ class _$_AddSubscription implements _AddSubscription {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
   }) {
     return addSubscription?.call(this);
   }
@@ -1725,6 +1778,7 @@ class _$_AddSubscription implements _AddSubscription {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (addSubscription != null) {
@@ -1896,6 +1950,7 @@ class _$_EditSubscription implements _EditSubscription {
             String? type, double? amount, int? date, String? note)
         editSubscription,
     required TResult Function(String? authtoken, String? id) deleteSubscription,
+    required TResult Function(String? authtoken, String? id) renewSubscriptions,
   }) {
     return editSubscription(authtoken, id, title, type, amount, date, note);
   }
@@ -1917,6 +1972,7 @@ class _$_EditSubscription implements _EditSubscription {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
   }) {
     return editSubscription?.call(
         authtoken, id, title, type, amount, date, note);
@@ -1939,6 +1995,7 @@ class _$_EditSubscription implements _EditSubscription {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (editSubscription != null) {
@@ -1960,6 +2017,7 @@ class _$_EditSubscription implements _EditSubscription {
     required TResult Function(_AddSubscription value) addSubscription,
     required TResult Function(_EditSubscription value) editSubscription,
     required TResult Function(_DeleteSubscription value) deleteSubscription,
+    required TResult Function(_RenewSubscriptions value) renewSubscriptions,
   }) {
     return editSubscription(this);
   }
@@ -1977,6 +2035,7 @@ class _$_EditSubscription implements _EditSubscription {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
   }) {
     return editSubscription?.call(this);
   }
@@ -1994,6 +2053,7 @@ class _$_EditSubscription implements _EditSubscription {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (editSubscription != null) {
@@ -2115,6 +2175,7 @@ class _$_DeleteSubscription implements _DeleteSubscription {
             String? type, double? amount, int? date, String? note)
         editSubscription,
     required TResult Function(String? authtoken, String? id) deleteSubscription,
+    required TResult Function(String? authtoken, String? id) renewSubscriptions,
   }) {
     return deleteSubscription(authtoken, id);
   }
@@ -2136,6 +2197,7 @@ class _$_DeleteSubscription implements _DeleteSubscription {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
   }) {
     return deleteSubscription?.call(authtoken, id);
   }
@@ -2157,6 +2219,7 @@ class _$_DeleteSubscription implements _DeleteSubscription {
             double? amount, int? date, String? note)?
         editSubscription,
     TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (deleteSubscription != null) {
@@ -2178,6 +2241,7 @@ class _$_DeleteSubscription implements _DeleteSubscription {
     required TResult Function(_AddSubscription value) addSubscription,
     required TResult Function(_EditSubscription value) editSubscription,
     required TResult Function(_DeleteSubscription value) deleteSubscription,
+    required TResult Function(_RenewSubscriptions value) renewSubscriptions,
   }) {
     return deleteSubscription(this);
   }
@@ -2195,6 +2259,7 @@ class _$_DeleteSubscription implements _DeleteSubscription {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
   }) {
     return deleteSubscription?.call(this);
   }
@@ -2212,6 +2277,7 @@ class _$_DeleteSubscription implements _DeleteSubscription {
     TResult Function(_AddSubscription value)? addSubscription,
     TResult Function(_EditSubscription value)? editSubscription,
     TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
     required TResult orElse(),
   }) {
     if (deleteSubscription != null) {
@@ -2233,12 +2299,226 @@ abstract class _DeleteSubscription implements SubscriptionEvent {
 }
 
 /// @nodoc
+abstract class _$$_RenewSubscriptionsCopyWith<$Res> {
+  factory _$$_RenewSubscriptionsCopyWith(_$_RenewSubscriptions value,
+          $Res Function(_$_RenewSubscriptions) then) =
+      __$$_RenewSubscriptionsCopyWithImpl<$Res>;
+  $Res call({String? authtoken, String? id});
+}
+
+/// @nodoc
+class __$$_RenewSubscriptionsCopyWithImpl<$Res>
+    extends _$SubscriptionEventCopyWithImpl<$Res>
+    implements _$$_RenewSubscriptionsCopyWith<$Res> {
+  __$$_RenewSubscriptionsCopyWithImpl(
+      _$_RenewSubscriptions _value, $Res Function(_$_RenewSubscriptions) _then)
+      : super(_value, (v) => _then(v as _$_RenewSubscriptions));
+
+  @override
+  _$_RenewSubscriptions get _value => super._value as _$_RenewSubscriptions;
+
+  @override
+  $Res call({
+    Object? authtoken = freezed,
+    Object? id = freezed,
+  }) {
+    return _then(_$_RenewSubscriptions(
+      authtoken == freezed
+          ? _value.authtoken
+          : authtoken // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_RenewSubscriptions implements _RenewSubscriptions {
+  const _$_RenewSubscriptions(this.authtoken, this.id);
+
+  @override
+  final String? authtoken;
+  @override
+  final String? id;
+
+  @override
+  String toString() {
+    return 'SubscriptionEvent.renewSubscriptions(authtoken: $authtoken, id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_RenewSubscriptions &&
+            const DeepCollectionEquality().equals(other.authtoken, authtoken) &&
+            const DeepCollectionEquality().equals(other.id, id));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(authtoken),
+      const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_RenewSubscriptionsCopyWith<_$_RenewSubscriptions> get copyWith =>
+      __$$_RenewSubscriptionsCopyWithImpl<_$_RenewSubscriptions>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? title) titleChangeEvent,
+    required TResult Function(String type) typeChangeEvent,
+    required TResult Function(int index) typeIndexChangeEvent,
+    required TResult Function(double? amount) amountChangeEvent,
+    required TResult Function(int? date) dateChangeEvent,
+    required TResult Function(String? note) noteChangeEvent,
+    required TResult Function(String? authtoken) getSubscriptions,
+    required TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)
+        addSubscription,
+    required TResult Function(String? authtoken, String? id, String? title,
+            String? type, double? amount, int? date, String? note)
+        editSubscription,
+    required TResult Function(String? authtoken, String? id) deleteSubscription,
+    required TResult Function(String? authtoken, String? id) renewSubscriptions,
+  }) {
+    return renewSubscriptions(authtoken, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
+    TResult Function(double? amount)? amountChangeEvent,
+    TResult Function(int? date)? dateChangeEvent,
+    TResult Function(String? note)? noteChangeEvent,
+    TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
+    TResult Function(String? authtoken, String? id, String? title, String? type,
+            double? amount, int? date, String? note)?
+        editSubscription,
+    TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
+  }) {
+    return renewSubscriptions?.call(authtoken, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(String type)? typeChangeEvent,
+    TResult Function(int index)? typeIndexChangeEvent,
+    TResult Function(double? amount)? amountChangeEvent,
+    TResult Function(int? date)? dateChangeEvent,
+    TResult Function(String? note)? noteChangeEvent,
+    TResult Function(String? authtoken)? getSubscriptions,
+    TResult Function(String? authtoken, String? title, String? type,
+            double? amount, int? date, String? note)?
+        addSubscription,
+    TResult Function(String? authtoken, String? id, String? title, String? type,
+            double? amount, int? date, String? note)?
+        editSubscription,
+    TResult Function(String? authtoken, String? id)? deleteSubscription,
+    TResult Function(String? authtoken, String? id)? renewSubscriptions,
+    required TResult orElse(),
+  }) {
+    if (renewSubscriptions != null) {
+      return renewSubscriptions(authtoken, id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TitleChangeEvent value) titleChangeEvent,
+    required TResult Function(_TypeChangeEvent value) typeChangeEvent,
+    required TResult Function(_TypeIndexChangeEvent value) typeIndexChangeEvent,
+    required TResult Function(_AmountChangeEvent value) amountChangeEvent,
+    required TResult Function(_DateChangeEvent value) dateChangeEvent,
+    required TResult Function(_NoteChangeEvent value) noteChangeEvent,
+    required TResult Function(_GetAllSubscriptions value) getSubscriptions,
+    required TResult Function(_AddSubscription value) addSubscription,
+    required TResult Function(_EditSubscription value) editSubscription,
+    required TResult Function(_DeleteSubscription value) deleteSubscription,
+    required TResult Function(_RenewSubscriptions value) renewSubscriptions,
+  }) {
+    return renewSubscriptions(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
+    TResult Function(_AmountChangeEvent value)? amountChangeEvent,
+    TResult Function(_DateChangeEvent value)? dateChangeEvent,
+    TResult Function(_NoteChangeEvent value)? noteChangeEvent,
+    TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
+    TResult Function(_EditSubscription value)? editSubscription,
+    TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
+  }) {
+    return renewSubscriptions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TitleChangeEvent value)? titleChangeEvent,
+    TResult Function(_TypeChangeEvent value)? typeChangeEvent,
+    TResult Function(_TypeIndexChangeEvent value)? typeIndexChangeEvent,
+    TResult Function(_AmountChangeEvent value)? amountChangeEvent,
+    TResult Function(_DateChangeEvent value)? dateChangeEvent,
+    TResult Function(_NoteChangeEvent value)? noteChangeEvent,
+    TResult Function(_GetAllSubscriptions value)? getSubscriptions,
+    TResult Function(_AddSubscription value)? addSubscription,
+    TResult Function(_EditSubscription value)? editSubscription,
+    TResult Function(_DeleteSubscription value)? deleteSubscription,
+    TResult Function(_RenewSubscriptions value)? renewSubscriptions,
+    required TResult orElse(),
+  }) {
+    if (renewSubscriptions != null) {
+      return renewSubscriptions(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RenewSubscriptions implements SubscriptionEvent {
+  const factory _RenewSubscriptions(final String? authtoken, final String? id) =
+      _$_RenewSubscriptions;
+
+  String? get authtoken;
+  String? get id;
+  @JsonKey(ignore: true)
+  _$$_RenewSubscriptionsCopyWith<_$_RenewSubscriptions> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$SubscriptionState {
   bool? get isLoading => throw _privateConstructorUsedError;
   String? get title => throw _privateConstructorUsedError;
   String? get type => throw _privateConstructorUsedError;
   double? get amount => throw _privateConstructorUsedError;
   int? get date => throw _privateConstructorUsedError;
+  int? get renewedOn => throw _privateConstructorUsedError;
   String? get note => throw _privateConstructorUsedError;
   int get typeIndex => throw _privateConstructorUsedError;
   List<Subscription>? get subscriptionList =>
@@ -2264,6 +2544,7 @@ abstract class $SubscriptionStateCopyWith<$Res> {
       String? type,
       double? amount,
       int? date,
+      int? renewedOn,
       String? note,
       int typeIndex,
       List<Subscription>? subscriptionList,
@@ -2290,6 +2571,7 @@ class _$SubscriptionStateCopyWithImpl<$Res>
     Object? type = freezed,
     Object? amount = freezed,
     Object? date = freezed,
+    Object? renewedOn = freezed,
     Object? note = freezed,
     Object? typeIndex = freezed,
     Object? subscriptionList = freezed,
@@ -2316,6 +2598,10 @@ class _$SubscriptionStateCopyWithImpl<$Res>
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
+              as int?,
+      renewedOn: renewedOn == freezed
+          ? _value.renewedOn
+          : renewedOn // ignore: cast_nullable_to_non_nullable
               as int?,
       note: note == freezed
           ? _value.note
@@ -2366,6 +2652,7 @@ abstract class _$$_SubscriptionStateCopyWith<$Res>
       String? type,
       double? amount,
       int? date,
+      int? renewedOn,
       String? note,
       int typeIndex,
       List<Subscription>? subscriptionList,
@@ -2395,6 +2682,7 @@ class __$$_SubscriptionStateCopyWithImpl<$Res>
     Object? type = freezed,
     Object? amount = freezed,
     Object? date = freezed,
+    Object? renewedOn = freezed,
     Object? note = freezed,
     Object? typeIndex = freezed,
     Object? subscriptionList = freezed,
@@ -2421,6 +2709,10 @@ class __$$_SubscriptionStateCopyWithImpl<$Res>
       date: date == freezed
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
+              as int?,
+      renewedOn: renewedOn == freezed
+          ? _value.renewedOn
+          : renewedOn // ignore: cast_nullable_to_non_nullable
               as int?,
       note: note == freezed
           ? _value.note
@@ -2456,6 +2748,7 @@ class _$_SubscriptionState implements _SubscriptionState {
       required this.type,
       required this.amount,
       required this.date,
+      required this.renewedOn,
       required this.note,
       required this.typeIndex,
       required final List<Subscription>? subscriptionList,
@@ -2473,6 +2766,8 @@ class _$_SubscriptionState implements _SubscriptionState {
   final double? amount;
   @override
   final int? date;
+  @override
+  final int? renewedOn;
   @override
   final String? note;
   @override
@@ -2494,7 +2789,7 @@ class _$_SubscriptionState implements _SubscriptionState {
 
   @override
   String toString() {
-    return 'SubscriptionState(isLoading: $isLoading, title: $title, type: $type, amount: $amount, date: $date, note: $note, typeIndex: $typeIndex, subscriptionList: $subscriptionList, error: $error, subscriptionFailureOrSuccessOption: $subscriptionFailureOrSuccessOption)';
+    return 'SubscriptionState(isLoading: $isLoading, title: $title, type: $type, amount: $amount, date: $date, renewedOn: $renewedOn, note: $note, typeIndex: $typeIndex, subscriptionList: $subscriptionList, error: $error, subscriptionFailureOrSuccessOption: $subscriptionFailureOrSuccessOption)';
   }
 
   @override
@@ -2507,6 +2802,7 @@ class _$_SubscriptionState implements _SubscriptionState {
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.amount, amount) &&
             const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.renewedOn, renewedOn) &&
             const DeepCollectionEquality().equals(other.note, note) &&
             const DeepCollectionEquality().equals(other.typeIndex, typeIndex) &&
             const DeepCollectionEquality()
@@ -2525,6 +2821,7 @@ class _$_SubscriptionState implements _SubscriptionState {
       const DeepCollectionEquality().hash(type),
       const DeepCollectionEquality().hash(amount),
       const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(renewedOn),
       const DeepCollectionEquality().hash(note),
       const DeepCollectionEquality().hash(typeIndex),
       const DeepCollectionEquality().hash(_subscriptionList),
@@ -2545,6 +2842,7 @@ abstract class _SubscriptionState implements SubscriptionState {
       required final String? type,
       required final double? amount,
       required final int? date,
+      required final int? renewedOn,
       required final String? note,
       required final int typeIndex,
       required final List<Subscription>? subscriptionList,
@@ -2562,6 +2860,8 @@ abstract class _SubscriptionState implements SubscriptionState {
   double? get amount;
   @override
   int? get date;
+  @override
+  int? get renewedOn;
   @override
   String? get note;
   @override

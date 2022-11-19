@@ -33,5 +33,11 @@ class SubscriptionEvent with _$SubscriptionEvent {
     String? note,
   ) = _EditSubscription;
   const factory SubscriptionEvent.deleteSubscription(
-      String? authtoken, String? id) = _DeleteSubscription;
+    String? authtoken,
+    String? id,
+  ) = _DeleteSubscription;
+  const factory SubscriptionEvent.renewSubscriptions(
+    String? authtoken,
+    String? id,
+  ) = _RenewSubscriptions;
 }

@@ -29,125 +29,149 @@ class SubscriptionDialogWidget extends StatelessWidget {
             style: kBlackLargeTextBold,
           ),
         ),
-        content: Column(
-          children: [
-            Row(
+        content: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+          builder: (context, authenticationState) {
+            return Column(
               children: [
+                Row(
+                  children: [
+                    kHeight,
+                    const Text(
+                      'Amount',
+                      style: kBlackSmallTextBold,
+                    ),
+                    const Spacer(),
+                    Text(
+                        subscription?.amount
+                                .toString()
+                                .replaceAll(RegExp(r'([.]*0)(?!.*\d)'), '') ??
+                            "",
+                        style: kBlackSmallTextBold),
+                  ],
+                ),
                 kHeight,
-                const Text(
-                  'Amount',
-                  style: kBlackSmallTextBold,
-                ),
-                const Spacer(),
-                Text(
-                    subscription?.amount
-                            .toString()
-                            .replaceAll(RegExp(r'([.]*0)(?!.*\d)'), '') ??
-                        "",
-                    style: kBlackSmallTextBold),
-              ],
-            ),
-            kHeight,
-            Row(
-              children: [
-                const Text(
-                  'Type',
-                  style: kBlackSmallTextBold,
-                ),
-                const Spacer(),
-                Text(
-                  subscription?.type ?? "",
-                  style:
-                      kSecondarySmallText.copyWith(fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            kHeight,
-            Row(
-              children: [
-                const Text(
-                  'Date',
-                  style: kBlackSmallTextBold,
-                ),
-                const Spacer(),
-                Text(
-                  subscription?.date != null
-                      ? DateFormat("MMMM d y").format(
-                          DateTime.fromMillisecondsSinceEpoch(
-                              subscription!.date!),
-                        )
-                      : "",
-                  style: kSecondarySmallText.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-            if (subscription?.note != null)
-              Column(
-                children: [
-                  kHeight15,
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: kBackgroundColor,
-                        borderRadius: BorderRadius.circular(5)),
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(
-                      subscription?.note ?? "",
-                      style: kBlackSmallText,
+                Row(
+                  children: [
+                    const Text(
+                      'Type',
+                      style: kBlackSmallTextBold,
                     ),
-                  ),
-                ],
-              ),
-            kHeight,
-            Row(
-              children: [
-                Expanded(
-                  child: TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                      showModalBottomSheet(
-                        isScrollControlled: true,
-                        context: context,
-                        builder: (context) => Wrap(
-                          children: [
-                            SubscriptionsBottomSheetWidget(
-                              title: "Edit Subscription",
-                              subscription: subscription,
-                              event: EventType.update,
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                    style: ButtonStyle(
-                      foregroundColor: MaterialStateProperty.all<Color>(
-                        Colors.white,
-                      ),
-                      backgroundColor: MaterialStateProperty.all<Color>(
-                        Theme.of(context).colorScheme.primary.withOpacity(0.8),
-                      ),
+                    const Spacer(),
+                    Text(
+                      subscription?.type ?? "",
+                      style: kSecondarySmallText.copyWith(
+                          fontWeight: FontWeight.bold),
                     ),
-                    child: Text(
-                      'Modify',
-                      style: kWhiteSmallText.copyWith(
+                  ],
+                ),
+                kHeight,
+                Row(
+                  children: [
+                    const Text(
+                      'Date',
+                      style: kBlackSmallTextBold,
+                    ),
+                    const Spacer(),
+                    Text(
+                      subscription?.date != null
+                          ? DateFormat("MMM d y").format(
+                              DateTime.fromMillisecondsSinceEpoch(
+                                  subscription!.date!),
+                            )
+                          : "",
+                      style: kSecondarySmallText.copyWith(
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                  ),
+                  ],
                 ),
-                kWidth,
-                BlocBuilder<AuthenticationBloc, AuthenticationState>(
-                  builder: (context, authenticationState) {
-                    return TextButton(
+                kHeight,
+                Row(
+                  children: [
+                    const Text(
+                      'Renewed on',
+                      style: kBlackSmallTextBold,
+                    ),
+                    const Spacer(),
+                    Text(
+                      subscription?.renewedOn != null
+                          ? DateFormat("MMM d y").format(
+                              DateTime.fromMillisecondsSinceEpoch(
+                                  subscription!.renewedOn!),
+                            )
+                          : "",
+                      style: kSecondarySmallText.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+                if (subscription?.note != null)
+                  Column(
+                    children: [
+                      kHeight15,
+                      Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            color: kBackgroundColor,
+                            borderRadius: BorderRadius.circular(5)),
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          subscription?.note ?? "",
+                          style: kBlackSmallText,
+                        ),
+                      ),
+                    ],
+                  ),
+                kHeight,
+                Row(
+                  children: [
+                    Expanded(
+                      child: TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          showModalBottomSheet(
+                            isScrollControlled: true,
+                            context: context,
+                            builder: (context) => Wrap(
+                              children: [
+                                SubscriptionsBottomSheetWidget(
+                                  title: "Edit Subscription",
+                                  subscription: subscription,
+                                  event: EventType.update,
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                        style: ButtonStyle(
+                          foregroundColor: MaterialStateProperty.all<Color>(
+                            Colors.white,
+                          ),
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                            Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.8),
+                          ),
+                        ),
+                        child: Text(
+                          'Modify',
+                          style: kWhiteSmallText.copyWith(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    kWidth,
+                    TextButton(
                       onPressed: () {
-                        context
-                            .read<SubscriptionBloc>()
-                            .add(SubscriptionEvent.deleteSubscription(
-                              authenticationState.authentication?.authtoken,
-                              subscription?.id,
-                            ));
+                        context.read<SubscriptionBloc>().add(
+                              SubscriptionEvent.deleteSubscription(
+                                authenticationState.authentication?.authtoken,
+                                subscription?.id,
+                              ),
+                            );
                         Navigator.pop(context);
                       },
                       style: ButtonStyle(
@@ -164,12 +188,38 @@ class SubscriptionDialogWidget extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                    );
-                  },
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: TextButton(
+                    onPressed: () {
+                      context.read<SubscriptionBloc>().add(
+                            SubscriptionEvent.renewSubscriptions(
+                              authenticationState.authentication?.authtoken,
+                              subscription?.id,
+                            ),
+                          );
+                      Navigator.pop(context);
+                    },
+                    style: ButtonStyle(
+                      foregroundColor: MaterialStateProperty.all<Color>(
+                        Colors.white,
+                      ),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.greenAccent.withOpacity(0.8),
+                      ),
+                    ),
+                    child: const Text(
+                      'Renew Subscription',
+                      style: kBlackSmallTextBold,
+                    ),
+                  ),
                 ),
               ],
-            )
-          ],
+            );
+          },
         ),
       ),
     );

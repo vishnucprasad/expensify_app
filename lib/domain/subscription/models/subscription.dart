@@ -13,6 +13,7 @@ class Subscription with _$Subscription {
     @JsonKey(name: 'title') required String? title,
     @JsonKey(name: 'type') required String? type,
     @JsonKey(name: 'date') required int? date,
+    @JsonKey(name: 'renewedOn') required int? renewedOn,
     @JsonKey(name: 'note') required String? note,
   }) = _Subscription;
 

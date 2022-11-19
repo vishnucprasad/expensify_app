@@ -242,6 +242,52 @@ class SubscriptionBloc extends Bloc<SubscriptionEvent, SubscriptionState> {
             ),
           );
         },
+        renewSubscriptions: (_RenewSubscriptions value) async {
+          emit(
+            state.copyWith(
+              isLoading: true,
+              subscriptionList: null,
+              subscriptionFailureOrSuccessOption: none(),
+            ),
+          );
+
+          final Either<MainFailure, List<Subscription>> subscriptionOption =
+              await _subscriptionRepo.renewSubscription(
+            value.authtoken,
+            value.id,
+          );
+
+          emit(
+            subscriptionOption.fold(
+              (failure) {
+                return failure.map(
+                  clientFailure: (ClientFailure value) => state.copyWith(
+                    isLoading: false,
+                    subscriptionFailureOrSuccessOption: some(
+                      left(failure),
+                    ),
+                    error: value.error,
+                  ),
+                  serverFailure: (ServerFailure value) => state.copyWith(
+                    isLoading: false,
+                    subscriptionFailureOrSuccessOption: some(
+                      left(failure),
+                    ),
+                    error: value.error,
+                  ),
+                );
+              },
+              (success) => state.copyWith(
+                isLoading: false,
+                subscriptionList: success,
+                error: null,
+                subscriptionFailureOrSuccessOption: some(
+                  right(success),
+                ),
+              ),
+            ),
+          );
+        },
       );
     });
   }

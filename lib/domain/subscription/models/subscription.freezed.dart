@@ -30,6 +30,8 @@ mixin _$Subscription {
   String? get type => throw _privateConstructorUsedError;
   @JsonKey(name: 'date')
   int? get date => throw _privateConstructorUsedError;
+  @JsonKey(name: 'renewedOn')
+  int? get renewedOn => throw _privateConstructorUsedError;
   @JsonKey(name: 'note')
   String? get note => throw _privateConstructorUsedError;
 
@@ -50,6 +52,7 @@ abstract class $SubscriptionCopyWith<$Res> {
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'type') String? type,
       @JsonKey(name: 'date') int? date,
+      @JsonKey(name: 'renewedOn') int? renewedOn,
       @JsonKey(name: 'note') String? note});
 }
 
@@ -68,6 +71,7 @@ class _$SubscriptionCopyWithImpl<$Res> implements $SubscriptionCopyWith<$Res> {
     Object? title = freezed,
     Object? type = freezed,
     Object? date = freezed,
+    Object? renewedOn = freezed,
     Object? note = freezed,
   }) {
     return _then(_value.copyWith(
@@ -91,6 +95,10 @@ class _$SubscriptionCopyWithImpl<$Res> implements $SubscriptionCopyWith<$Res> {
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as int?,
+      renewedOn: renewedOn == freezed
+          ? _value.renewedOn
+          : renewedOn // ignore: cast_nullable_to_non_nullable
+              as int?,
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -112,6 +120,7 @@ abstract class _$$_SubscriptionCopyWith<$Res>
       @JsonKey(name: 'title') String? title,
       @JsonKey(name: 'type') String? type,
       @JsonKey(name: 'date') int? date,
+      @JsonKey(name: 'renewedOn') int? renewedOn,
       @JsonKey(name: 'note') String? note});
 }
 
@@ -133,6 +142,7 @@ class __$$_SubscriptionCopyWithImpl<$Res>
     Object? title = freezed,
     Object? type = freezed,
     Object? date = freezed,
+    Object? renewedOn = freezed,
     Object? note = freezed,
   }) {
     return _then(_$_Subscription(
@@ -156,6 +166,10 @@ class __$$_SubscriptionCopyWithImpl<$Res>
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
               as int?,
+      renewedOn: renewedOn == freezed
+          ? _value.renewedOn
+          : renewedOn // ignore: cast_nullable_to_non_nullable
+              as int?,
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
@@ -173,6 +187,7 @@ class _$_Subscription implements _Subscription {
       @JsonKey(name: 'title') required this.title,
       @JsonKey(name: 'type') required this.type,
       @JsonKey(name: 'date') required this.date,
+      @JsonKey(name: 'renewedOn') required this.renewedOn,
       @JsonKey(name: 'note') required this.note});
 
   factory _$_Subscription.fromJson(Map<String, dynamic> json) =>
@@ -194,12 +209,15 @@ class _$_Subscription implements _Subscription {
   @JsonKey(name: 'date')
   final int? date;
   @override
+  @JsonKey(name: 'renewedOn')
+  final int? renewedOn;
+  @override
   @JsonKey(name: 'note')
   final String? note;
 
   @override
   String toString() {
-    return 'Subscription(id: $id, amount: $amount, title: $title, type: $type, date: $date, note: $note)';
+    return 'Subscription(id: $id, amount: $amount, title: $title, type: $type, date: $date, renewedOn: $renewedOn, note: $note)';
   }
 
   @override
@@ -212,6 +230,7 @@ class _$_Subscription implements _Subscription {
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.type, type) &&
             const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality().equals(other.renewedOn, renewedOn) &&
             const DeepCollectionEquality().equals(other.note, note));
   }
 
@@ -224,6 +243,7 @@ class _$_Subscription implements _Subscription {
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(type),
       const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(renewedOn),
       const DeepCollectionEquality().hash(note));
 
   @JsonKey(ignore: true)
@@ -246,6 +266,7 @@ abstract class _Subscription implements Subscription {
       @JsonKey(name: 'title') required final String? title,
       @JsonKey(name: 'type') required final String? type,
       @JsonKey(name: 'date') required final int? date,
+      @JsonKey(name: 'renewedOn') required final int? renewedOn,
       @JsonKey(name: 'note') required final String? note}) = _$_Subscription;
 
   factory _Subscription.fromJson(Map<String, dynamic> json) =
@@ -266,6 +287,9 @@ abstract class _Subscription implements Subscription {
   @override
   @JsonKey(name: 'date')
   int? get date;
+  @override
+  @JsonKey(name: 'renewedOn')
+  int? get renewedOn;
   @override
   @JsonKey(name: 'note')
   String? get note;
