@@ -21,4 +21,8 @@ abstract class IBillRepo {
     int? dueDate,
     String? note,
   );
+  Future<Either<MainFailure, List<Bill>>> deleteBill(
+    String? authtoken,
+    String? id,
+  );
 }

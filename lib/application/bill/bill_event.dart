@@ -28,4 +28,8 @@ class BillEvent with _$BillEvent {
     int? dueDate,
     String? note,
   ) = _EditBill;
+  const factory BillEvent.deleteBill(
+    String? authtoken,
+    String? id,
+  ) = _DeleteBill;
 }

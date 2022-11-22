@@ -1,4 +1,5 @@
 import 'package:expensify/application/authentication/authentication_bloc.dart';
+import 'package:expensify/application/bill/bill_bloc.dart';
 import 'package:expensify/application/subscription/subscription_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
@@ -181,7 +182,12 @@ class BillDialogWidget extends StatelessWidget {
                     kWidth,
                     TextButton(
                       onPressed: () {
-                        // delete bill event goes here
+                        context.read<BillBloc>().add(
+                              BillEvent.deleteBill(
+                                authenticationState.authentication?.authtoken,
+                                bill?.id,
+                              ),
+                            );
                         Navigator.pop(context);
                       },
                       style: ButtonStyle(
