@@ -32,4 +32,8 @@ class BillEvent with _$BillEvent {
     String? authtoken,
     String? id,
   ) = _DeleteBill;
+  const factory BillEvent.payBill(
+    String? authtoken,
+    String? id,
+  ) = _PayBill;
 }

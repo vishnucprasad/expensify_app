@@ -212,7 +212,12 @@ class BillDialogWidget extends StatelessWidget {
                     width: double.infinity,
                     child: TextButton(
                       onPressed: () {
-                        // pay bill event goes here
+                        context.read<BillBloc>().add(
+                              BillEvent.payBill(
+                                authenticationState.authentication?.authtoken,
+                                bill?.id,
+                              ),
+                            );
                         Navigator.pop(context);
                       },
                       style: ButtonStyle(

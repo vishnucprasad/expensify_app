@@ -294,4 +294,75 @@ class BillRepository implements IBillRepo {
       );
     }
   }
+
+  @override
+  Future<Either<MainFailure, List<Bill>>> payBill(
+    String? authtoken,
+    String? id,
+  ) async {
+    final Map<String, int> data = {
+      "payedOn": DateTime.now().millisecondsSinceEpoch
+    };
+
+    try {
+      final response = await Dio(BaseOptions(
+        headers: {
+          "authorization": 'Bearer $authtoken',
+        },
+      )).patch(
+        '${ApiEndPoints.billEndPoint}/$id',
+        data: data,
+      );
+
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        final billsList = (response.data as List)
+            .map(
+              (bill) => Bill.fromJson(bill),
+            )
+            .toList();
+
+        return right(billsList);
+      }
+
+      return left(
+        const MainFailure.serverFailure(
+          MainError(
+            name: "InternalServerError",
+            message: "The server has encountered a problem",
+            status: 500,
+          ),
+        ),
+      );
+    } on DioError catch (e) {
+      if (e.response?.statusCode == 401 ||
+          e.response?.statusCode == 409 ||
+          e.response?.statusCode == 404) {
+        return left(
+          MainFailure.serverFailure(
+            MainError.fromJson(e.response?.data),
+          ),
+        );
+      }
+
+      return left(
+        const MainFailure.serverFailure(
+          MainError(
+            name: "RequestTimeOutError",
+            message: "Request time out cannot connect to the server",
+            status: 408,
+          ),
+        ),
+      );
+    } catch (_) {
+      return left(
+        const MainFailure.clientFailure(
+          MainError(
+            name: "BadRequestError",
+            message: "Bad request from client",
+            status: 400,
+          ),
+        ),
+      );
+    }
+  }
 }

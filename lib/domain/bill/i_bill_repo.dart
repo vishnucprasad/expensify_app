@@ -25,4 +25,8 @@ abstract class IBillRepo {
     String? authtoken,
     String? id,
   );
+  Future<Either<MainFailure, List<Bill>>> payBill(
+    String? authtoken,
+    String? id,
+  );
 }

@@ -231,6 +231,52 @@ class BillBloc extends Bloc<BillEvent, BillState> {
               ),
             );
           },
+          payBill: (_PayBill value) async {
+            emit(state.copyWith(
+              isLoading: true,
+              billsList: null,
+              billFailureOrSuccessOption: none(),
+            ));
+
+            final Either<MainFailure, List<Bill>> billsOption =
+                await _billRepo.payBill(
+              value.authtoken,
+              value.id,
+            );
+
+            emit(
+              billsOption.fold(
+                (failure) {
+                  return failure.map(
+                    clientFailure: (ClientFailure value) => state.copyWith(
+                      isLoading: false,
+                      billFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                    serverFailure: (ServerFailure value) => state.copyWith(
+                      isLoading: false,
+                      billFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                  );
+                },
+                (success) {
+                  return state.copyWith(
+                    isLoading: false,
+                    billsList: success,
+                    error: null,
+                    billFailureOrSuccessOption: some(
+                      right(success),
+                    ),
+                  );
+                },
+              ),
+            );
+          },
         );
       },
     );
