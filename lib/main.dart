@@ -2,6 +2,7 @@ import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/application/category/category_bloc.dart';
 import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/application/subscription/subscription_bloc.dart';
+import 'package:expensify/application/bill/bill_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/domain/core/di/injectable.dart';
 import 'package:expensify/presentation/splash/splash_screen.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: ((context) => getIt<CategoryBloc>())),
         BlocProvider(create: ((context) => getIt<TransactionBloc>())),
         BlocProvider(create: ((context) => getIt<SubscriptionBloc>())),
+        BlocProvider(create: ((context) => getIt<BillBloc>())),
       ],
       child: MaterialApp(
         theme: buildLightTheme(),

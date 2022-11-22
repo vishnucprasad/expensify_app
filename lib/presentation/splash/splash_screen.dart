@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:expensify/application/authentication/authentication_bloc.dart';
+import 'package:expensify/application/bill/bill_bloc.dart';
 import 'package:expensify/application/category/category_bloc.dart';
 import 'package:expensify/application/subscription/subscription_bloc.dart';
 import 'package:expensify/application/transaction/transaction_bloc.dart';
@@ -40,6 +41,10 @@ class SplashScreen extends StatelessWidget {
 
         context.read<SubscriptionBloc>().add(
               SubscriptionEvent.getSubscriptions(authtoken),
+            );
+
+        context.read<BillBloc>().add(
+              BillEvent.getBills(authtoken),
             );
 
         return goToMainPage(context);

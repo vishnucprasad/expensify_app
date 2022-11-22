@@ -1,14 +1,19 @@
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/domain/bill/models/bill.dart';
 import 'package:expensify/presentation/bills/widgets/payed_bills_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class PayedBillsWidget extends StatelessWidget {
-  const PayedBillsWidget({Key? key}) : super(key: key);
+  final List<Bill>? bills;
+  const PayedBillsWidget({required this.bills, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    double totalAmount = 0;
+    bills?.forEach((bill) => totalAmount += bill.amount ?? 0);
+
     return Align(
       alignment: Alignment.topCenter,
       child: Container(
@@ -17,39 +22,52 @@ class PayedBillsWidget extends StatelessWidget {
         child: Column(
           children: [
             Row(
-              children: const [
+              children: [
                 kWidth,
-                Text(
+                const Text(
                   'PAYED BILLS',
                   style: kSecondarySmallText,
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
-                  '\$ 33',
+                  '\$ ${totalAmount.toString().replaceAll(RegExp(r'([.]*0)(?!.*\d)'), '')}',
                   style: kSecondarySmallText,
                 ),
                 kWidth,
               ],
             ),
             kHeight,
-            Container(
-              height: size.height / 4.5,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: kWhiteColor,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: const [
-                    PayedBillsCardWidget(),
-                    PayedBillsCardWidget(),
-                    PayedBillsCardWidget(),
-                  ],
-                ),
-              ),
-            ),
+            bills == null || bills!.isEmpty
+                ? Container(
+                    height: size.height / 4.5,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: kWhiteColor,
+                    ),
+                    child: const Center(
+                      child: Text(
+                        "There is no bills on due",
+                        style: kBlackSmallTextBold,
+                      ),
+                    ),
+                  )
+                : Container(
+                    height: size.height / 4.5,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: kWhiteColor,
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return PayedBillsCardWidget(bill: bills?[index]);
+                        },
+                        itemCount: bills!.length,
+                      ),
+                    ),
+                  ),
           ],
         ),
       ),

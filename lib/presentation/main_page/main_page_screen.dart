@@ -3,6 +3,7 @@ import 'package:expensify/application/authentication/authentication_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
 import 'package:expensify/presentation/bills/bills_screen.dart';
+import 'package:expensify/presentation/bills/widgets/bills_bottom_sheet_widget.dart';
 import 'package:expensify/presentation/home/home_screen.dart';
 import 'package:expensify/presentation/main_page/widgets/bottom_nav.dart';
 import 'package:expensify/presentation/menu/menu_screen.dart';
@@ -51,6 +52,10 @@ class MainPageScreen extends StatelessWidget {
               if (newIndex == 1) {
                 return openAddSubscriptionsSheet(context);
               }
+
+              if (newIndex == 2) {
+                return openAddBillsSheet(context);
+              }
             },
             child: const Icon(Icons.add),
           ),
@@ -84,6 +89,21 @@ class MainPageScreen extends StatelessWidget {
         children: const [
           SubscriptionsBottomSheetWidget(
             title: "Add new subscription",
+            event: EventType.create,
+          ),
+        ],
+      ),
+    );
+  }
+
+  void openAddBillsSheet(BuildContext context) {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      builder: (ctx) => Wrap(
+        children: const [
+          BillsBottomSheetWidget(
+            title: "Add new bill",
             event: EventType.create,
           ),
         ],

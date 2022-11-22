@@ -1,19 +1,23 @@
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/domain/bill/models/bill.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
+import 'package:intl/intl.dart';
 
 class BillsOnDueListItemWidget extends StatelessWidget {
+  final Bill? bill;
   const BillsOnDueListItemWidget({
+    required this.bill,
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
-        color: kWhiteColor,
-        borderRadius: BorderRadius.all(
+      decoration: BoxDecoration(
+        color: kBackgroundColor,
+        borderRadius: const BorderRadius.all(
           Radius.circular(10),
         ),
       ),
@@ -23,11 +27,11 @@ class BillsOnDueListItemWidget extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                const SizedBox(
+                SizedBox(
                   height: 50,
                   width: 50,
                   child: ProfilePicture(
-                    name: 'Electricity Bill',
+                    name: bill?.title ?? "",
                     radius: 50,
                     fontsize: 20,
                     count: 2,
@@ -36,20 +40,28 @@ class BillsOnDueListItemWidget extends StatelessWidget {
                 kWidth,
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
-                      'Electricity Bill',
+                      bill?.title ?? "",
                       style: kBlackSmallTextBold,
                     ),
                     Text(
-                      'AUG 25',
+                      bill?.dueDate != null
+                          ? DateFormat("MMM d").format(
+                              DateTime.fromMillisecondsSinceEpoch(
+                                  bill!.dueDate!),
+                            )
+                          : "",
                       style: kSecondaryxSmallText,
                     ),
                   ],
                 ),
                 const Spacer(),
-                const Text(
-                  '\$ 11.00',
+                Text(
+                  bill?.amount
+                          .toString()
+                          .replaceAll(RegExp(r'([.]*0)(?!.*\d)'), '') ??
+                      "",
                   style: kBlackSmallTextBold,
                 )
               ],

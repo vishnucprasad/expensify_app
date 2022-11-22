@@ -7,4 +7,5 @@ class ApiEndPoints {
   static const categoryEndPoint = '$kBaseUrl/category';
   static const transactionEndPoint = '$kBaseUrl/transaction';
   static const subscriptionEndPoint = '$kBaseUrl/subscription';
+  static const billEndPoint = '$kBaseUrl/bill';
 }

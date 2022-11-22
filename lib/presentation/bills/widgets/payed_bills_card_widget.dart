@@ -1,10 +1,14 @@
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/domain/bill/models/bill.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
+import 'package:intl/intl.dart';
 
 class PayedBillsCardWidget extends StatelessWidget {
+  final Bill? bill;
   const PayedBillsCardWidget({
+    required this.bill,
     Key? key,
   }) : super(key: key);
 
@@ -25,36 +29,44 @@ class PayedBillsCardWidget extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  const SizedBox(
+                  SizedBox(
                     height: 50,
                     width: 50,
                     child: ProfilePicture(
-                      name: 'Home Rent',
+                      name: bill?.title ?? "",
                       radius: 50,
                       fontsize: 20,
                       count: 2,
                     ),
                   ),
                   kWidth,
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'Home Rent',
-                        style: kBlackSmallTextBold,
-                      ),
-                      Text(
-                        'AUG 25',
-                        style: kSecondaryxSmallText,
-                      ),
-                    ],
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          bill?.title ?? "",
+                          style: kBlackSmallTextBold,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        Text(
+                          bill?.payedOn != null
+                              ? DateFormat("MMM d").format(
+                                  DateTime.fromMillisecondsSinceEpoch(
+                                      bill!.payedOn!),
+                                )
+                              : "",
+                          style: kSecondaryxSmallText,
+                        ),
+                      ],
+                    ),
                   ),
                   kWidth,
                 ],
               ),
               const Spacer(),
-              const Text(
-                '\$ 11.00',
+              Text(
+                '\$ ${bill?.amount.toString().replaceAll(RegExp(r'([.]*0)(?!.*\d)'), '')}',
                 style: kBlackLargeTextBold,
               ),
               const Spacer(),
