@@ -283,7 +283,16 @@ class BillsBottomSheetWidget extends StatelessWidget {
                             }
 
                             if (event == EventType.update) {
-                              // edit bill event goes here
+                              context.read<BillBloc>().add(BillEvent.editBill(
+                                    authenticationState
+                                        .authentication?.authtoken,
+                                    bill?.id,
+                                    billState.title ?? bill?.title,
+                                    billState.amount ?? bill?.amount,
+                                    billState.billDate ?? bill?.billDate,
+                                    billState.dueDate ?? bill?.dueDate,
+                                    billState.note ?? bill?.note,
+                                  ));
                               Navigator.of(context).pop();
                             }
                           },

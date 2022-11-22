@@ -27,6 +27,9 @@ mixin _$BillEvent {
     required TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)
         addBill,
+    required TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)
+        editBill,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +43,9 @@ mixin _$BillEvent {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +59,9 @@ mixin _$BillEvent {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -65,6 +74,7 @@ mixin _$BillEvent {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetBills value) getBills,
     required TResult Function(_AddBill value) addBill,
+    required TResult Function(_EditBill value) editBill,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +86,7 @@ mixin _$BillEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,6 +98,7 @@ mixin _$BillEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -181,6 +193,9 @@ class _$_TitleChaneEvent implements _TitleChaneEvent {
     required TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)
         addBill,
+    required TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)
+        editBill,
   }) {
     return titleChangeEvent(title);
   }
@@ -197,6 +212,9 @@ class _$_TitleChaneEvent implements _TitleChaneEvent {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
   }) {
     return titleChangeEvent?.call(title);
   }
@@ -213,6 +231,9 @@ class _$_TitleChaneEvent implements _TitleChaneEvent {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
     required TResult orElse(),
   }) {
     if (titleChangeEvent != null) {
@@ -231,6 +252,7 @@ class _$_TitleChaneEvent implements _TitleChaneEvent {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetBills value) getBills,
     required TResult Function(_AddBill value) addBill,
+    required TResult Function(_EditBill value) editBill,
   }) {
     return titleChangeEvent(this);
   }
@@ -245,6 +267,7 @@ class _$_TitleChaneEvent implements _TitleChaneEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
   }) {
     return titleChangeEvent?.call(this);
   }
@@ -259,6 +282,7 @@ class _$_TitleChaneEvent implements _TitleChaneEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
     required TResult orElse(),
   }) {
     if (titleChangeEvent != null) {
@@ -352,6 +376,9 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     required TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)
         addBill,
+    required TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)
+        editBill,
   }) {
     return amountChangeEvent(amount);
   }
@@ -368,6 +395,9 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
   }) {
     return amountChangeEvent?.call(amount);
   }
@@ -384,6 +414,9 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
     required TResult orElse(),
   }) {
     if (amountChangeEvent != null) {
@@ -402,6 +435,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetBills value) getBills,
     required TResult Function(_AddBill value) addBill,
+    required TResult Function(_EditBill value) editBill,
   }) {
     return amountChangeEvent(this);
   }
@@ -416,6 +450,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
   }) {
     return amountChangeEvent?.call(this);
   }
@@ -430,6 +465,7 @@ class _$_AmountChangeEvent implements _AmountChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
     required TResult orElse(),
   }) {
     if (amountChangeEvent != null) {
@@ -523,6 +559,9 @@ class _$_BillDateChangeEvent implements _BillDateChangeEvent {
     required TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)
         addBill,
+    required TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)
+        editBill,
   }) {
     return billDateChangeEvent(billDate);
   }
@@ -539,6 +578,9 @@ class _$_BillDateChangeEvent implements _BillDateChangeEvent {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
   }) {
     return billDateChangeEvent?.call(billDate);
   }
@@ -555,6 +597,9 @@ class _$_BillDateChangeEvent implements _BillDateChangeEvent {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
     required TResult orElse(),
   }) {
     if (billDateChangeEvent != null) {
@@ -573,6 +618,7 @@ class _$_BillDateChangeEvent implements _BillDateChangeEvent {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetBills value) getBills,
     required TResult Function(_AddBill value) addBill,
+    required TResult Function(_EditBill value) editBill,
   }) {
     return billDateChangeEvent(this);
   }
@@ -587,6 +633,7 @@ class _$_BillDateChangeEvent implements _BillDateChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
   }) {
     return billDateChangeEvent?.call(this);
   }
@@ -601,6 +648,7 @@ class _$_BillDateChangeEvent implements _BillDateChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
     required TResult orElse(),
   }) {
     if (billDateChangeEvent != null) {
@@ -695,6 +743,9 @@ class _$_DueDateChangeEvent implements _DueDateChangeEvent {
     required TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)
         addBill,
+    required TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)
+        editBill,
   }) {
     return dueDateChangeEvent(dueDate);
   }
@@ -711,6 +762,9 @@ class _$_DueDateChangeEvent implements _DueDateChangeEvent {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
   }) {
     return dueDateChangeEvent?.call(dueDate);
   }
@@ -727,6 +781,9 @@ class _$_DueDateChangeEvent implements _DueDateChangeEvent {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
     required TResult orElse(),
   }) {
     if (dueDateChangeEvent != null) {
@@ -745,6 +802,7 @@ class _$_DueDateChangeEvent implements _DueDateChangeEvent {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetBills value) getBills,
     required TResult Function(_AddBill value) addBill,
+    required TResult Function(_EditBill value) editBill,
   }) {
     return dueDateChangeEvent(this);
   }
@@ -759,6 +817,7 @@ class _$_DueDateChangeEvent implements _DueDateChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
   }) {
     return dueDateChangeEvent?.call(this);
   }
@@ -773,6 +832,7 @@ class _$_DueDateChangeEvent implements _DueDateChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
     required TResult orElse(),
   }) {
     if (dueDateChangeEvent != null) {
@@ -865,6 +925,9 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     required TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)
         addBill,
+    required TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)
+        editBill,
   }) {
     return noteChangeEvent(note);
   }
@@ -881,6 +944,9 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
   }) {
     return noteChangeEvent?.call(note);
   }
@@ -897,6 +963,9 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
     required TResult orElse(),
   }) {
     if (noteChangeEvent != null) {
@@ -915,6 +984,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetBills value) getBills,
     required TResult Function(_AddBill value) addBill,
+    required TResult Function(_EditBill value) editBill,
   }) {
     return noteChangeEvent(this);
   }
@@ -929,6 +999,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
   }) {
     return noteChangeEvent?.call(this);
   }
@@ -943,6 +1014,7 @@ class _$_NoteChangeEvent implements _NoteChangeEvent {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
     required TResult orElse(),
   }) {
     if (noteChangeEvent != null) {
@@ -1034,6 +1106,9 @@ class _$_GetBills implements _GetBills {
     required TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)
         addBill,
+    required TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)
+        editBill,
   }) {
     return getBills(authtoken);
   }
@@ -1050,6 +1125,9 @@ class _$_GetBills implements _GetBills {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
   }) {
     return getBills?.call(authtoken);
   }
@@ -1066,6 +1144,9 @@ class _$_GetBills implements _GetBills {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
     required TResult orElse(),
   }) {
     if (getBills != null) {
@@ -1084,6 +1165,7 @@ class _$_GetBills implements _GetBills {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetBills value) getBills,
     required TResult Function(_AddBill value) addBill,
+    required TResult Function(_EditBill value) editBill,
   }) {
     return getBills(this);
   }
@@ -1098,6 +1180,7 @@ class _$_GetBills implements _GetBills {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
   }) {
     return getBills?.call(this);
   }
@@ -1112,6 +1195,7 @@ class _$_GetBills implements _GetBills {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
     required TResult orElse(),
   }) {
     if (getBills != null) {
@@ -1255,6 +1339,9 @@ class _$_AddBill implements _AddBill {
     required TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)
         addBill,
+    required TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)
+        editBill,
   }) {
     return addBill(authtoken, title, amount, billDate, dueDate, note);
   }
@@ -1271,6 +1358,9 @@ class _$_AddBill implements _AddBill {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
   }) {
     return addBill?.call(authtoken, title, amount, billDate, dueDate, note);
   }
@@ -1287,6 +1377,9 @@ class _$_AddBill implements _AddBill {
     TResult Function(String? authtoken, String? title, double? amount,
             int? billDate, int? dueDate, String? note)?
         addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
     required TResult orElse(),
   }) {
     if (addBill != null) {
@@ -1305,6 +1398,7 @@ class _$_AddBill implements _AddBill {
     required TResult Function(_NoteChangeEvent value) noteChangeEvent,
     required TResult Function(_GetBills value) getBills,
     required TResult Function(_AddBill value) addBill,
+    required TResult Function(_EditBill value) editBill,
   }) {
     return addBill(this);
   }
@@ -1319,6 +1413,7 @@ class _$_AddBill implements _AddBill {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
   }) {
     return addBill?.call(this);
   }
@@ -1333,6 +1428,7 @@ class _$_AddBill implements _AddBill {
     TResult Function(_NoteChangeEvent value)? noteChangeEvent,
     TResult Function(_GetBills value)? getBills,
     TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
     required TResult orElse(),
   }) {
     if (addBill != null) {
@@ -1359,6 +1455,264 @@ abstract class _AddBill implements BillEvent {
   String? get note;
   @JsonKey(ignore: true)
   _$$_AddBillCopyWith<_$_AddBill> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_EditBillCopyWith<$Res> {
+  factory _$$_EditBillCopyWith(
+          _$_EditBill value, $Res Function(_$_EditBill) then) =
+      __$$_EditBillCopyWithImpl<$Res>;
+  $Res call(
+      {String? authtoken,
+      String? id,
+      String? title,
+      double? amount,
+      int? billDate,
+      int? dueDate,
+      String? note});
+}
+
+/// @nodoc
+class __$$_EditBillCopyWithImpl<$Res> extends _$BillEventCopyWithImpl<$Res>
+    implements _$$_EditBillCopyWith<$Res> {
+  __$$_EditBillCopyWithImpl(
+      _$_EditBill _value, $Res Function(_$_EditBill) _then)
+      : super(_value, (v) => _then(v as _$_EditBill));
+
+  @override
+  _$_EditBill get _value => super._value as _$_EditBill;
+
+  @override
+  $Res call({
+    Object? authtoken = freezed,
+    Object? id = freezed,
+    Object? title = freezed,
+    Object? amount = freezed,
+    Object? billDate = freezed,
+    Object? dueDate = freezed,
+    Object? note = freezed,
+  }) {
+    return _then(_$_EditBill(
+      authtoken == freezed
+          ? _value.authtoken
+          : authtoken // ignore: cast_nullable_to_non_nullable
+              as String?,
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as double?,
+      billDate == freezed
+          ? _value.billDate
+          : billDate // ignore: cast_nullable_to_non_nullable
+              as int?,
+      dueDate == freezed
+          ? _value.dueDate
+          : dueDate // ignore: cast_nullable_to_non_nullable
+              as int?,
+      note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_EditBill implements _EditBill {
+  const _$_EditBill(this.authtoken, this.id, this.title, this.amount,
+      this.billDate, this.dueDate, this.note);
+
+  @override
+  final String? authtoken;
+  @override
+  final String? id;
+  @override
+  final String? title;
+  @override
+  final double? amount;
+  @override
+  final int? billDate;
+  @override
+  final int? dueDate;
+  @override
+  final String? note;
+
+  @override
+  String toString() {
+    return 'BillEvent.editBill(authtoken: $authtoken, id: $id, title: $title, amount: $amount, billDate: $billDate, dueDate: $dueDate, note: $note)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_EditBill &&
+            const DeepCollectionEquality().equals(other.authtoken, authtoken) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.amount, amount) &&
+            const DeepCollectionEquality().equals(other.billDate, billDate) &&
+            const DeepCollectionEquality().equals(other.dueDate, dueDate) &&
+            const DeepCollectionEquality().equals(other.note, note));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(authtoken),
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(amount),
+      const DeepCollectionEquality().hash(billDate),
+      const DeepCollectionEquality().hash(dueDate),
+      const DeepCollectionEquality().hash(note));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_EditBillCopyWith<_$_EditBill> get copyWith =>
+      __$$_EditBillCopyWithImpl<_$_EditBill>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? title) titleChangeEvent,
+    required TResult Function(double? amount) amountChangeEvent,
+    required TResult Function(int? billDate) billDateChangeEvent,
+    required TResult Function(int? dueDate) dueDateChangeEvent,
+    required TResult Function(String? note) noteChangeEvent,
+    required TResult Function(String? authtoken) getBills,
+    required TResult Function(String? authtoken, String? title, double? amount,
+            int? billDate, int? dueDate, String? note)
+        addBill,
+    required TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)
+        editBill,
+  }) {
+    return editBill(authtoken, id, title, amount, billDate, dueDate, note);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(double? amount)? amountChangeEvent,
+    TResult Function(int? billDate)? billDateChangeEvent,
+    TResult Function(int? dueDate)? dueDateChangeEvent,
+    TResult Function(String? note)? noteChangeEvent,
+    TResult Function(String? authtoken)? getBills,
+    TResult Function(String? authtoken, String? title, double? amount,
+            int? billDate, int? dueDate, String? note)?
+        addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
+  }) {
+    return editBill?.call(
+        authtoken, id, title, amount, billDate, dueDate, note);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? title)? titleChangeEvent,
+    TResult Function(double? amount)? amountChangeEvent,
+    TResult Function(int? billDate)? billDateChangeEvent,
+    TResult Function(int? dueDate)? dueDateChangeEvent,
+    TResult Function(String? note)? noteChangeEvent,
+    TResult Function(String? authtoken)? getBills,
+    TResult Function(String? authtoken, String? title, double? amount,
+            int? billDate, int? dueDate, String? note)?
+        addBill,
+    TResult Function(String? authtoken, String? id, String? title,
+            double? amount, int? billDate, int? dueDate, String? note)?
+        editBill,
+    required TResult orElse(),
+  }) {
+    if (editBill != null) {
+      return editBill(authtoken, id, title, amount, billDate, dueDate, note);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TitleChaneEvent value) titleChangeEvent,
+    required TResult Function(_AmountChangeEvent value) amountChangeEvent,
+    required TResult Function(_BillDateChangeEvent value) billDateChangeEvent,
+    required TResult Function(_DueDateChangeEvent value) dueDateChangeEvent,
+    required TResult Function(_NoteChangeEvent value) noteChangeEvent,
+    required TResult Function(_GetBills value) getBills,
+    required TResult Function(_AddBill value) addBill,
+    required TResult Function(_EditBill value) editBill,
+  }) {
+    return editBill(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_TitleChaneEvent value)? titleChangeEvent,
+    TResult Function(_AmountChangeEvent value)? amountChangeEvent,
+    TResult Function(_BillDateChangeEvent value)? billDateChangeEvent,
+    TResult Function(_DueDateChangeEvent value)? dueDateChangeEvent,
+    TResult Function(_NoteChangeEvent value)? noteChangeEvent,
+    TResult Function(_GetBills value)? getBills,
+    TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
+  }) {
+    return editBill?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TitleChaneEvent value)? titleChangeEvent,
+    TResult Function(_AmountChangeEvent value)? amountChangeEvent,
+    TResult Function(_BillDateChangeEvent value)? billDateChangeEvent,
+    TResult Function(_DueDateChangeEvent value)? dueDateChangeEvent,
+    TResult Function(_NoteChangeEvent value)? noteChangeEvent,
+    TResult Function(_GetBills value)? getBills,
+    TResult Function(_AddBill value)? addBill,
+    TResult Function(_EditBill value)? editBill,
+    required TResult orElse(),
+  }) {
+    if (editBill != null) {
+      return editBill(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EditBill implements BillEvent {
+  const factory _EditBill(
+      final String? authtoken,
+      final String? id,
+      final String? title,
+      final double? amount,
+      final int? billDate,
+      final int? dueDate,
+      final String? note) = _$_EditBill;
+
+  String? get authtoken;
+  String? get id;
+  String? get title;
+  double? get amount;
+  int? get billDate;
+  int? get dueDate;
+  String? get note;
+  @JsonKey(ignore: true)
+  _$$_EditBillCopyWith<_$_EditBill> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

@@ -19,4 +19,13 @@ class BillEvent with _$BillEvent {
     int? dueDate,
     String? note,
   ) = _AddBill;
+  const factory BillEvent.editBill(
+    String? authtoken,
+    String? id,
+    String? title,
+    double? amount,
+    int? billDate,
+    int? dueDate,
+    String? note,
+  ) = _EditBill;
 }

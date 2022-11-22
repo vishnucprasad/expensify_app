@@ -93,7 +93,7 @@ class BillBloc extends Bloc<BillEvent, BillState> {
             ));
 
             final Either<MainFailure, List<Bill>> billsOption =
-                await _billRepo.addBil(
+                await _billRepo.addBill(
               value.authtoken,
               value.title,
               value.amount,
@@ -120,6 +120,57 @@ class BillBloc extends Bloc<BillEvent, BillState> {
                             ),
                             error: value.error,
                           ));
+                },
+                (success) {
+                  return state.copyWith(
+                    isLoading: false,
+                    billsList: success,
+                    error: null,
+                    billFailureOrSuccessOption: some(
+                      right(success),
+                    ),
+                  );
+                },
+              ),
+            );
+          },
+          editBill: (_EditBill value) async {
+            emit(state.copyWith(
+              isLoading: true,
+              billsList: null,
+              billFailureOrSuccessOption: none(),
+            ));
+
+            final Either<MainFailure, List<Bill>> billsOption =
+                await _billRepo.editBill(
+              value.authtoken,
+              value.id,
+              value.title,
+              value.amount,
+              value.billDate,
+              value.dueDate,
+              value.note,
+            );
+
+            emit(
+              billsOption.fold(
+                (failure) {
+                  return failure.map(
+                    clientFailure: (ClientFailure value) => state.copyWith(
+                      isLoading: false,
+                      billFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                    serverFailure: (ServerFailure value) => state.copyWith(
+                      isLoading: false,
+                      billFailureOrSuccessOption: some(
+                        left(failure),
+                      ),
+                      error: value.error,
+                    ),
+                  );
                 },
                 (success) {
                   return state.copyWith(
