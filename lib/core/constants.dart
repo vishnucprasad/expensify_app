@@ -151,11 +151,9 @@ const kDangerSmallTextBold = TextStyle(
 );
 
 // const kBaseUrl = 'http://10.0.2.2:3000/api';
-const kBaseUrl = 'http://192.168.0.126:3000/api';
+const kBaseUrl = 'http://192.168.0.100:3000/api';
 
 const kTokenKey = 'authtoken';
-
-const netflixLogo = 'assets/images/netflix.png';
 
 SnackBar customSnackBar({required String? errorMessage}) {
   return SnackBar(

@@ -8,10 +8,11 @@ class PayedBillsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
     return Align(
       alignment: Alignment.topCenter,
       child: Container(
-        margin: const EdgeInsets.only(top: 210),
+        margin: EdgeInsets.only(top: size.height / 3.4),
         width: MediaQuery.of(context).size.width - 30,
         child: Column(
           children: [
@@ -24,7 +25,7 @@ class PayedBillsWidget extends StatelessWidget {
                 ),
                 Spacer(),
                 Text(
-                  '\$97.56',
+                  '\$ 33',
                   style: kSecondarySmallText,
                 ),
                 kWidth,
@@ -32,23 +33,23 @@ class PayedBillsWidget extends StatelessWidget {
             ),
             kHeight,
             Container(
-                height: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: kWhiteColor,
+              height: size.height / 4.5,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: kWhiteColor,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: const [
+                    PayedBillsCardWidget(),
+                    PayedBillsCardWidget(),
+                    PayedBillsCardWidget(),
+                  ],
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: const [
-                      PayedBillsCardWidget(),
-                      PayedBillsCardWidget(),
-                      PayedBillsCardWidget(),
-                      PayedBillsCardWidget(),
-                    ],
-                  ),
-                )),
+              ),
+            ),
           ],
         ),
       ),
