@@ -1,6 +1,7 @@
 import 'package:expensify/application/transaction/transaction_bloc.dart';
 import 'package:expensify/core/colors.dart';
 import 'package:expensify/core/constants.dart';
+import 'package:expensify/presentation/wallet/wallet_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -61,7 +62,15 @@ class MenuWalletWidget extends StatelessWidget {
                     ),
                     const Spacer(),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          PageRouteBuilder(
+                            pageBuilder:
+                                (context, animation, secondaryAnimation) =>
+                                    const WalletScreen(),
+                          ),
+                        );
+                      },
                       style: ButtonStyle(
                         foregroundColor: MaterialStateProperty.all<Color>(
                           Colors.white,

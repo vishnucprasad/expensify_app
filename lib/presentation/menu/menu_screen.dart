@@ -1,6 +1,7 @@
 import 'package:expensify/presentation/menu/widgets/menu_header_widget.dart';
 import 'package:expensify/presentation/menu/widgets/menu_list_widget.dart';
 import 'package:expensify/presentation/menu/widgets/menu_wallet_widget.dart';
+import 'package:expensify/presentation/widgets/custom_draggable_scrollable_sheet.dart';
 import 'package:flutter/material.dart';
 
 class MenuScreen extends StatelessWidget {
@@ -18,10 +19,14 @@ class MenuScreen extends StatelessWidget {
                 SizedBox(
                   height: 150,
                 ),
-                MenuListWidget(),
               ],
             ),
             const MenuWalletWidget(),
+            const CustomDraggableScrollableSheet(
+              children: [
+                MenuListWidget(),
+              ],
+            ),
           ],
         ),
       ),
