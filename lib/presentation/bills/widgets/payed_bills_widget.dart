@@ -46,7 +46,7 @@ class PayedBillsWidget extends StatelessWidget {
                     ),
                     child: const Center(
                       child: Text(
-                        "There is no bills on due",
+                        "There is no payed bills",
                         style: kBlackSmallTextBold,
                       ),
                     ),
